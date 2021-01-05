@@ -1,2 +1,2 @@
-# node-errors
+# nodejs-errors
 More error classes for nodejs.
