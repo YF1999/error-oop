@@ -1,6 +1,6 @@
-import { InternalError } from './InternalError';
+import { Error } from './Error';
 
-export class NotFoundError extends InternalError {
+export class NotFoundError extends Error {
     protected _entityName?: string;
 
     public constructor();

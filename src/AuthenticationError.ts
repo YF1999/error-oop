@@ -1,6 +1,6 @@
-import { InternalError } from './InternalError';
+import { Error } from './Error';
 
-export class AuthenticationError extends InternalError {
+export class AuthenticationError extends Error {
     public constructor();
     public constructor(message: string);
     public constructor(message: string, innerError: Error);

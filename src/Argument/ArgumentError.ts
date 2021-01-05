@@ -1,6 +1,6 @@
-import { InternalError } from '../InternalError';
+import { Error } from '../Error';
 
-export class ArgumentError extends InternalError {
+export class ArgumentError extends Error {
     protected _paramName?: string;
 
     public constructor();

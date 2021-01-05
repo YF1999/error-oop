@@ -5,7 +5,7 @@ export * from './Argument/ArgumentOutOfRangeError';
 export * from './AuthenticationError';
 export * from './AuthenticationRequiredError';
 export * from './ConnectionError';
-export { InternalError as Error } from './InternalError';
+export * from './Error';
 export * from './InvalidOperationError';
 export * from './IO/DirectoryNotFoundError';
 export * from './IO/DriveNotFoundError';

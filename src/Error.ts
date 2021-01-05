@@ -1,4 +1,4 @@
-export class InternalError extends Error {
+class ExtendedError extends Error {
     protected _name: string;
     protected _message: string;
     protected _stack?: string;
@@ -31,3 +31,5 @@ export class InternalError extends Error {
         return this._innerError;
     }
 }
+
+export { ExtendedError as Error };
