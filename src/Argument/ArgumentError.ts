@@ -5,11 +5,11 @@ export class ArgumentError extends ExtendedError {
 
     public constructor();
     public constructor(message: string);
-    public constructor(message: string, innerError: ExtendedError);
+    public constructor(message: string, innerError: Error);
     public constructor(message: string, paramName: string);
-    public constructor(message: string, paramName: string, innerError: ExtendedError);
+    public constructor(message: string, paramName: string, innerError: Error);
 
-    public constructor(message?: string, arg1?: string | ExtendedError, arg2?: ExtendedError) {
+    public constructor(message?: string, arg1?: string | Error, arg2?: Error) {
         // message?
         if (message === undefined) {
             super();
