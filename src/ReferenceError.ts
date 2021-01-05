@@ -1,4 +1,4 @@
-class ExtendedReferenceError extends ReferenceError {
+export class ExtendedReferenceError extends ReferenceError {
     protected _name: string;
     protected _message: string;
     protected _stack?: string;
@@ -35,5 +35,3 @@ class ExtendedReferenceError extends ReferenceError {
         return this._innerError;
     }
 }
-
-export { ExtendedReferenceError as ReferenceError };

@@ -1,15 +1,15 @@
-import { Error } from './Error';
+import { ExtendedError } from './Error';
 
-export class NotFoundError extends Error {
+export class NotFoundError extends ExtendedError {
     protected _entityName?: string;
 
     public constructor();
     public constructor(message: string);
-    public constructor(message: string, innerError: Error);
+    public constructor(message: string, innerError: ExtendedError);
     public constructor(message: string, entityName: string);
-    public constructor(message: string, entityName: string, innerError: Error);
+    public constructor(message: string, entityName: string, innerError: ExtendedError);
 
-    public constructor(message?: string, arg1?: string | Error, arg2?: Error) {
+    public constructor(message?: string, arg1?: string | ExtendedError, arg2?: ExtendedError) {
         // message?
         if (message === undefined) {
             super();

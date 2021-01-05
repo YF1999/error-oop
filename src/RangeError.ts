@@ -1,4 +1,4 @@
-class ExtendedRangeError extends RangeError {
+export class ExtendedRangeError extends RangeError {
     protected _name: string;
     protected _message: string;
     protected _stack?: string;
@@ -35,5 +35,3 @@ class ExtendedRangeError extends RangeError {
         return this._innerError;
     }
 }
-
-export { ExtendedRangeError as RangeError };

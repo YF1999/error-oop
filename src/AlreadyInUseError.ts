@@ -1,6 +1,6 @@
-import { Error } from './Error';
+import { ExtendedError } from './Error';
 
-export class AlreadyInUseError extends Error {
+export class AlreadyInUseError extends ExtendedError {
     protected _entityName: string;
     protected _inUseFor: string[];
 
