@@ -1,0 +1,30 @@
+# Editors and IDEs
+
+/*.code-workspace
+/.vscode
+
+# Git
+
+/.gitattributes
+/.github
+/.gitignore
+
+# Source
+
+/src
+/test
+
+# Compilation
+
+/build
+
+# NPM
+
+/node_modules
+
+# Configs
+
+/.eslintrc.js
+/.prettierrc
+/jest.config.js
+/tsconfig.json

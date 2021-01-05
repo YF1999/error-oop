@@ -1,0 +1,21 @@
+{
+    "compilerOptions": {
+        "allowJs": false,
+        "baseUrl": ".",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "isolatedModules": true,
+        "lib": ["ES6"],
+        "moduleResolution": "node",
+        "newLine": "lf",
+        "noImplicitAny": true,
+        "rootDir": ".",
+        "sourceMap": true,
+        "strict": true,
+        "strictNullChecks": true,
+        "strictPropertyInitialization": true,
+        "target": "ES6"
+    },
+    "include": ["src", "test"],
+    "exclude": ["build", "node_modules"]
+}

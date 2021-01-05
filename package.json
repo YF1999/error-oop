@@ -1,0 +1,46 @@
+{
+    "name": "node-errors",
+    "version": "0.0.0",
+    "description": "More error classes for nodejs",
+    "main": "cjs/index.js",
+    "module": "esm/index.js",
+    "types": "types/index.d.ts",
+    "homepage": "https://github.com/YF1999/node-errors#readme",
+    "license": "MIT",
+    "author": {
+        "name": "YF1999",
+        "url": "https://github.com/YF1999"
+    },
+    "bugs": {
+        "url": "https://github.com/YF1999/node-errors/issues"
+    },
+    "repository": "https://github.com/YF1999/node-errors",
+    "eslintConfig": {
+        "extends": ".eslintrc.js"
+    },
+    "scripts": {
+        "build": "yarn build:cjs && yarn build:esm && yarn build:types",
+        "build:cjs": "tsc -p tsconfig.json --module commonjs --outDir build/cjs --removeComments",
+        "build:esm": "tsc -p tsconfig.json --module es6 --outDir build/esm --removeComments",
+        "build:types": "tsc -p tsconfig.json --declaration --emitDeclarationOnly --declarationDir build/types",
+        "clean": "rimraf build",
+        "lint": "eslint . -c .eslintrc.js",
+        "prepublishOnly": "ncp build/cjs/src cjs && ncp build/esm/src esm && ncp build/types/src types",
+        "test": "jest --config jest.config.js"
+    },
+    "dependencies": {},
+    "devDependencies": {
+        "@types/jest": "^26.0.19",
+        "@types/node": "^14.14.20",
+        "@typescript-eslint/eslint-plugin": "^4.12.0",
+        "eslint": "^7.17.0",
+        "eslint-config-airbnb-typescript": "^12.0.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jest": "^24.1.3",
+        "eslint-plugin-prettier": "^3.3.1",
+        "jest": "^26.6.3",
+        "ncp": "^2.0.0",
+        "rimraf": "^3.0.2",
+        "typescript": "^4.1.3"
+    }
+}
