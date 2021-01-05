@@ -17,3 +17,8 @@ export * from './IO/PathTooLongError';
 export * from './IO/SocketError';
 export * from './NotFoundError';
 export * from './NotImplementedError';
+export * from './NotPermittedError';
+export * from './NotSupportedError';
+export * from './OutOfMemoryError';
+export * from './RangeError';
+export * from './ReferenceError';
