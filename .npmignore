@@ -9,6 +9,10 @@
 /.github
 /.gitignore
 
+# Documentation
+
+/docs
+
 # Source
 
 /src

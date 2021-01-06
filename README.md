@@ -10,54 +10,28 @@ More error classes for nodejs.
 `npm install node-errors-es` or `yarn add node-errors-es`.
 
 ## Errors
-### Common Errors
 
-- [AlreadyInUseError](#AlreadyInUseError)
-- [ArgumentError](#ArgumentError)
-    - [ArgumentNullError](#ArgumentNullError)
-    - [ArgumentOutOfRangeError](#ArgumentOutOfRangeError)
-- [AuthenticationError](#AuthenticationError)
-    - [AuthenticationRequiredError](#AuthenticationRequiredError)
-- [ConnectionError](#ConnectionError)
-- [Error](#Error)
-- [InvalidOperationError](#InvalidOperationError)
-- [IOError](#IOError)
-    - [DirectoryNotFoundError](#DirectoryNotFoundError)
-    - [DriveNotFoundError](#DriveNotFoundError)
-    - [EndOfStreamError](#EndOfStreamError)
-    - [FileLoadError](#FileLoadError)
-    - [FileNotFoundError](#FileNotFoundError)
-    - [PathTooLongError](#PathTooLongError)
-    - [SocketError](#SocketError)
-- [NotFoundError](#NotFoundError)
-- [NotImplementedError](#NotImplementedError)
-- [NotPermittedError](#NotPermittedError)
-- [NotSupportedError](#NotSupportedError)
-- [OutOfMemoryError](#OutOfMemoryError)
-- [RangeError](#RangeError)
-- [ReferenceError](#ReferenceError)
-
-## How To Use
-### Common Errors
-#### AlreadyInUseError
-
-Applicable when a resource is already in use, for example unique key constraints like a username.
-
-```ts
-new AlreadyInUseError(entityName: string, arg1?: string, arg2?: string, arg3?: string, ...args: string[])
-```
-
-##### Arguments
-
-- `entityName` - The entity that owns the protected resource.
-- `arg1` - A field or attribute that is already in use.
-- `arg2` - A field or attribute that is already in use.
-- `arg3` - A field or attribute that is already in use.
-- `args` - Fields or attributes that are already in use.
-
-##### Example
-
-```ts
-import { AlreadyInUseError } from 'node-errros-es';
-throw new AlreadyInUseError('user', 'username', 'password');
-```
+- [AlreadyInUseError](./docs/HowToUse.md#AlreadyInUseError)
+- [ArgumentError](./docs/HowToUse.md#ArgumentError)
+    - [ArgumentNullError](./docs/HowToUse.md#ArgumentNullError)
+    - [ArgumentOutOfRangeError](./docs/HowToUse.md#ArgumentOutOfRangeError)
+- [AuthenticationError](./docs/HowToUse.md#AuthenticationError)
+    - [AuthenticationRequiredError](./docs/HowToUse.md#AuthenticationRequiredError)
+- [ConnectionError](./docs/HowToUse.md#ConnectionError)
+- [Error](./docs/HowToUse.md#Error)
+- [InvalidOperationError](./docs/HowToUse.md#InvalidOperationError)
+- [IOError](./docs/HowToUse.md#IOError)
+    - [DirectoryNotFoundError](./docs/HowToUse.md#DirectoryNotFoundError)
+    - [DriveNotFoundError](./docs/HowToUse.md#DriveNotFoundError)
+    - [EndOfStreamError](./docs/HowToUse.md#EndOfStreamError)
+    - [FileLoadError](./docs/HowToUse.md#FileLoadError)
+    - [FileNotFoundError](./docs/HowToUse.md#FileNotFoundError)
+    - [PathTooLongError](./docs/HowToUse.md#PathTooLongError)
+    - [SocketError](./docs/HowToUse.md#SocketError)
+- [NotFoundError](./docs/HowToUse.md#NotFoundError)
+- [NotImplementedError](./docs/HowToUse.md#NotImplementedError)
+- [NotPermittedError](./docs/HowToUse.md#NotPermittedError)
+- [NotSupportedError](./docs/HowToUse.md#NotSupportedError)
+- [OutOfMemoryError](./docs/HowToUse.md#OutOfMemoryError)
+- [RangeError](./docs/HowToUse.md#RangeError)
+- [ReferenceError](./docs/HowToUse.md#ReferenceError)
