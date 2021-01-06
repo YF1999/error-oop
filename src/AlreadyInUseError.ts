@@ -3,7 +3,6 @@ import { _Error } from './Error';
 
 export class _AlreadyInUseError extends _Error {
     protected _entityName: string;
-    protected _inUseFor: string[];
 
     public constructor(
         props: AlreadyInUseErrorProps,
@@ -18,9 +17,7 @@ export class _AlreadyInUseError extends _Error {
         });
 
         this._entityName = entityName;
-        this._inUseFor = inUse;
         this._setNonEnumerable('_entityName');
-        this._setNonEnumerable('_inUseFor');
     }
 
     public get entityName() {
