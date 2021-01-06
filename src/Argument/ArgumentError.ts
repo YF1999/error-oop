@@ -1,50 +1,52 @@
-import { ExtendedError } from '../Error';
+import { ArgumentErrorProps, ErrorOptions, ArgumentErrorMessageProps } from '../CommonTypes';
+import { _Error } from '../Error';
 
-export class ArgumentError extends ExtendedError {
+export class _ArgumentError extends _Error {
     protected _paramName?: string;
 
+    public constructor(
+        props: ArgumentErrorProps,
+        options: ErrorOptions<ArgumentErrorMessageProps>,
+    ) {
+        const { paramName } = props;
+        const { generateMessage: gm, ...others } = options;
+
+        super(props, {
+            generateMessage: gm && ((_props) => gm({ ..._props, paramName })),
+            ...others,
+        });
+
+        this._paramName = paramName;
+        this._setNonEnumerable('_paramName');
+    }
+
+    public get paramName() {
+        return this._paramName;
+    }
+}
+
+export class ArgumentError extends _ArgumentError {
     public constructor();
     public constructor(message: string);
     public constructor(message: string, innerError: Error);
     public constructor(message: string, paramName: string);
     public constructor(message: string, paramName: string, innerError: Error);
 
-    public constructor(message?: string, arg1?: string | Error, arg2?: Error) {
-        // message?
-        if (message === undefined) {
-            super();
+    public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
+        function generateMessage(props: ArgumentErrorMessageProps) {
+            return props.paramName
+                ? `${props.message} (Parameter '${props.paramName}')`
+                : props.message;
         }
 
-        // message + innerError?/paramName?
-        else if (arg1 === undefined) {
-            super(message);
-        }
-
-        // message + innerError
-        else if (typeof arg1 !== 'string') {
-            super(message, arg1);
+        // message + innerError?
+        if (arg1 === undefined || typeof arg1 !== 'string') {
+            super({ message, innerError: arg1 }, { generateMessage });
         }
 
         // message + paramName + innerError?
-        else if (arg2 === undefined) {
-            super(message);
-            this._paramName = arg1;
-        }
-
-        // message + paramName + innerError
         else {
-            super(message, arg2);
-            this._paramName = arg1;
+            super({ message, paramName: arg1, innerError: arg2 }, { generateMessage });
         }
-
-        if (this._paramName) {
-            this.message = `${this.message} (Parameter '${this._paramName}')`;
-        }
-
-        this._setNonEnumerable('_paramName');
-    }
-
-    public get paramName() {
-        return this._paramName;
     }
 }

@@ -1,11 +1,16 @@
+export * from './CommonTypes';
+
+export { _Error, ExtendedError as Error } from './Error';
+export { _RangeError, ExtendedRangeError as RangeError } from './RangeError';
+export { _ReferenceError, ExtendedReferenceError as ReferenceError } from './ReferenceError';
+
 export * from './AlreadyInUseError';
 export * from './Argument/ArgumentError';
 export * from './Argument/ArgumentNullError';
 export * from './Argument/ArgumentOutOfRangeError';
-export * from './AuthenticationError';
-export * from './AuthenticationRequiredError';
+export * from './Authentication/AuthenticationError';
+export * from './Authentication/AuthenticationRequiredError';
 export * from './ConnectionError';
-export { ExtendedError as Error } from './Error';
 export * from './InvalidOperationError';
 export * from './IO/DirectoryNotFoundError';
 export * from './IO/DriveNotFoundError';
@@ -20,5 +25,3 @@ export * from './NotImplementedError';
 export * from './NotPermittedError';
 export * from './NotSupportedError';
 export * from './OutOfMemoryError';
-export { ExtendedRangeError as RangeError } from './RangeError';
-export { ExtendedReferenceError as ReferenceError } from './ReferenceError';

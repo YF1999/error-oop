@@ -16,6 +16,7 @@ module.exports = {
         'consistent-return': 'off',
         'guard-for-in': 'off',
         'implicit-arrow-linebreak': 'off',
+        'max-classes-per-file': ['error', 2],
         'max-len': ['error', { code: 100 }],
         'no-continue': 'off',
         'no-console': ['error', { allow: ['log', 'debug', 'info', 'warn', 'error'] }],
@@ -36,7 +37,7 @@ module.exports = {
         '@typescript-eslint/naming-convention': [
             'error',
             { selector: 'accessor', format: ['camelCase'] },
-            { selector: 'class', format: ['PascalCase'] },
+            { selector: 'class', format: ['PascalCase'], leadingUnderscore: 'allow' },
             { selector: 'enum', format: ['PascalCase'] },
             { selector: 'enumMember', format: ['camelCase'] },
             { selector: 'function', format: ['camelCase'], leadingUnderscore: 'allow' },
@@ -46,12 +47,7 @@ module.exports = {
             { selector: 'property', format: ['camelCase'], leadingUnderscore: 'allow' },
             { selector: 'typeAlias', format: ['PascalCase'] },
             { selector: 'typeParameter', format: ['PascalCase'] },
-            {
-                // 'UPPER_CASE' for constant variables
-                selector: 'variable',
-                format: ['camelCase', 'UPPER_CASE'],
-                leadingUnderscore: 'allow',
-            },
+            { selector: 'variable', format: ['camelCase'], leadingUnderscore: 'allow' },
         ],
 
         'import/prefer-default-export': 'off',

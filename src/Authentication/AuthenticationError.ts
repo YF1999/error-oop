@@ -1,20 +1,20 @@
 import {
     ErrorOptions,
-    NotSupportedErrorMessageProps,
-    NotSupportedErrorProps,
-} from './CommonTypes';
-import { _Error } from './Error';
+    AuthenticationErrorMessageProps,
+    AuthenticationErrorProps,
+} from '../CommonTypes';
+import { _Error } from '../Error';
 
-export class _NotSupportedError extends _Error {
+export class _AuthenticationError extends _Error {
     public constructor(
-        props: NotSupportedErrorProps,
-        options: ErrorOptions<NotSupportedErrorMessageProps>,
+        props: AuthenticationErrorProps,
+        options: ErrorOptions<AuthenticationErrorMessageProps>,
     ) {
         super(props, options);
     }
 }
 
-export class NotSupportedError extends _NotSupportedError {
+export class AuthenticationError extends _AuthenticationError {
     public constructor();
     public constructor(message: string);
     public constructor(message: string, innerError: Error);
