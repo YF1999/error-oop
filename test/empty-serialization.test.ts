@@ -38,7 +38,7 @@ describe('empty-serialization test', () => {
         const err2 = new AlreadyInUseError('object', 'obj1');
         const err3 = new AlreadyInUseError('object', 'obj1', 'obj2');
         const err4 = new AlreadyInUseError('object', 'obj1', 'obj2', 'obj3');
-        const err5 = new AlreadyInUseError('object', ['obj1', 'obj2', 'obj3', 'obj4']);
+        const err5 = new AlreadyInUseError('object', 'obj1', 'obj2', 'obj3', 'obj4');
 
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');

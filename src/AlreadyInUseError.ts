@@ -9,16 +9,16 @@ export class _AlreadyInUseError extends _Error {
         props: AlreadyInUseErrorProps,
         options: ErrorOptions<AlreadyInUseErrorMessageProps>,
     ) {
-        const { entityName, inUseFor } = props;
+        const { entityName, inUse } = props;
         const { generateMessage: gm, ...others } = options;
 
         super(props, {
-            generateMessage: gm && ((_props) => gm({ ..._props, entityName, inUseFor })),
+            generateMessage: gm && ((_props) => gm({ ..._props, entityName, inUse })),
             ...others,
         });
 
         this._entityName = entityName;
-        this._inUseFor = inUseFor;
+        this._inUseFor = inUse;
         this._setNonEnumerable('_entityName');
         this._setNonEnumerable('_inUseFor');
     }
@@ -28,36 +28,68 @@ export class _AlreadyInUseError extends _Error {
     }
 }
 
+/**
+ * Applicable when a resource is already in use, for example unique key constraints like a username.
+ */
 export class AlreadyInUseError extends _AlreadyInUseError {
+    /**
+     * @param entityName The entity that owns the protected resource.
+     */
     public constructor(entityName: string);
+    /**
+     * @param entityName The entity that owns the protected resource.
+     * @param arg1 A field or attribute that is already in use.
+     */
     public constructor(entityName: string, arg1: string);
+    /**
+     * @param entityName The entity that owns the protected resource.
+     * @param arg1 A field or attribute that is already in use.
+     * @param arg2 A field or attribute that is already in use.
+     */
     public constructor(entityName: string, arg1: string, arg2: string);
+    /**
+     * @param entityName The entity that owns the protected resource.
+     * @param arg1 A field or attribute that is already in use.
+     * @param arg2 A field or attribute that is already in use.
+     * @param arg3 A field or attribute that is already in use.
+     */
     public constructor(entityName: string, arg1: string, arg2: string, arg3: string);
-    public constructor(entityName: string, args: string[]);
+    /**
+     * @param entityName The entity that owns the protected resource.
+     * @param arg1 A field or attribute that is already in use.
+     * @param arg2 A field or attribute that is already in use.
+     * @param arg3 A field or attribute that is already in use.
+     * @param args Fields or attributes that are already in use.
+     */
+    public constructor(
+        entityName: string,
+        arg1: string,
+        arg2: string,
+        arg3: string,
+        ...args: string[]
+    );
 
-    public constructor(entityName: string, arg1?: string | string[], arg2?: string, arg3?: string) {
+    public constructor(
+        entityName: string,
+        arg1?: string,
+        arg2?: string,
+        arg3?: string,
+        ...args: string[]
+    ) {
         function generateMessage(props: AlreadyInUseErrorMessageProps) {
-            return props.inUseFor.length === 0
+            return props.inUse.length === 0
                 ? `The specified '${props.entityName}' value is already in use.`
-                : `The specified '${props.entityName}' value is already in use for:` +
-                      `${props.inUseFor.join(', ')}`;
+                : `The specified '${props.entityName}' value is already in use:` +
+                      `${props.inUse.join(', ')}`;
         }
 
-        // entityName + args
-        if (Array.isArray(arg1)) {
-            super({ message: '', entityName, inUseFor: arg1 }, { generateMessage });
-        }
-
-        // entityName + arg1? + arg2? + arg3
-        else {
-            super(
-                {
-                    message: '',
-                    entityName,
-                    inUseFor: [arg1, arg2, arg3].filter((e) => e !== undefined) as string[],
-                },
-                { generateMessage },
-            );
-        }
+        super(
+            {
+                message: '',
+                entityName,
+                inUse: [arg1, arg2, arg3, ...args].filter((e) => e !== undefined) as string[],
+            },
+            { generateMessage },
+        );
     }
 }

@@ -38,7 +38,7 @@ describe('no-enumerable-fields test', () => {
         const err2 = new AlreadyInUseError('object', 'obj1');
         const err3 = new AlreadyInUseError('object', 'obj1', 'obj2');
         const err4 = new AlreadyInUseError('object', 'obj1', 'obj2', 'obj3');
-        const err5 = new AlreadyInUseError('object', ['obj1', 'obj2', 'obj3', 'obj4']);
+        const err5 = new AlreadyInUseError('object', 'obj1', 'obj2', 'obj3', 'obj4');
 
         expect(Object.keys(err1).length).toBe(0);
         expect(Object.keys(err2).length).toBe(0);

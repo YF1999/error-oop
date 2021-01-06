@@ -11,7 +11,7 @@ export interface ReferenceErrorMessageProps extends ErrorMessageProps {}
 
 export interface AlreadyInUseErrorMessageProps extends ErrorMessageProps {
     entityName: string;
-    inUseFor: string[];
+    inUse: string[];
 }
 export interface ConnectionErrorMessageProps extends ErrorMessageProps {}
 export interface InvalidOperationErrorMessageProps extends ErrorMessageProps {}

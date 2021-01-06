@@ -11,7 +11,7 @@ export interface ReferenceErrorProps extends ErrorProps {}
 
 export interface AlreadyInUseErrorProps extends ErrorProps {
     entityName: string;
-    inUseFor: string[];
+    inUse: string[];
 }
 export interface ConnectionErrorProps extends ErrorProps {}
 export interface InvalidOperationErrorProps extends ErrorProps {}
