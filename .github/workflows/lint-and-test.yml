@@ -1,4 +1,4 @@
-name: Lint
+name: Lint-And-Test
 
 on:
   push:
@@ -24,3 +24,9 @@ jobs:
 
       - name: Lint
         run: yarn lint
+
+      - name: Build
+        run: yarn build:cjs
+
+      - name: Jest test
+        run: yarn test
