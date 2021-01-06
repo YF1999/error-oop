@@ -6,20 +6,16 @@
 
 /node_modules
 
-# Environment
-
-.DS_Store
-
-# Running and Testing
-
-/coverage
-/working
-
-# Production
+# Compilation
 
 /build
+/cjs
+/esm
+/types
 
 # Misc
+
+.DS_Store
 
 .eslintcache
 
