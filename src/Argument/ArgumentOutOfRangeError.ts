@@ -1,3 +1,4 @@
+import { setAllFieldsNonEnumerable } from '../utils';
 import { ArgumentError } from './ArgumentError';
 
 export class ArgumentOutOfRangeError extends ArgumentError {
@@ -48,6 +49,8 @@ export class ArgumentOutOfRangeError extends ArgumentError {
             super(message, arg1, arg3);
             this._actualValue = arg2;
         }
+
+        setAllFieldsNonEnumerable(this);
     }
 
     public get message() {

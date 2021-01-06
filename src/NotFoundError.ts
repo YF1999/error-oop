@@ -1,3 +1,4 @@
+import { setAllFieldsNonEnumerable } from './utils';
 import { ExtendedError } from './Error';
 
 export class NotFoundError extends ExtendedError {
@@ -36,6 +37,8 @@ export class NotFoundError extends ExtendedError {
             super(message, arg2);
             this._entityName = arg1;
         }
+
+        setAllFieldsNonEnumerable(this);
     }
 
     public get entityName() {

@@ -1,3 +1,5 @@
+import { appendInnerErrorStack, setAllFieldsNonEnumerable } from './utils';
+
 export class ExtendedError extends Error {
     protected _name: string;
     protected _message: string;
@@ -11,6 +13,8 @@ export class ExtendedError extends Error {
         this._message = _err.message;
         this._stack = _err.stack;
         this._innerError = innerError;
+
+        setAllFieldsNonEnumerable(this);
     }
 
     public get name() {
@@ -22,9 +26,7 @@ export class ExtendedError extends Error {
     }
 
     public get stack() {
-        return this._innerError && this._innerError.stack
-            ? `${this._stack ?? ''}\n--- inner error ---\n${this._innerError.stack}`
-            : this._stack;
+        return appendInnerErrorStack(this._stack, this._innerError);
     }
 
     public get innerError() {

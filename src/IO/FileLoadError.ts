@@ -1,3 +1,4 @@
+import { setAllFieldsNonEnumerable } from '../utils';
 import { IOError } from './IOError';
 
 export class FileLoadError extends IOError {
@@ -36,6 +37,8 @@ export class FileLoadError extends IOError {
             super(message, arg2);
             this._fileName = arg1;
         }
+
+        setAllFieldsNonEnumerable(this);
     }
 
     get fileName() {

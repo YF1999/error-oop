@@ -1,3 +1,4 @@
+import { setAllFieldsNonEnumerable } from './utils';
 import { ExtendedError } from './Error';
 
 export class AlreadyInUseError extends ExtendedError {
@@ -45,6 +46,8 @@ export class AlreadyInUseError extends ExtendedError {
             this._entityName = entityName;
             this._inUseFor = [arg1, arg2, arg3];
         }
+
+        setAllFieldsNonEnumerable(this);
     }
 
     public get message() {
