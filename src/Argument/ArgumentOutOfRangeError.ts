@@ -1,4 +1,3 @@
-import { setAllFieldsNonEnumerable } from '../utils';
 import { ArgumentError } from './ArgumentError';
 
 export class ArgumentOutOfRangeError extends ArgumentError {
@@ -50,10 +49,6 @@ export class ArgumentOutOfRangeError extends ArgumentError {
             this._actualValue = arg2;
         }
 
-        setAllFieldsNonEnumerable(this);
-    }
-
-    public get message() {
         let append;
         if (this._paramName && this._actualValue) {
             append = `(Parameter '${this._paramName}', ActualValue '${this._actualValue}')`;
@@ -61,7 +56,9 @@ export class ArgumentOutOfRangeError extends ArgumentError {
             append = `(Parameter '${this._paramName}')`;
         }
 
-        return append ? `${this._message} ${append}` : this._message;
+        this.message = append ? `${this.message} ${append}` : this.message;
+
+        this._setNonEnumerable('_actualValue');
     }
 
     public get actualValue() {

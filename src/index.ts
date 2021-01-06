@@ -22,4 +22,3 @@ export * from './NotSupportedError';
 export * from './OutOfMemoryError';
 export { ExtendedRangeError as RangeError } from './RangeError';
 export { ExtendedReferenceError as ReferenceError } from './ReferenceError';
-export * from './utils';

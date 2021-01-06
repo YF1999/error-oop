@@ -1,35 +1,32 @@
-import { appendInnerErrorStack, setAllFieldsNonEnumerable } from './utils';
+import { appendInnerErrorStack, setNonEnumerable } from './utils';
 
 export class ExtendedError extends Error {
-    protected _name: string;
-    protected _message: string;
-    protected _stack?: string;
     protected _innerError?: Error;
 
     public constructor(message?: string, innerError?: Error) {
-        const _err = (super(message) as any) as Error;
+        super();
 
-        this._name = this.constructor.name;
-        this._message = _err.message;
-        this._stack = _err.stack;
         this._innerError = innerError;
+        this.name = this.constructor.name;
+        this.message = message || '';
 
-        setAllFieldsNonEnumerable(this);
+        this._generateStack();
+
+        this._setNonEnumerable('name');
+        this._setNonEnumerable('message');
+        this._setNonEnumerable('stack');
+        this._setNonEnumerable('_innerError');
     }
 
-    public get name() {
-        return this._name;
-    }
-
-    public get message() {
-        return this._message;
-    }
-
-    public get stack() {
-        return appendInnerErrorStack(this._stack, this._innerError);
-    }
-
-    public get innerError() {
+    public get innerError(): Error | undefined {
         return this._innerError;
+    }
+
+    protected _setNonEnumerable(property: string): void {
+        setNonEnumerable(this, property);
+    }
+
+    protected _generateStack(): void {
+        this.stack = appendInnerErrorStack(this.stack, this._innerError);
     }
 }

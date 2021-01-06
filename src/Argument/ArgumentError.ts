@@ -1,4 +1,3 @@
-import { setAllFieldsNonEnumerable } from '../utils';
 import { ExtendedError } from '../Error';
 
 export class ArgumentError extends ExtendedError {
@@ -38,13 +37,11 @@ export class ArgumentError extends ExtendedError {
             this._paramName = arg1;
         }
 
-        setAllFieldsNonEnumerable(this);
-    }
+        if (this._paramName) {
+            this.message = `${this.message} (Parameter '${this._paramName}')`;
+        }
 
-    public get message() {
-        return this._paramName
-            ? `${this._message} (Parameter '${this._paramName}')`
-            : this._message;
+        this._setNonEnumerable('_paramName');
     }
 
     public get paramName() {

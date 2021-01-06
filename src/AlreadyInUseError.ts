@@ -1,4 +1,3 @@
-import { setAllFieldsNonEnumerable } from './utils';
 import { ExtendedError } from './Error';
 
 export class AlreadyInUseError extends ExtendedError {
@@ -47,15 +46,14 @@ export class AlreadyInUseError extends ExtendedError {
             this._inUseFor = [arg1, arg2, arg3];
         }
 
-        setAllFieldsNonEnumerable(this);
-    }
+        this.message =
+            this._inUseFor.length === 0
+                ? `The specified '${this._entityName}' value is already in use.`
+                : `The specified '${this._entityName}' value is already in use for:` +
+                  `${this._inUseFor.join(', ')}`;
 
-    public get message() {
-        const _inUseFor = this._inUseFor.join(', ');
-
-        return _inUseFor === ''
-            ? `The specified '${this._entityName}' value is already in use.`
-            : `The specified '${this._entityName}' value is already in use for: ${_inUseFor}`;
+        this._setNonEnumerable('_entityName');
+        this._setNonEnumerable('_inUseFor');
     }
 
     public get entityName() {

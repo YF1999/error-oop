@@ -1,4 +1,3 @@
-import { setAllFieldsNonEnumerable } from '../utils';
 import { IOError } from './IOError';
 
 export class FileNotFoundError extends IOError {
@@ -38,7 +37,7 @@ export class FileNotFoundError extends IOError {
             this._fileName = arg1;
         }
 
-        setAllFieldsNonEnumerable(this);
+        this._setNonEnumerable('_fileName');
     }
 
     get fileName() {
