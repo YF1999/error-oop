@@ -11,6 +11,8 @@ More error classes for nodejs.
 
 ## Errors
 
+Click to know how to use them.
+
 - [AlreadyInUseError](./docs/HowToUse.md#AlreadyInUseError)
 - [ArgumentError](./docs/HowToUse.md#ArgumentError)
     - [ArgumentNullError](./docs/HowToUse.md#ArgumentNullError)

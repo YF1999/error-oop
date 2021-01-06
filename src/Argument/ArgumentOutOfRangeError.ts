@@ -29,13 +29,47 @@ export class _ArgumentOutOfRangeError extends _ArgumentError {
     }
 }
 
+/**
+ * Applicable when the value of an argument is outside the allowable range of values as defined by
+ * the invoked function or method.
+ */
 export class ArgumentOutOfRangeError extends _ArgumentOutOfRangeError {
     public constructor();
+    /**
+     * @param message The error message that explains the reason for this error.
+     */
     public constructor(message: string);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param innerError The error that is the cause of the current error. Stack trace will be
+     * appended.
+     */
     public constructor(message: string, innerError: Error);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param paramName The name of the parameter that caused the current error.
+     */
     public constructor(message: string, paramName: string);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param paramName The name of the parameter that caused the current error.
+     * @param innerError The error that is the cause of the current error. Stack trace will be
+     * appended.
+     */
     public constructor(message: string, paramName: string, innerError: Error);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param paramName The name of the parameter that caused the current error.
+     * @param actualValue The value of the argument that causes this exception.
+     */
     public constructor(message: string, paramName: string, actualValue: any);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param paramName The name of the parameter that caused the current error.
+     * @param actualValue The value of the argument that causes this exception.
+     * @param innerError The error that is the cause of the current error. Stack trace will be
+     * appended.
+     */
     public constructor(message: string, paramName: string, actualValue: any, innerError: Error);
 
     public constructor(message: string = '', arg1?: string | Error, arg2?: any, arg3?: Error) {
