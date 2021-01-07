@@ -2,8 +2,9 @@
 
 More error classes for nodejs.
 
-- Full typescript code
-- Support typescript declarations
+- Full suite of node.js Error classes like most other modern languages
+- Append stack traces from other generated Errors
+- Full typescript code, provide typescript declarations
 - Support CommonJS and ESModule, support tree shaking
 
 ## Install
