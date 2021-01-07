@@ -6,6 +6,9 @@ export interface ErrorMessageProps {
 }
 export interface RangeErrorMessageProps extends ErrorMessageProps {}
 export interface ReferenceErrorMessageProps extends ErrorMessageProps {}
+export interface SyntaxErrorMessageProps extends ErrorMessageProps {}
+export interface TypeErrorMessageProps extends ErrorMessageProps {}
+export interface URIErrorMessageProps extends ErrorMessageProps {}
 
 // Error
 
@@ -22,6 +25,8 @@ export interface NotImplementedErrorMessageProps extends ErrorMessageProps {}
 export interface NotPermittedErrorMessageProps extends ErrorMessageProps {}
 export interface NotSupportedErrorMessageProps extends ErrorMessageProps {}
 export interface OutOfMemoryErrorMessageProps extends ErrorMessageProps {}
+export interface StackOverflowErrorMessageProps extends ErrorMessageProps {}
+export interface TimeoutErrorMessageProps extends ErrorMessageProps {}
 
 // Error.Argument
 

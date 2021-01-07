@@ -3,6 +3,9 @@ export * from './CommonTypes';
 export { _Error, ExtendedError as Error } from './Error';
 export { _RangeError, ExtendedRangeError as RangeError } from './RangeError';
 export { _ReferenceError, ExtendedReferenceError as ReferenceError } from './ReferenceError';
+export { _SyntaxError, ExtendedSyntaxError as SyntaxError } from './SyntaxError';
+export { _TypeError, ExtendedTypeError as TypeError } from './TypeError';
+export { _URIError, ExtendedURIError as URIError } from './URIError';
 
 export * from './AlreadyInUseError';
 export * from './Argument/ArgumentError';
@@ -25,3 +28,5 @@ export * from './NotImplementedError';
 export * from './NotPermittedError';
 export * from './NotSupportedError';
 export * from './OutOfMemoryError';
+export * from './StackOverflowError';
+export * from './TimeoutError';
