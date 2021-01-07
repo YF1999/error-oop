@@ -29,11 +29,32 @@ export class _FileNotFoundError extends _IOError {
     }
 }
 
+/**
+ * Applicable when an attempt to access a file that does not exist on disk fails.
+ */
 export class FileNotFoundError extends _FileNotFoundError {
     public constructor();
+    /**
+     * @param message The error message that explains the reason for this error.
+     */
     public constructor(message: string);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param innerError The error that is the cause of the current error. Stack trace will be
+     * appended.
+     */
     public constructor(message: string, innerError: Error);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param fileName The full name of the file with the invalid image.
+     */
     public constructor(message: string, fileName: string);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param fileName The full name of the file with the invalid image.
+     * @param innerError The error that is the cause of the current error. Stack trace will be
+     * appended.
+     */
     public constructor(message: string, fileName: string, innerError: Error);
 
     public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {

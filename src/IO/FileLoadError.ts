@@ -25,11 +25,32 @@ export class _FileLoadError extends _IOError {
     }
 }
 
+/**
+ * Applicable when a managed assembly is found but cannot be loaded.
+ */
 export class FileLoadError extends _FileLoadError {
     public constructor();
+    /**
+     * @param message The error message that explains the reason for this error.
+     */
     public constructor(message: string);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param innerError The error that is the cause of the current error. Stack trace will be
+     * appended.
+     */
     public constructor(message: string, innerError: Error);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param fileName A String containing the name of the file that was not loaded.
+     */
     public constructor(message: string, fileName: string);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param fileName A String containing the name of the file that was not loaded.
+     * @param innerError The error that is the cause of the current error. Stack trace will be
+     * appended.
+     */
     public constructor(message: string, fileName: string, innerError: Error);
 
     public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {

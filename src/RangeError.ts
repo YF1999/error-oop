@@ -36,9 +36,22 @@ export class _RangeError extends RangeError {
     }
 }
 
+/**
+ * Represents an error that occurs when a numeric variable or parameter is outside of its valid
+ * range. This is roughly the same as the native RangeError class. It additionally supports an
+ * innerError attribute.
+ */
 export class ExtendedRangeError extends _RangeError {
     public constructor();
+    /**
+     * @param message The error message that explains the reason for this error.
+     */
     public constructor(message: string);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param innerError The error that is the cause of the current error. Stack trace will be
+     * appended.
+     */
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {

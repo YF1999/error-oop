@@ -40,9 +40,21 @@ export class _ReferenceError extends ReferenceError {
     }
 }
 
+/**
+ * Represents an error when a non-existent variable is referenced. This is roughly the same as the
+ * native ReferenceError class. It additionally supports an innerError attribute.
+ */
 export class ExtendedReferenceError extends _ReferenceError {
     public constructor();
+    /**
+     * @param message The error message that explains the reason for this error.
+     */
     public constructor(message: string);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param innerError The error that is the cause of the current error. Stack trace will be
+     * appended.
+     */
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {

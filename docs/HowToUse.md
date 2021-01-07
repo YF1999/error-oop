@@ -261,15 +261,45 @@ throw new EndOfStreamError('EOS while reading header');
 
 ## FileLoadError
 
+Applicable when a managed assembly is found but cannot be loaded.
+
+```ts
+new FileLoadError(message?, innerError?)
+new FileLoadError(message?, fileName?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `fileName` A String containing the name of the file that was not loaded.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new FileLoadError('Failed to load package.json', 'package.json');
+```
 
 ## FileNotFoundError
 
+Applicable when an attempt to access a file that does not exist on disk fails.
+
+```ts
+new FileNotFoundError(message?, innerError?)
+new FileNotFoundError(message?, fileName?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `fileName` The full name of the file with the invalid image.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new FileNotFoundError('Cannot find file package.json', 'package.json');
+```
 
 ## PathTooLongError
 
@@ -311,9 +341,24 @@ throw new SocketError('Socket no longer available');
 
 ## NotFoundError
 
+Applicable when an attempt to retrieve data yielded no result.
+
+```ts
+new NotFoundError(message?, innerError?)
+new NotFoundError(message?, fileName?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `entityName` The entity which is not found.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new NotFoundError('username not found', 'username');
+```
 
 ## NotImplementedError
 
@@ -393,12 +438,38 @@ throw new OutOfMemoryError('Maximum mem size exceeded');
 
 ## RangeError
 
+Represents an error that occurs when a numeric variable or parameter is outside of its valid range. This is roughly the same as the native RangeError class. It additionally supports an innerError attribute.
+
+```ts
+new RangeError(message?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new RangeError(`Value must be between ${min} and ${max}`);
+```
 
 ## ReferenceError
 
+Represents an error when a non-existent variable is referenced. This is roughly the same as the native ReferenceError class. It additionally supports an innerError attribute.
+
+```ts
+new ReferenceError(message?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new ReferenceError('variable xxx is not defined');
+```
