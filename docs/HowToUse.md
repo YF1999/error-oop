@@ -473,3 +473,98 @@ new ReferenceError(message?, innerError?)
 ```ts
 throw new ReferenceError('variable xxx is not defined');
 ```
+
+## StackOverflowError
+
+Applicable when the execution stack overflows because it contains too many nested method calls.
+
+```ts
+new StackOverflowError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new StackOverflowError('Stack overflow detected', innerError);
+```
+
+## SyntaxError
+
+Represents an error when trying to interpret syntactically invalid code. This is roughly the same as the native SyntaxError class. It additionally supports an innerError attribute.
+
+```ts
+new SyntaxError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new SyntaxError("Unexpected token '('");
+```
+
+## TimeoutError
+
+Applicable when the time allotted for a process or operation has expired.
+
+```ts
+new TimeoutError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new TimeoutError("Timeout exceeded '470ms'");
+```
+
+## TypeError
+
+Represents an error when a value is not of the expected type. This is roughly the same as the native TypeError class. It additionally supports an innerError attribute.
+
+```ts
+new TypeError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new TypeError("callback must be a function");
+```
+
+## URIError
+
+Represents an error when a value is not of the expected type. This is roughly the same as the native URIError class. It additionally supports an innerError attribute.
+
+```ts
+new URIError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new URIError("URI malformed");
+```

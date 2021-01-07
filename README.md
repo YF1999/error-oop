@@ -39,3 +39,8 @@ Click to know how to use them.
 - [OutOfMemoryError](./docs/HowToUse.md#OutOfMemoryError)
 - [RangeError](./docs/HowToUse.md#RangeError)
 - [ReferenceError](./docs/HowToUse.md#ReferenceError)
+- [StackOverflowError](./docs/HowToUse.md#StackOverflowError)
+- [SyntaxError](./docs/HowToUse.md#SyntaxError)
+- [TimeoutError](./docs/HowToUse.md#TimeoutError)
+- [TypeError](./docs/HowToUse.md#TypeError)
+- [URIError](./docs/HowToUse.md#URIError)
