@@ -204,21 +204,60 @@ throw new IOError('Could not open file');
 
 ## DirectoryNotFoundError
 
+Applicable when part of a file or directory cannot be found.
+
+```ts
+new DirectoryNotFoundError(message?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new DirectoryNotFoundError('any message');
+```
 
 ## DriveNotFoundError
 
+Applicable when trying to access a drive or share that is not available.
+
+```ts
+new DriveNotFoundError(message?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new DriveNotFoundError('E');
+```
 
 ## EndOfStreamError
 
+Applicable when reading is attempted past the end of a stream.
+
+```ts
+new EndOfStreamError(message?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new EndOfStreamError('EOS while reading header');
+```
 
 ## FileLoadError
 
@@ -234,15 +273,41 @@ throw new IOError('Could not open file');
 
 ## PathTooLongError
 
+Applicable when a path or fully qualified file name is longer than the system-defined maximum length.
+
+```ts
+new PathTooLongError(message?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new PathTooLongError('Path too long');
+```
 
 ## SocketError
 
+Applicable when an error occurs on a socket.
+
+```ts
+new SocketError(message?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new SocketError('Socket no longer available');
+```
 
 ## NotFoundError
 
@@ -252,27 +317,79 @@ throw new IOError('Could not open file');
 
 ## NotImplementedError
 
+Applicable when a requested method or operation is not implemented.
+
+```ts
+new NotImplementedError(message?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new NotImplementedError('Method is not yet implemented');
+```
 
 ## NotPermittedError
 
+Applicable when an operation is not permitted.
+
+```ts
+new NotPermittedError(message?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new NotPermittedError('username cannot be changed once set');
+```
 
 ## NotSupportedError
 
+Applicable when an invoked method is not supported, or when there is an attempt to read, seek, or write to a stream that does not support the invoked functionality.
+
+```ts
+new NotSupportedError(message?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new NotSupportedError('Not support mp3 file yet');
+```
 
 ## OutOfMemoryError
 
+Applicable when there is not enough memory to continue the execution of a program.
+
+```ts
+new OutOfMemoryError(message?, innerError?)
+```
+
 ### Arguments
 
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
 ### Example
+
+```ts
+throw new OutOfMemoryError('Maximum mem size exceeded');
+```
 
 ## RangeError
 

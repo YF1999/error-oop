@@ -1,8 +1,4 @@
-import {
-    ErrorOptions,
-    ConnectionErrorMessageProps,
-    ConnectionErrorProps,
-} from './CommonTypes';
+import { ErrorOptions, ConnectionErrorMessageProps, ConnectionErrorProps } from './CommonTypes';
 import { _Error } from './Error';
 
 export class _ConnectionError extends _Error {
