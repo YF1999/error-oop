@@ -1,5 +1,5 @@
 import { ErrorOptions, TimeoutErrorMessageProps, TimeoutErrorProps } from './CommonTypes';
-import { _Error } from './Error';
+import { _Error } from './ExtendedNodeError';
 
 export class _TimeoutError extends _Error {
     public constructor(

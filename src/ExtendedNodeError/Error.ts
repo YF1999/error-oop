@@ -1,13 +1,10 @@
-import { ErrorOptions, TypeErrorMessageProps, TypeErrorProps } from './CommonTypes';
-import { appendInnerErrorStack, setNonEnumerable } from './utils';
+import { ErrorOptions, ErrorProps, ErrorMessageProps } from '../CommonTypes';
+import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
-export class _TypeError extends TypeError {
+export class _Error extends Error {
     protected _innerError?: Error;
 
-    public constructor(
-        props: TypeErrorProps,
-        options: ErrorOptions<TypeErrorMessageProps>,
-    ) {
+    public constructor(props: ErrorProps, options: ErrorOptions<ErrorMessageProps>) {
         super();
 
         const { message, innerError } = props;
@@ -37,10 +34,10 @@ export class _TypeError extends TypeError {
 }
 
 /**
- * Represents an error when a value is not of the expected type. This is roughly the same as the
- * native TypeError class. It additionally supports an innerError attribute.
+ * This is roughly the same as the native Error class. It additionally supports an innerError
+ * attribute.
  */
-export class ExtendedTypeError extends _TypeError {
+export class ExtendedError extends _Error {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -54,6 +51,6 @@ export class ExtendedTypeError extends _TypeError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, { name: 'TypeError' });
+        super({ message, innerError }, { name: 'Error' });
     }
 }

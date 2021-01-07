@@ -1,5 +1,5 @@
 import { ErrorOptions, IOErrorMessageProps, IOErrorProps } from '../CommonTypes';
-import { _Error } from '../Error';
+import { _Error } from '../ExtendedNodeError';
 
 export class _IOError extends _Error {
     public constructor(props: IOErrorProps, options: ErrorOptions<IOErrorMessageProps>) {

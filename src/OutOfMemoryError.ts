@@ -1,5 +1,5 @@
 import { ErrorOptions, OutOfMemoryErrorMessageProps, OutOfMemoryErrorProps } from './CommonTypes';
-import { _Error } from './Error';
+import { _Error } from './ExtendedNodeError';
 
 export class _OutOfMemoryError extends _Error {
     public constructor(

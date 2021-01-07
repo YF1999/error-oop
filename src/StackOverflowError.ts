@@ -3,7 +3,7 @@ import {
     StackOverflowErrorMessageProps,
     StackOverflowErrorProps,
 } from './CommonTypes';
-import { _Error } from './Error';
+import { _Error } from './ExtendedNodeError';
 
 export class _StackOverflowError extends _Error {
     public constructor(

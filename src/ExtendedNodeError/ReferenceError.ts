@@ -1,10 +1,17 @@
-import { ErrorOptions, ErrorProps, ErrorMessageProps } from './CommonTypes';
-import { appendInnerErrorStack, setNonEnumerable } from './utils';
+import {
+    ErrorOptions,
+    ReferenceErrorMessageProps,
+    ReferenceErrorProps,
+} from '../CommonTypes';
+import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
-export class _Error extends Error {
+export class _ReferenceError extends ReferenceError {
     protected _innerError?: Error;
 
-    public constructor(props: ErrorProps, options: ErrorOptions<ErrorMessageProps>) {
+    public constructor(
+        props: ReferenceErrorProps,
+        options: ErrorOptions<ReferenceErrorMessageProps>,
+    ) {
         super();
 
         const { message, innerError } = props;
@@ -34,10 +41,10 @@ export class _Error extends Error {
 }
 
 /**
- * This is roughly the same as the native Error class. It additionally supports an innerError
- * attribute.
+ * Represents an error when a non-existent variable is referenced. This is roughly the same as the
+ * native ReferenceError class. It additionally supports an innerError attribute.
  */
-export class ExtendedError extends _Error {
+export class ExtendedReferenceError extends _ReferenceError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -51,6 +58,6 @@ export class ExtendedError extends _Error {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, { name: 'Error' });
+        super({ message, innerError }, { name: 'ReferenceError' });
     }
 }
