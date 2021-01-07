@@ -33,9 +33,21 @@ export class _Error extends Error {
     }
 }
 
+/**
+ * This is roughly the same as the native Error class. It additionally supports an innerError
+ * attribute.
+ */
 export class ExtendedError extends _Error {
     public constructor();
+    /**
+     * @param message The error message that explains the reason for this error.
+     */
     public constructor(message: string);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param innerError The error that is the cause of the current error. Stack trace will be
+     * appended.
+     */
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {

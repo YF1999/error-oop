@@ -3,7 +3,8 @@
 More error classes for nodejs.
 
 - Full typescript code
-- Complete typescript declarations
+- Support typescript declarations
+- Support CommonJS and ESModule, support tree shaking
 
 ## Install
 

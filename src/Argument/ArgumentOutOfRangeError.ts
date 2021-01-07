@@ -60,13 +60,13 @@ export class ArgumentOutOfRangeError extends _ArgumentOutOfRangeError {
     /**
      * @param message The error message that explains the reason for this error.
      * @param paramName The name of the parameter that caused the current error.
-     * @param actualValue The value of the argument that causes this exception.
+     * @param actualValue The value of the argument that causes this error.
      */
     public constructor(message: string, paramName: string, actualValue: any);
     /**
      * @param message The error message that explains the reason for this error.
      * @param paramName The name of the parameter that caused the current error.
-     * @param actualValue The value of the argument that causes this exception.
+     * @param actualValue The value of the argument that causes this error.
      * @param innerError The error that is the cause of the current error. Stack trace will be
      * appended.
      */
