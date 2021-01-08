@@ -1,10 +1,10 @@
 # How To Use Native Errors Pro
-## Error
+## ErrorPro
 
-This is roughly the same as the native Error class. It additionally supports an innerError attribute.
+The `ErrorPro`, also named `Error`, is roughly the same as the native `Error` class. It additionally supports an innerError attribute.
 
 ```ts
-new Error(message?, innerError?)
+new ErrorPro(message?, innerError?)
 ```
 
 ### Arguments
@@ -15,17 +15,25 @@ new Error(message?, innerError?)
 ### Example
 
 ```ts
-import { Error } from 'node-errros-es';
+throw new ErrorPro('any message', innerError);
+```
+
+Or use `Error`, but don't forget importing it:
+
+```ts
+import { Error } from 'node-errors-es';
 
 throw new Error('any message', innerError);
 ```
 
-## RangeError
+## RangeErrorPro
 
-Represents an error that occurs when a numeric variable or parameter is outside of its valid range. This is roughly the same as the native RangeError class. It additionally supports an innerError attribute.
+Represents an error that occurs when a numeric variable or parameter is outside of its valid range.
+
+The `RangeErrorPro`, also named `RangeError`, is roughly the same as the native `RangeError` class. It additionally supports an innerError attribute.
 
 ```ts
-new RangeError(message?, innerError?)
+new RangeErrorPro(message?, innerError?)
 ```
 
 ### Arguments
@@ -34,6 +42,12 @@ new RangeError(message?, innerError?)
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
 
 ### Example
+
+```ts
+throw new RangeErrorPro(`Value must be between ${min} and ${max}`);
+```
+
+Or use `RangeError`, but don't forget importing it:
 
 ```ts
 import { RangeError } from 'node-errros-es';
@@ -41,12 +55,14 @@ import { RangeError } from 'node-errros-es';
 throw new RangeError(`Value must be between ${min} and ${max}`);
 ```
 
-## ReferenceError
+## ReferenceErrorPro
 
-Represents an error when a non-existent variable is referenced. This is roughly the same as the native ReferenceError class. It additionally supports an innerError attribute.
+Represents an error when a non-existent variable is referenced.
+
+The `ReferenceErrorPro`, also named `ReferenceError`, is roughly the same as the native `ReferenceError` class. It additionally supports an innerError attribute.
 
 ```ts
-new ReferenceError(message?, innerError?)
+new ReferenceErrorPro(message?, innerError?)
 ```
 
 ### Arguments
@@ -55,6 +71,12 @@ new ReferenceError(message?, innerError?)
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
 
 ### Example
+
+```ts
+throw new ReferenceErrorPro('variable xxx is not defined');
+```
+
+Or use `ReferenceError`, but don't forget importing it:
 
 ```ts
 import { ReferenceError } from 'node-errros-es';
@@ -62,12 +84,14 @@ import { ReferenceError } from 'node-errros-es';
 throw new ReferenceError('variable xxx is not defined');
 ```
 
-## SyntaxError
+## SyntaxErrorPro
 
-Represents an error when trying to interpret syntactically invalid code. This is roughly the same as the native SyntaxError class. It additionally supports an innerError attribute.
+Represents an error when trying to interpret syntactically invalid code.
+
+The `SyntaxErrorPro`, also named `SyntaxError`, is roughly the same as the native `SyntaxError` class. It additionally supports an innerError attribute.
 
 ```ts
-new SyntaxError(message?, innerError?)
+new SyntaxErrorPro(message?, innerError?)
 ```
 
 ### Arguments
@@ -76,6 +100,12 @@ new SyntaxError(message?, innerError?)
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
 
 ### Example
+
+```ts
+throw new SyntaxErrorPro("Unexpected token '('");
+```
+
+Or use `SyntaxError`, but don't forget importing it:
 
 ```ts
 import { SyntaxError } from 'node-errros-es';
@@ -83,12 +113,14 @@ import { SyntaxError } from 'node-errros-es';
 throw new SyntaxError("Unexpected token '('");
 ```
 
-## TypeError
+## TypeErrorPro
 
-Represents an error when a value is not of the expected type. This is roughly the same as the native TypeError class. It additionally supports an innerError attribute.
+Represents an error when a value is not of the expected type.
+
+The `TypeErrorPro`, also named `TypeError`, is roughly the same as the native `TypeError` class. It additionally supports an innerError attribute.
 
 ```ts
-new TypeError(message?, innerError?)
+new TypeErrorPro(message?, innerError?)
 ```
 
 ### Arguments
@@ -97,6 +129,12 @@ new TypeError(message?, innerError?)
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
 
 ### Example
+
+```ts
+throw new TypeErrorPro("callback must be a function");
+```
+
+Or use `TypeError`, but don't forget importing it:
 
 ```ts
 import { TypeError } from 'node-errros-es';
@@ -104,12 +142,14 @@ import { TypeError } from 'node-errros-es';
 throw new TypeError("callback must be a function");
 ```
 
-## URIError
+## URIErrorPro
 
-Represents an error when a value is not of the expected type. This is roughly the same as the native URIError class. It additionally supports an innerError attribute.
+Represents an error when a value is not of the expected type.
+
+The `URIErrorPro`, also named `URIError`, is roughly the same as the native `URIError` class. It additionally supports an innerError attribute.
 
 ```ts
-new URIError(message?, innerError?)
+new URIErrorPro(message?, innerError?)
 ```
 
 ### Arguments
@@ -118,6 +158,12 @@ new URIError(message?, innerError?)
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
 
 ### Example
+
+```ts
+throw new URIErrorPro("URI malformed");
+```
+
+Or use `URIError`, but don't forget importing it:
 
 ```ts
 import { URIError } from 'node-errros-es';

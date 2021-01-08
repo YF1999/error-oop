@@ -17,12 +17,12 @@ Click to know how to use them.
 
 ### Native Errors Pro
 
-- [Error](./docs/HowToUse-NativeErrorsPro.md#Error)
-- [RangeError](./docs/HowToUse-NativeErrorsPro.md#RangeError)
-- [ReferenceError](./docs/HowToUse-NativeErrorsPro.md#ReferenceError)
-- [SyntaxError](./docs/HowToUse-NativeErrorsPro.md#SyntaxError)
-- [TypeError](./docs/HowToUse-NativeErrorsPro.md#TypeError)
-- [URIError](./docs/HowToUse-NativeErrorsPro.md#URIError)
+- [ErrorPro (or Error)](./docs/HowToUse-NativeErrorsPro.md#ErrorPro)
+- [RangeErrorPro (or RangeError)](./docs/HowToUse-NativeErrorsPro.md#RangeErrorPro)
+- [ReferenceErrorPro (or ReferenceError)](./docs/HowToUse-NativeErrorsPro.md#ReferenceErrorPro)
+- [SyntaxErrorPro (or SyntaxError)](./docs/HowToUse-NativeErrorsPro.md#SyntaxErrorPro)
+- [TypeErrorPro (or TypeError)](./docs/HowToUse-NativeErrorsPro.md#TypeErrorPro)
+- [URIErrorPro (or URIError)](./docs/HowToUse-NativeErrorsPro.md#URIErrorPro)
 
 ### More Useful Errors
 
