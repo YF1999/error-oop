@@ -9,7 +9,7 @@ import {
     DirectoryNotFoundError,
     DriveNotFoundError,
     EndOfStreamError,
-    Error,
+    ErrorPro,
     FileLoadError,
     FileNotFoundError,
     InvalidOperationError,
@@ -20,15 +20,87 @@ import {
     NotSupportedError,
     OutOfMemoryError,
     PathTooLongError,
-    RangeError,
-    ReferenceError,
+    RangeErrorPro,
+    ReferenceErrorPro,
     SocketError,
+    StackOverflowError,
+    SyntaxErrorPro,
+    TimeoutError,
+    TypeErrorPro,
+    URIErrorPro,
 } from '../src';
 
 import { switches } from './switches';
 
-describe('empty-serialization test', () => {
-    if (!switches.emptySerialization) {
+describe('Native-Errors-Pro', () => {
+    if (!switches.emptySerialization.nativeErrorsPro) {
+        test.skip('skip', () => {});
+        return;
+    }
+
+    test('ErrorPro', () => {
+        const err1 = new ErrorPro();
+        const err2 = new ErrorPro('error');
+        const err3 = new ErrorPro('error', err2);
+
+        expect(JSON.stringify(err1)).toBe('{}');
+        expect(JSON.stringify(err2)).toBe('{}');
+        expect(JSON.stringify(err3)).toBe('{}');
+    });
+
+    test('RangeErrorPro', () => {
+        const err1 = new RangeErrorPro();
+        const err2 = new RangeErrorPro('error');
+        const err3 = new RangeErrorPro('error', err2);
+
+        expect(JSON.stringify(err1)).toBe('{}');
+        expect(JSON.stringify(err2)).toBe('{}');
+        expect(JSON.stringify(err3)).toBe('{}');
+    });
+
+    test('ReferenceErrorPro', () => {
+        const err1 = new ReferenceErrorPro();
+        const err2 = new ReferenceErrorPro('error');
+        const err3 = new ReferenceErrorPro('error', err2);
+
+        expect(JSON.stringify(err1)).toBe('{}');
+        expect(JSON.stringify(err2)).toBe('{}');
+        expect(JSON.stringify(err3)).toBe('{}');
+    });
+
+    test('SyntaxErrorPro', () => {
+        const err1 = new SyntaxErrorPro();
+        const err2 = new SyntaxErrorPro('error');
+        const err3 = new SyntaxErrorPro('error', err2);
+
+        expect(JSON.stringify(err1)).toBe('{}');
+        expect(JSON.stringify(err2)).toBe('{}');
+        expect(JSON.stringify(err3)).toBe('{}');
+    });
+
+    test('TypeErrorPro', () => {
+        const err1 = new TypeErrorPro();
+        const err2 = new TypeErrorPro('error');
+        const err3 = new TypeErrorPro('error', err2);
+
+        expect(JSON.stringify(err1)).toBe('{}');
+        expect(JSON.stringify(err2)).toBe('{}');
+        expect(JSON.stringify(err3)).toBe('{}');
+    });
+
+    test('URIErrorPro', () => {
+        const err1 = new URIErrorPro();
+        const err2 = new URIErrorPro('error');
+        const err3 = new URIErrorPro('error', err2);
+
+        expect(JSON.stringify(err1)).toBe('{}');
+        expect(JSON.stringify(err2)).toBe('{}');
+        expect(JSON.stringify(err3)).toBe('{}');
+    });
+});
+
+describe('More-Useful-Errors', () => {
+    if (!switches.emptySerialization.moreUsefulErrors) {
         test.skip('skip', () => {});
         return;
     }
@@ -47,7 +119,7 @@ describe('empty-serialization test', () => {
         expect(JSON.stringify(err5)).toBe('{}');
     });
 
-    test('Argument.ArgumentError', () => {
+    test('ArgumentError', () => {
         const err1 = new ArgumentError();
         const err2 = new ArgumentError('error');
         const err3 = new ArgumentError('error', err2);
@@ -61,7 +133,7 @@ describe('empty-serialization test', () => {
         expect(JSON.stringify(err5)).toBe('{}');
     });
 
-    test('Argument.ArgumentNullError', () => {
+    test('ArgumentNullError', () => {
         const err1 = new ArgumentNullError();
         const err2 = new ArgumentNullError('error');
         const err3 = new ArgumentNullError('error', err2);
@@ -75,7 +147,7 @@ describe('empty-serialization test', () => {
         expect(JSON.stringify(err5)).toBe('{}');
     });
 
-    test('Argument.ArgumentOutOfRangeError', () => {
+    test('ArgumentOutOfRangeError', () => {
         const err1 = new ArgumentOutOfRangeError();
         const err2 = new ArgumentOutOfRangeError('error');
         const err3 = new ArgumentOutOfRangeError('error', err2);
@@ -93,7 +165,7 @@ describe('empty-serialization test', () => {
         expect(JSON.stringify(err7)).toBe('{}');
     });
 
-    test('Authentication.AuthenticationError', () => {
+    test('AuthenticationError', () => {
         const err1 = new AuthenticationError();
         const err2 = new AuthenticationError('error');
         const err3 = new AuthenticationError('error', err2);
@@ -103,7 +175,7 @@ describe('empty-serialization test', () => {
         expect(JSON.stringify(err3)).toBe('{}');
     });
 
-    test('Authentication.AuthenticationRequiredError', () => {
+    test('AuthenticationRequiredError', () => {
         const err1 = new AuthenticationRequiredError();
         const err2 = new AuthenticationRequiredError('error');
         const err3 = new AuthenticationRequiredError('error', err2);
@@ -117,16 +189,6 @@ describe('empty-serialization test', () => {
         const err1 = new ConnectionError();
         const err2 = new ConnectionError('error');
         const err3 = new ConnectionError('error', err2);
-
-        expect(JSON.stringify(err1)).toBe('{}');
-        expect(JSON.stringify(err2)).toBe('{}');
-        expect(JSON.stringify(err3)).toBe('{}');
-    });
-
-    test('Error', () => {
-        const err1 = new Error();
-        const err2 = new Error('error');
-        const err3 = new Error('error', err2);
 
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');
@@ -285,20 +347,20 @@ describe('empty-serialization test', () => {
         expect(JSON.stringify(err3)).toBe('{}');
     });
 
-    test('RangeError', () => {
-        const err1 = new RangeError();
-        const err2 = new RangeError('error');
-        const err3 = new RangeError('error', err2);
+    test('StackOverflowError', () => {
+        const err1 = new StackOverflowError();
+        const err2 = new StackOverflowError('error');
+        const err3 = new StackOverflowError('error', err2);
 
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');
         expect(JSON.stringify(err3)).toBe('{}');
     });
 
-    test('ReferenceError', () => {
-        const err1 = new ReferenceError();
-        const err2 = new ReferenceError('error');
-        const err3 = new ReferenceError('error', err2);
+    test('TimeoutError', () => {
+        const err1 = new TimeoutError();
+        const err2 = new TimeoutError('error');
+        const err3 = new TimeoutError('error', err2);
 
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');

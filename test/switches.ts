@@ -1,4 +1,10 @@
 export const switches = {
-    emptySerialization: true,
-    noEnumerableFields: true,
+    emptySerialization: {
+        moreUsefulErrors: true,
+        nativeErrorsPro: true,
+    },
+    noEnumerableFields: {
+        moreUsefulErrors: true,
+        nativeErrorsPro: true,
+    },
 };

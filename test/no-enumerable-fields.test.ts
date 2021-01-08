@@ -9,7 +9,7 @@ import {
     DirectoryNotFoundError,
     DriveNotFoundError,
     EndOfStreamError,
-    Error,
+    ErrorPro,
     FileLoadError,
     FileNotFoundError,
     InvalidOperationError,
@@ -20,15 +20,87 @@ import {
     NotSupportedError,
     OutOfMemoryError,
     PathTooLongError,
-    RangeError,
-    ReferenceError,
+    RangeErrorPro,
+    ReferenceErrorPro,
     SocketError,
+    StackOverflowError,
+    SyntaxErrorPro,
+    TimeoutError,
+    TypeErrorPro,
+    URIErrorPro,
 } from '../src';
 
 import { switches } from './switches';
 
-describe('no-enumerable-fields test', () => {
-    if (!switches.noEnumerableFields) {
+describe('Native-Errors-Pro', () => {
+    if (!switches.noEnumerableFields.nativeErrorsPro) {
+        test.skip('skip', () => {});
+        return;
+    }
+
+    test('ErrorPro', () => {
+        const err1 = new ErrorPro();
+        const err2 = new ErrorPro('error');
+        const err3 = new ErrorPro('error', err2);
+
+        expect(Object.keys(err1).length).toBe(0);
+        expect(Object.keys(err2).length).toBe(0);
+        expect(Object.keys(err3).length).toBe(0);
+    });
+
+    test('RangeErrorPro', () => {
+        const err1 = new RangeErrorPro();
+        const err2 = new RangeErrorPro('error');
+        const err3 = new RangeErrorPro('error', err2);
+
+        expect(Object.keys(err1).length).toBe(0);
+        expect(Object.keys(err2).length).toBe(0);
+        expect(Object.keys(err3).length).toBe(0);
+    });
+
+    test('ReferenceErrorPro', () => {
+        const err1 = new ReferenceErrorPro();
+        const err2 = new ReferenceErrorPro('error');
+        const err3 = new ReferenceErrorPro('error', err2);
+
+        expect(Object.keys(err1).length).toBe(0);
+        expect(Object.keys(err2).length).toBe(0);
+        expect(Object.keys(err3).length).toBe(0);
+    });
+
+    test('SyntaxErrorPro', () => {
+        const err1 = new SyntaxErrorPro();
+        const err2 = new SyntaxErrorPro('error');
+        const err3 = new SyntaxErrorPro('error', err2);
+
+        expect(Object.keys(err1).length).toBe(0);
+        expect(Object.keys(err2).length).toBe(0);
+        expect(Object.keys(err3).length).toBe(0);
+    });
+
+    test('TypeErrorPro', () => {
+        const err1 = new TypeErrorPro();
+        const err2 = new TypeErrorPro('error');
+        const err3 = new TypeErrorPro('error', err2);
+
+        expect(Object.keys(err1).length).toBe(0);
+        expect(Object.keys(err2).length).toBe(0);
+        expect(Object.keys(err3).length).toBe(0);
+    });
+
+    test('URIErrorPro', () => {
+        const err1 = new URIErrorPro();
+        const err2 = new URIErrorPro('error');
+        const err3 = new URIErrorPro('error', err2);
+
+        expect(Object.keys(err1).length).toBe(0);
+        expect(Object.keys(err2).length).toBe(0);
+        expect(Object.keys(err3).length).toBe(0);
+    });
+});
+
+describe('More-Useful-Errors', () => {
+    if (!switches.noEnumerableFields.moreUsefulErrors) {
         test.skip('skip', () => {});
         return;
     }
@@ -122,16 +194,6 @@ describe('no-enumerable-fields test', () => {
         const err1 = new ConnectionError();
         const err2 = new ConnectionError('error');
         const err3 = new ConnectionError('error', err2);
-
-        expect(Object.keys(err1).length).toBe(0);
-        expect(Object.keys(err2).length).toBe(0);
-        expect(Object.keys(err3).length).toBe(0);
-    });
-
-    test('Error', () => {
-        const err1 = new Error();
-        const err2 = new Error('error');
-        const err3 = new Error('error', err2);
 
         expect(Object.keys(err1).length).toBe(0);
         expect(Object.keys(err2).length).toBe(0);
@@ -290,20 +352,20 @@ describe('no-enumerable-fields test', () => {
         expect(Object.keys(err3).length).toBe(0);
     });
 
-    test('RangeError', () => {
-        const err1 = new RangeError();
-        const err2 = new RangeError('error');
-        const err3 = new RangeError('error', err2);
+    test('StackOverflowError', () => {
+        const err1 = new StackOverflowError();
+        const err2 = new StackOverflowError('error');
+        const err3 = new StackOverflowError('error', err2);
 
         expect(Object.keys(err1).length).toBe(0);
         expect(Object.keys(err2).length).toBe(0);
         expect(Object.keys(err3).length).toBe(0);
     });
 
-    test('ReferenceError', () => {
-        const err1 = new ReferenceError();
-        const err2 = new ReferenceError('error');
-        const err3 = new ReferenceError('error', err2);
+    test('TimeoutError', () => {
+        const err1 = new TimeoutError();
+        const err2 = new TimeoutError('error');
+        const err3 = new TimeoutError('error', err2);
 
         expect(Object.keys(err1).length).toBe(0);
         expect(Object.keys(err2).length).toBe(0);
