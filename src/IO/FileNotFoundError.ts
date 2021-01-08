@@ -3,9 +3,9 @@ import {
     FileNotFoundErrorMessageProps,
     FileNotFoundErrorProps,
 } from '../CommonTypes';
-import { _IOError } from './IOError';
+import { AbstractIOError } from './IOError';
 
-export class _FileNotFoundError extends _IOError {
+export abstract class AbstractFileNotFoundError extends AbstractIOError {
     private _fileName?: string;
 
     public constructor(
@@ -32,7 +32,7 @@ export class _FileNotFoundError extends _IOError {
 /**
  * Applicable when an attempt to access a file that does not exist on disk fails.
  */
-export class FileNotFoundError extends _FileNotFoundError {
+export class FileNotFoundError extends AbstractFileNotFoundError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

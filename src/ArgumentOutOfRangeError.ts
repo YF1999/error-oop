@@ -3,9 +3,9 @@ import {
     ArgumentOutOfRangeMessageProps,
     ArgumentOutOfRangeErrorProps,
 } from './CommonTypes';
-import { _ArgumentError } from './ArgumentError';
+import { AbstractArgumentError } from './ArgumentError';
 
-export class _ArgumentOutOfRangeError extends _ArgumentError {
+export abstract class AbstractArgumentOutOfRangeError extends AbstractArgumentError {
     protected _actualValue?: string;
 
     public constructor(
@@ -33,7 +33,7 @@ export class _ArgumentOutOfRangeError extends _ArgumentError {
  * Applicable when the value of an argument is outside the allowable range of values as defined by
  * the invoked function or method.
  */
-export class ArgumentOutOfRangeError extends _ArgumentOutOfRangeError {
+export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

@@ -1,7 +1,7 @@
 import { ErrorOptions, IOErrorMessageProps, IOErrorProps } from '../CommonTypes';
-import { _Error } from '../NativeErrors';
+import { AbstractError } from '../NativeErrors';
 
-export class _IOError extends _Error {
+export abstract class AbstractIOError extends AbstractError {
     public constructor(props: IOErrorProps, options: ErrorOptions<IOErrorMessageProps>) {
         super(props, options);
     }
@@ -10,7 +10,7 @@ export class _IOError extends _Error {
 /**
  * Applicable when an I/O error occurs.
  */
-export class IOError extends _IOError {
+export class IOError extends AbstractIOError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

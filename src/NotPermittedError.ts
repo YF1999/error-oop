@@ -1,7 +1,7 @@
 import { ErrorOptions, NotPermittedErrorMessageProps, NotPermittedErrorProps } from './CommonTypes';
-import { _Error } from './NativeErrors';
+import { AbstractError } from './NativeErrors';
 
-export class _NotPermittedError extends _Error {
+export abstract class AbstractNotPermittedError extends AbstractError {
     public constructor(
         props: NotPermittedErrorProps,
         options: ErrorOptions<NotPermittedErrorMessageProps>,
@@ -13,7 +13,7 @@ export class _NotPermittedError extends _Error {
 /**
  * Applicable when an operation is not permitted.
  */
-export class NotPermittedError extends _NotPermittedError {
+export class NotPermittedError extends AbstractNotPermittedError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

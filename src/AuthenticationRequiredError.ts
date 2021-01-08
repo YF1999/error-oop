@@ -3,9 +3,9 @@ import {
     AuthenticationRequiredErrorMessageProps,
     AuthenticationRequiredErrorProps,
 } from './CommonTypes';
-import { _Error } from './NativeErrors';
+import { AbstractError } from './NativeErrors';
 
-export class _AuthenticationRequiredError extends _Error {
+export abstract class AbstractAuthenticationRequiredError extends AbstractError {
     public constructor(
         props: AuthenticationRequiredErrorProps,
         options: ErrorOptions<AuthenticationRequiredErrorMessageProps>,
@@ -17,7 +17,7 @@ export class _AuthenticationRequiredError extends _Error {
 /**
  * Applicable when authentication fails for an authentication stream.
  */
-export class AuthenticationRequiredError extends _AuthenticationRequiredError {
+export class AuthenticationRequiredError extends AbstractAuthenticationRequiredError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

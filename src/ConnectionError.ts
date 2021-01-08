@@ -1,7 +1,7 @@
 import { ErrorOptions, ConnectionErrorMessageProps, ConnectionErrorProps } from './CommonTypes';
-import { _Error } from './NativeErrors';
+import { AbstractError } from './NativeErrors';
 
-export class _ConnectionError extends _Error {
+export abstract class AbstractConnectionError extends AbstractError {
     public constructor(
         props: ConnectionErrorProps,
         options: ErrorOptions<ConnectionErrorMessageProps>,
@@ -13,7 +13,7 @@ export class _ConnectionError extends _Error {
 /**
  * Applicable when an error occurs on a connection.
  */
-export class ConnectionError extends _ConnectionError {
+export class ConnectionError extends AbstractConnectionError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

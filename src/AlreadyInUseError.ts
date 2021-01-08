@@ -1,7 +1,7 @@
 import { AlreadyInUseErrorMessageProps, AlreadyInUseErrorProps, ErrorOptions } from './CommonTypes';
-import { _Error } from './NativeErrors';
+import { AbstractError } from './NativeErrors';
 
-export class _AlreadyInUseError extends _Error {
+export abstract class AbstractAlreadyInUseError extends AbstractError {
     protected _entityName: string;
 
     public constructor(
@@ -28,7 +28,7 @@ export class _AlreadyInUseError extends _Error {
 /**
  * Applicable when a resource is already in use, for example unique key constraints like a username.
  */
-export class AlreadyInUseError extends _AlreadyInUseError {
+export class AlreadyInUseError extends AbstractAlreadyInUseError {
     /**
      * @param entityName The entity that owns the protected resource.
      */

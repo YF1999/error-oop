@@ -1,7 +1,7 @@
 import { ErrorOptions, TransactionErrorMessageProps, TransactionErrorProps } from '../CommonTypes';
-import { _Error } from '../NativeErrors';
+import { AbstractError } from '../NativeErrors';
 
-export class _TransactionError extends _Error {
+export abstract class AbstractTransactionError extends AbstractError {
     public constructor(
         props: TransactionErrorProps,
         options: ErrorOptions<TransactionErrorMessageProps>,
@@ -13,7 +13,7 @@ export class _TransactionError extends _Error {
 /**
  * Applicable when attempt to do work on a transaction that cannot accept new work.
  */
-export class TransactionError extends _TransactionError {
+export class TransactionError extends AbstractTransactionError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

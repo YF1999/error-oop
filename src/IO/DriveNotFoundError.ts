@@ -3,9 +3,9 @@ import {
     DriveNotFoundErrorMessageProps,
     DriveNotFoundErrorProps,
 } from '../CommonTypes';
-import { _IOError } from './IOError';
+import { AbstractIOError } from './IOError';
 
-export class _DriveNotFoundError extends _IOError {
+export abstract class AbstractDriveNotFoundError extends AbstractIOError {
     public constructor(
         props: DriveNotFoundErrorProps,
         options: ErrorOptions<DriveNotFoundErrorMessageProps>,
@@ -17,7 +17,7 @@ export class _DriveNotFoundError extends _IOError {
 /**
  * Applicable when trying to access a drive or share that is not available.
  */
-export class DriveNotFoundError extends _DriveNotFoundError {
+export class DriveNotFoundError extends AbstractDriveNotFoundError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

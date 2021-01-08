@@ -1,7 +1,7 @@
 import { ErrorOptions, ReferenceErrorMessageProps, ReferenceErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
-export class _ReferenceError extends ReferenceError {
+export abstract class AbstractReferenceError extends ReferenceError {
     protected _innerError?: Error;
 
     public constructor(
@@ -40,7 +40,7 @@ export class _ReferenceError extends ReferenceError {
  * Represents an error when a non-existent variable is referenced. This is roughly the same as the
  * native ReferenceError class. It additionally supports an innerError attribute.
  */
-export class ReferenceErrorPro extends _ReferenceError {
+export class ReferenceErrorPro extends AbstractReferenceError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

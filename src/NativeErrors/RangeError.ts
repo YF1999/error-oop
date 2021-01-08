@@ -1,7 +1,7 @@
 import { ErrorOptions, RangeErrorMessageProps, RangeErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
-export class _RangeError extends RangeError {
+export abstract class AbstractRangeError extends RangeError {
     protected _innerError?: Error;
 
     public constructor(props: RangeErrorProps, options: ErrorOptions<RangeErrorMessageProps>) {
@@ -38,7 +38,7 @@ export class _RangeError extends RangeError {
  * range. This is roughly the same as the native RangeError class. It additionally supports an
  * innerError attribute.
  */
-export class RangeErrorPro extends _RangeError {
+export class RangeErrorPro extends AbstractRangeError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

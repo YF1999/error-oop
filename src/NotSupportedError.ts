@@ -1,7 +1,7 @@
 import { ErrorOptions, NotSupportedErrorMessageProps, NotSupportedErrorProps } from './CommonTypes';
-import { _Error } from './NativeErrors';
+import { AbstractError } from './NativeErrors';
 
-export class _NotSupportedError extends _Error {
+export abstract class AbstractNotSupportedError extends AbstractError {
     public constructor(
         props: NotSupportedErrorProps,
         options: ErrorOptions<NotSupportedErrorMessageProps>,
@@ -14,7 +14,7 @@ export class _NotSupportedError extends _Error {
  * Applicable when an invoked method is not supported, or when there is an attempt to read, seek, or
  * write to a stream that does not support the invoked functionality.
  */
-export class NotSupportedError extends _NotSupportedError {
+export class NotSupportedError extends AbstractNotSupportedError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

@@ -1,7 +1,7 @@
 import { ErrorOptions, FileLoadErrorMessageProps, FileLoadErrorProps } from '../CommonTypes';
-import { _IOError } from './IOError';
+import { AbstractIOError } from './IOError';
 
-export class _FileLoadError extends _IOError {
+export abstract class AbstractFileLoadError extends AbstractIOError {
     private _fileName?: string;
 
     public constructor(
@@ -28,7 +28,7 @@ export class _FileLoadError extends _IOError {
 /**
  * Applicable when a managed assembly is found but cannot be loaded.
  */
-export class FileLoadError extends _FileLoadError {
+export class FileLoadError extends AbstractFileLoadError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

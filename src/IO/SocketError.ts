@@ -1,7 +1,7 @@
 import { ErrorOptions, SocketErrorMessageProps, SocketErrorProps } from '../CommonTypes';
-import { _IOError } from './IOError';
+import { AbstractIOError } from './IOError';
 
-export class _SocketError extends _IOError {
+export abstract class AbstractSocketError extends AbstractIOError {
     public constructor(props: SocketErrorProps, options: ErrorOptions<SocketErrorMessageProps>) {
         super(props, options);
     }
@@ -10,7 +10,7 @@ export class _SocketError extends _IOError {
 /**
  * Applicable when an error occurs on a socket.
  */
-export class SocketError extends _SocketError {
+export class SocketError extends AbstractSocketError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

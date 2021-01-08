@@ -3,9 +3,9 @@ import {
     DirectoryNotFoundErrorMessageProps,
     DirectoryNotFoundErrorProps,
 } from '../CommonTypes';
-import { _IOError } from './IOError';
+import { AbstractIOError } from './IOError';
 
-export class _DirectoryNotFoundError extends _IOError {
+export abstract class AbstractDirectoryNotFoundError extends AbstractIOError {
     public constructor(
         props: DirectoryNotFoundErrorProps,
         options: ErrorOptions<DirectoryNotFoundErrorMessageProps>,
@@ -17,7 +17,7 @@ export class _DirectoryNotFoundError extends _IOError {
 /**
  * Applicable when part of a file or directory cannot be found.
  */
-export class DirectoryNotFoundError extends _DirectoryNotFoundError {
+export class DirectoryNotFoundError extends AbstractDirectoryNotFoundError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

@@ -1,11 +1,11 @@
 import { ErrorOptions, PathTooLongErrorMessageProps, PathTooLongErrorProps } from '../CommonTypes';
-import { _IOError } from './IOError';
+import { AbstractIOError } from './IOError';
 
 /**
  * More information for Windows:
  * https://docs.microsoft.com/en-us/dotnet/api/system.io.pathtoolongexception?view=net-5.0
  */
-export class _PathTooLongError extends _IOError {
+export abstract class AbstractPathTooLongError extends AbstractIOError {
     public constructor(
         props: PathTooLongErrorProps,
         options: ErrorOptions<PathTooLongErrorMessageProps>,
@@ -21,7 +21,7 @@ export class _PathTooLongError extends _IOError {
  * More information for Windows:
  * https://docs.microsoft.com/en-us/dotnet/api/system.io.pathtoolongexception?view=net-5.0
  */
-export class PathTooLongError extends _PathTooLongError {
+export class PathTooLongError extends AbstractPathTooLongError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

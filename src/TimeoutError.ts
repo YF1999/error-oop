@@ -1,11 +1,8 @@
 import { ErrorOptions, TimeoutErrorMessageProps, TimeoutErrorProps } from './CommonTypes';
-import { _Error } from './NativeErrors';
+import { AbstractError } from './NativeErrors';
 
-export class _TimeoutError extends _Error {
-    public constructor(
-        props: TimeoutErrorProps,
-        options: ErrorOptions<TimeoutErrorMessageProps>,
-    ) {
+export abstract class AbstractTimeoutError extends AbstractError {
+    public constructor(props: TimeoutErrorProps, options: ErrorOptions<TimeoutErrorMessageProps>) {
         super(props, options);
     }
 }
@@ -13,7 +10,7 @@ export class _TimeoutError extends _Error {
 /**
  * Applicable when the time allotted for a process or operation has expired.
  */
-export class TimeoutError extends _TimeoutError {
+export class TimeoutError extends AbstractTimeoutError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

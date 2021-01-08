@@ -1,7 +1,7 @@
 import { ErrorOptions, SyntaxErrorMessageProps, SyntaxErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
-export class _SyntaxError extends SyntaxError {
+export abstract class AbstractSyntaxError extends SyntaxError {
     protected _innerError?: Error;
 
     public constructor(props: SyntaxErrorProps, options: ErrorOptions<SyntaxErrorMessageProps>) {
@@ -37,7 +37,7 @@ export class _SyntaxError extends SyntaxError {
  * Represents an error when trying to interpret syntactically invalid code. This is roughly the same
  * as the native SyntaxError class. It additionally supports an innerError attribute.
  */
-export class SyntaxErrorPro extends _SyntaxError {
+export class SyntaxErrorPro extends AbstractSyntaxError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

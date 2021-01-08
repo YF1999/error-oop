@@ -3,9 +3,9 @@ import {
     NotImplementedErrorMessageProps,
     NotImplementedErrorProps,
 } from './CommonTypes';
-import { _Error } from './NativeErrors';
+import { AbstractError } from './NativeErrors';
 
-export class _NotImplementedError extends _Error {
+export abstract class AbstractNotImplementedError extends AbstractError {
     public constructor(
         props: NotImplementedErrorProps,
         options: ErrorOptions<NotImplementedErrorMessageProps>,
@@ -17,7 +17,7 @@ export class _NotImplementedError extends _Error {
 /**
  * Applicable when a requested method or operation is not implemented.
  */
-export class NotImplementedError extends _NotImplementedError {
+export class NotImplementedError extends AbstractNotImplementedError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

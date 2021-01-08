@@ -1,7 +1,7 @@
 import { ArgumentErrorProps, ErrorOptions, ArgumentErrorMessageProps } from './CommonTypes';
-import { _Error } from './NativeErrors';
+import { AbstractError } from './NativeErrors';
 
-export class _ArgumentError extends _Error {
+export abstract class AbstractArgumentError extends AbstractError {
     protected _paramName?: string;
 
     public constructor(
@@ -28,7 +28,7 @@ export class _ArgumentError extends _Error {
 /**
  * Applicable when one of the arguments provided to a function or method is not valid.
  */
-export class ArgumentError extends _ArgumentError {
+export class ArgumentError extends AbstractArgumentError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

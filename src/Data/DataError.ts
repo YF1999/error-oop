@@ -1,11 +1,8 @@
 import { ErrorOptions, DataErrorMessageProps, DataErrorProps } from '../CommonTypes';
-import { _Error } from '../NativeErrors';
+import { AbstractError } from '../NativeErrors';
 
-export class _DataError extends _Error {
-    public constructor(
-        props: DataErrorProps,
-        options: ErrorOptions<DataErrorMessageProps>,
-    ) {
+export abstract class AbstractDataError extends AbstractError {
+    public constructor(props: DataErrorProps, options: ErrorOptions<DataErrorMessageProps>) {
         super(props, options);
     }
 }
@@ -13,7 +10,7 @@ export class _DataError extends _Error {
 /**
  * Applicable when an error occurs on or with an external data source.
  */
-export class DataError extends _DataError {
+export class DataError extends AbstractDataError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

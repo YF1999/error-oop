@@ -1,7 +1,7 @@
 import { ErrorOptions, OutOfMemoryErrorMessageProps, OutOfMemoryErrorProps } from './CommonTypes';
-import { _Error } from './NativeErrors';
+import { AbstractError } from './NativeErrors';
 
-export class _OutOfMemoryError extends _Error {
+export abstract class AbstractOutOfMemoryError extends AbstractError {
     public constructor(
         props: OutOfMemoryErrorProps,
         options: ErrorOptions<OutOfMemoryErrorMessageProps>,
@@ -13,7 +13,7 @@ export class _OutOfMemoryError extends _Error {
 /**
  * Applicable when there is not enough memory to continue the execution of a program.
  */
-export class OutOfMemoryError extends _OutOfMemoryError {
+export class OutOfMemoryError extends AbstractOutOfMemoryError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

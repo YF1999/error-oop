@@ -3,9 +3,9 @@ import {
     StackOverflowErrorMessageProps,
     StackOverflowErrorProps,
 } from './CommonTypes';
-import { _Error } from './NativeErrors';
+import { AbstractError } from './NativeErrors';
 
-export class _StackOverflowError extends _Error {
+export abstract class AbstractStackOverflowError extends AbstractError {
     public constructor(
         props: StackOverflowErrorProps,
         options: ErrorOptions<StackOverflowErrorMessageProps>,
@@ -17,7 +17,7 @@ export class _StackOverflowError extends _Error {
 /**
  * Applicable when the execution stack overflows because it contains too many nested method calls.
  */
-export class StackOverflowError extends _StackOverflowError {
+export class StackOverflowError extends AbstractStackOverflowError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

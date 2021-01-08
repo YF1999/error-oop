@@ -1,11 +1,7 @@
-import {
-    ErrorOptions,
-    ArgumentNullErrorMessageProps,
-    ArgumentNullErrorProps,
-} from './CommonTypes';
-import { _ArgumentError } from './ArgumentError';
+import { ErrorOptions, ArgumentNullErrorMessageProps, ArgumentNullErrorProps } from './CommonTypes';
+import { AbstractArgumentError } from './ArgumentError';
 
-export class _ArgumentNullError extends _ArgumentError {
+export abstract class AbstractArgumentNullError extends AbstractArgumentError {
     public constructor(
         props: ArgumentNullErrorProps,
         options: ErrorOptions<ArgumentNullErrorMessageProps>,
@@ -18,7 +14,7 @@ export class _ArgumentNullError extends _ArgumentError {
  * Applicable when a null reference or undefined is passed to a function or a method that does not
  * accept it as a valid argument.
  */
-export class ArgumentNullError extends _ArgumentNullError {
+export class ArgumentNullError extends AbstractArgumentNullError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

@@ -1,7 +1,7 @@
 import { ErrorOptions, TypeErrorMessageProps, TypeErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
-export class _TypeError extends TypeError {
+export abstract class AbstractTypeError extends TypeError {
     protected _innerError?: Error;
 
     public constructor(props: TypeErrorProps, options: ErrorOptions<TypeErrorMessageProps>) {
@@ -37,7 +37,7 @@ export class _TypeError extends TypeError {
  * Represents an error when a value is not of the expected type. This is roughly the same as the
  * native TypeError class. It additionally supports an innerError attribute.
  */
-export class TypeErrorPro extends _TypeError {
+export class TypeErrorPro extends AbstractTypeError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

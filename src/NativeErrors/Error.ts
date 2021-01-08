@@ -1,7 +1,7 @@
 import { ErrorOptions, ErrorProps, ErrorMessageProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
-export class _Error extends Error {
+export abstract class AbstractError extends Error {
     protected _innerError?: Error;
 
     public constructor(props: ErrorProps, options: ErrorOptions<ErrorMessageProps>) {
@@ -37,7 +37,7 @@ export class _Error extends Error {
  * This is roughly the same as the native Error class. It additionally supports an innerError
  * attribute.
  */
-export class ErrorPro extends _Error {
+export class ErrorPro extends AbstractError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

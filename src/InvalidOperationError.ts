@@ -3,9 +3,9 @@ import {
     InvalidOperationErrorMessageProps,
     InvalidOperationErrorProps,
 } from './CommonTypes';
-import { _Error } from './NativeErrors';
+import { AbstractError } from './NativeErrors';
 
-export class _InvalidOperationError extends _Error {
+export abstract class AbstractInvalidOperationError extends AbstractError {
     public constructor(
         props: InvalidOperationErrorProps,
         options: ErrorOptions<InvalidOperationErrorMessageProps>,
@@ -17,7 +17,7 @@ export class _InvalidOperationError extends _Error {
 /**
  * Applicable when a function call or a method call is invalid for the object's current state.
  */
-export class InvalidOperationError extends _InvalidOperationError {
+export class InvalidOperationError extends AbstractInvalidOperationError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

@@ -1,7 +1,7 @@
 import { ErrorOptions, URIErrorMessageProps, URIErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
-export class _URIError extends URIError {
+export abstract class AbstractURIError extends URIError {
     protected _innerError?: Error;
 
     public constructor(props: URIErrorProps, options: ErrorOptions<URIErrorMessageProps>) {
@@ -37,7 +37,7 @@ export class _URIError extends URIError {
  * Represents an error when a value is not of the expected type. This is roughly the same as the
  * native URIError class. It additionally supports an innerError attribute.
  */
-export class URIErrorPro extends _URIError {
+export class URIErrorPro extends AbstractURIError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

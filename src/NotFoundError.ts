@@ -1,7 +1,7 @@
 import { ErrorOptions, NotFoundErrorMessageProps, NotFoundErrorProps } from './CommonTypes';
-import { _Error } from './NativeErrors';
+import { AbstractError } from './NativeErrors';
 
-export class _NotFoundError extends _Error {
+export abstract class AbstractNotFoundError extends AbstractError {
     protected _entityName?: string;
 
     public constructor(
@@ -28,7 +28,7 @@ export class _NotFoundError extends _Error {
 /**
  * Applicable when an attempt to retrieve data yielded no result.
  */
-export class NotFoundError extends _NotFoundError {
+export class NotFoundError extends AbstractNotFoundError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

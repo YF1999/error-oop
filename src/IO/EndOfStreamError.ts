@@ -1,7 +1,7 @@
 import { ErrorOptions, EndOfStreamErrorMessageProps, EndOfStreamErrorProps } from '../CommonTypes';
-import { _IOError } from './IOError';
+import { AbstractIOError } from './IOError';
 
-export class _EndOfStreamError extends _IOError {
+export abstract class AbstractEndOfStreamError extends AbstractIOError {
     public constructor(
         props: EndOfStreamErrorProps,
         options: ErrorOptions<EndOfStreamErrorMessageProps>,
@@ -13,7 +13,7 @@ export class _EndOfStreamError extends _IOError {
 /**
  * Applicable when reading is attempted past the end of a stream.
  */
-export class EndOfStreamError extends _EndOfStreamError {
+export class EndOfStreamError extends AbstractEndOfStreamError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
