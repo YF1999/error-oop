@@ -1,10 +1,10 @@
-import { ErrorOptions, ErrorProps, ErrorMessageProps } from '../CommonTypes';
+import { ErrorOptions, SyntaxErrorMessageProps, SyntaxErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
-export class _Error extends Error {
+export class _SyntaxError extends SyntaxError {
     protected _innerError?: Error;
 
-    public constructor(props: ErrorProps, options: ErrorOptions<ErrorMessageProps>) {
+    public constructor(props: SyntaxErrorProps, options: ErrorOptions<SyntaxErrorMessageProps>) {
         super();
 
         const { message, innerError } = props;
@@ -34,10 +34,10 @@ export class _Error extends Error {
 }
 
 /**
- * This is roughly the same as the native Error class. It additionally supports an innerError
- * attribute.
+ * Represents an error when trying to interpret syntactically invalid code. This is roughly the same
+ * as the native SyntaxError class. It additionally supports an innerError attribute.
  */
-export class ErrorPro extends _Error {
+export class SyntaxErrorPro extends _SyntaxError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -51,6 +51,8 @@ export class ErrorPro extends _Error {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, { name: 'Error' });
+        super({ message, innerError }, { name: 'SyntaxError' });
     }
 }
+
+export { SyntaxErrorPro as SyntaxError };

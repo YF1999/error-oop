@@ -1,13 +1,10 @@
-import { ErrorOptions, URIErrorMessageProps, URIErrorProps } from '../CommonTypes';
+import { ErrorOptions, RangeErrorMessageProps, RangeErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
-export class _URIError extends URIError {
+export class _RangeError extends RangeError {
     protected _innerError?: Error;
 
-    public constructor(
-        props: URIErrorProps,
-        options: ErrorOptions<URIErrorMessageProps>,
-    ) {
+    public constructor(props: RangeErrorProps, options: ErrorOptions<RangeErrorMessageProps>) {
         super();
 
         const { message, innerError } = props;
@@ -37,10 +34,11 @@ export class _URIError extends URIError {
 }
 
 /**
- * Represents an error when a value is not of the expected type. This is roughly the same as the
- * native URIError class. It additionally supports an innerError attribute.
+ * Represents an error that occurs when a numeric variable or parameter is outside of its valid
+ * range. This is roughly the same as the native RangeError class. It additionally supports an
+ * innerError attribute.
  */
-export class URIErrorPro extends _URIError {
+export class RangeErrorPro extends _RangeError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -54,6 +52,8 @@ export class URIErrorPro extends _URIError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, { name: 'URIError' });
+        super({ message, innerError }, { name: 'RangeError' });
     }
 }
+
+export { RangeErrorPro as RangeError };

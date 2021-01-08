@@ -3,7 +3,7 @@ import {
     InvalidOperationErrorMessageProps,
     InvalidOperationErrorProps,
 } from './CommonTypes';
-import { _Error } from './NativeErrorsPro';
+import { _Error } from './NativeErrors';
 
 export class _InvalidOperationError extends _Error {
     public constructor(

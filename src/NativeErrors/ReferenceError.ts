@@ -1,8 +1,4 @@
-import {
-    ErrorOptions,
-    ReferenceErrorMessageProps,
-    ReferenceErrorProps,
-} from '../CommonTypes';
+import { ErrorOptions, ReferenceErrorMessageProps, ReferenceErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
 export class _ReferenceError extends ReferenceError {
@@ -61,3 +57,5 @@ export class ReferenceErrorPro extends _ReferenceError {
         super({ message, innerError }, { name: 'ReferenceError' });
     }
 }
+
+export { ReferenceErrorPro as ReferenceError };

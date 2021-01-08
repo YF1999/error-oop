@@ -1,5 +1,5 @@
 import { ErrorOptions, DataErrorMessageProps, DataErrorProps } from '../CommonTypes';
-import { _Error } from '../NativeErrorsPro';
+import { _Error } from '../NativeErrors';
 
 export class _DataError extends _Error {
     public constructor(

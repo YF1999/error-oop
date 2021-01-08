@@ -4,10 +4,7 @@ import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 export class _TypeError extends TypeError {
     protected _innerError?: Error;
 
-    public constructor(
-        props: TypeErrorProps,
-        options: ErrorOptions<TypeErrorMessageProps>,
-    ) {
+    public constructor(props: TypeErrorProps, options: ErrorOptions<TypeErrorMessageProps>) {
         super();
 
         const { message, innerError } = props;
@@ -57,3 +54,5 @@ export class TypeErrorPro extends _TypeError {
         super({ message, innerError }, { name: 'TypeError' });
     }
 }
+
+export { TypeErrorPro as TypeError };

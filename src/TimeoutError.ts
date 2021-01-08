@@ -1,5 +1,5 @@
 import { ErrorOptions, TimeoutErrorMessageProps, TimeoutErrorProps } from './CommonTypes';
-import { _Error } from './NativeErrorsPro';
+import { _Error } from './NativeErrors';
 
 export class _TimeoutError extends _Error {
     public constructor(

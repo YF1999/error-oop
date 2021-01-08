@@ -1,5 +1,5 @@
 import { ArgumentErrorProps, ErrorOptions, ArgumentErrorMessageProps } from './CommonTypes';
-import { _Error } from './NativeErrorsPro';
+import { _Error } from './NativeErrors';
 
 export class _ArgumentError extends _Error {
     protected _paramName?: string;

@@ -1,5 +1,5 @@
 import { ErrorOptions, NotPermittedErrorMessageProps, NotPermittedErrorProps } from './CommonTypes';
-import { _Error } from './NativeErrorsPro';
+import { _Error } from './NativeErrors';
 
 export class _NotPermittedError extends _Error {
     public constructor(
