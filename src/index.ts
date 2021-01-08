@@ -9,6 +9,8 @@ export * from './ArgumentOutOfRangeError';
 export * from './AuthenticationError';
 export * from './AuthenticationRequiredError';
 export * from './ConnectionError';
+export * from './Data/DataError';
+export * from './Data/TransactionError';
 export * from './InvalidOperationError';
 export * from './IO/DirectoryNotFoundError';
 export * from './IO/DriveNotFoundError';

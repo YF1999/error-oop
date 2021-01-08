@@ -1,4 +1,4 @@
-// Node
+// Native Errors Pro
 
 export interface ErrorProps {
     message: string;
@@ -10,12 +10,21 @@ export interface SyntaxErrorProps extends ErrorProps {}
 export interface TypeErrorProps extends ErrorProps {}
 export interface URIErrorProps extends ErrorProps {}
 
-// Error
+// More Useful Errors
 
 export interface AlreadyInUseErrorProps extends ErrorProps {
     entityName: string;
     inUse: string[];
 }
+export interface ArgumentErrorProps extends ErrorProps {
+    paramName?: string;
+}
+export interface ArgumentNullErrorProps extends ArgumentErrorProps {}
+export interface ArgumentOutOfRangeErrorProps extends ArgumentErrorProps {
+    actualValue?: string;
+}
+export interface AuthenticationErrorProps extends ErrorProps {}
+export interface AuthenticationRequiredErrorProps extends AuthenticationErrorProps {}
 export interface ConnectionErrorProps extends ErrorProps {}
 export interface InvalidOperationErrorProps extends ErrorProps {}
 export interface NotFoundErrorProps extends ErrorProps {
@@ -28,22 +37,12 @@ export interface OutOfMemoryErrorProps extends ErrorProps {}
 export interface StackOverflowErrorProps extends ErrorProps {}
 export interface TimeoutErrorProps extends ErrorProps {}
 
-// Error.Argument
+// Data
 
-export interface ArgumentErrorProps extends ErrorProps {
-    paramName?: string;
-}
-export interface ArgumentNullErrorProps extends ArgumentErrorProps {}
-export interface ArgumentOutOfRangeErrorProps extends ArgumentErrorProps {
-    actualValue?: string;
-}
+export interface DataErrorProps extends ErrorProps {}
+export interface TransactionErrorProps extends DataErrorProps {}
 
-// Error.Authentication
-
-export interface AuthenticationErrorProps extends ErrorProps {}
-export interface AuthenticationRequiredErrorProps extends ErrorProps {}
-
-// Error.IO
+// IO
 
 export interface IOErrorProps extends ErrorProps {}
 export interface DirectoryNotFoundErrorProps extends IOErrorProps {}

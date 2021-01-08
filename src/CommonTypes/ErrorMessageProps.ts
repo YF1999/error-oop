@@ -1,4 +1,4 @@
-// Node
+// Native Errors Pro
 
 export interface ErrorMessageProps {
     name: string;
@@ -10,12 +10,21 @@ export interface SyntaxErrorMessageProps extends ErrorMessageProps {}
 export interface TypeErrorMessageProps extends ErrorMessageProps {}
 export interface URIErrorMessageProps extends ErrorMessageProps {}
 
-// Error
+// More Useful Errors
 
 export interface AlreadyInUseErrorMessageProps extends ErrorMessageProps {
     entityName: string;
     inUse: string[];
 }
+export interface ArgumentErrorMessageProps extends ErrorMessageProps {
+    paramName?: string;
+}
+export interface ArgumentNullErrorMessageProps extends ArgumentErrorMessageProps {}
+export interface ArgumentOutOfRangeMessageProps extends ArgumentErrorMessageProps {
+    actualValue?: string;
+}
+export interface AuthenticationErrorMessageProps extends ErrorMessageProps {}
+export interface AuthenticationRequiredErrorMessageProps extends AuthenticationErrorMessageProps {}
 export interface ConnectionErrorMessageProps extends ErrorMessageProps {}
 export interface InvalidOperationErrorMessageProps extends ErrorMessageProps {}
 export interface NotFoundErrorMessageProps extends ErrorMessageProps {
@@ -28,22 +37,12 @@ export interface OutOfMemoryErrorMessageProps extends ErrorMessageProps {}
 export interface StackOverflowErrorMessageProps extends ErrorMessageProps {}
 export interface TimeoutErrorMessageProps extends ErrorMessageProps {}
 
-// Error.Argument
+// Data
 
-export interface ArgumentErrorMessageProps extends ErrorMessageProps {
-    paramName?: string;
-}
-export interface ArgumentNullErrorMessageProps extends ArgumentErrorMessageProps {}
-export interface ArgumentOutOfRangeMessageProps extends ArgumentErrorMessageProps {
-    actualValue?: string;
-}
+export interface DataErrorMessageProps extends ErrorMessageProps {}
+export interface TransactionErrorMessageProps extends DataErrorMessageProps {}
 
-// Error.Authentication
-
-export interface AuthenticationErrorMessageProps extends ErrorMessageProps {}
-export interface AuthenticationRequiredErrorMessageProps extends ErrorMessageProps {}
-
-// Error.IO
+// IO
 
 export interface IOErrorMessageProps extends ErrorMessageProps {}
 export interface DirectoryNotFoundErrorMessageProps extends IOErrorMessageProps {}
