@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    tags: v*
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+
+jobs:
+  Publish:
+    runs-on: ubuntu-latest
+    timeout-munutes: 3
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup NPM token
+        run: echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+
+      - name: Setup Node.js environment
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+
+      - name: Setup node modules
+        run: yarn install
+
+      - name: Build
+        run: yarn build
+
+      - name: Publish
+        run: npm publish
