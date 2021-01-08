@@ -3,6 +3,10 @@ export const switches = {
         moreUsefulErrors: true,
         nativeErrorsPro: true,
     },
+    errorName: {
+        moreUsefulErrors: true,
+        nativeErrorsPro: true,
+    },
     noEnumerableFields: {
         moreUsefulErrors: true,
         nativeErrorsPro: true,
