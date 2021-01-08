@@ -20,7 +20,7 @@ export abstract class AbstractNotFoundError extends AbstractError {
         this._setNonEnumerable('_entityName');
     }
 
-    public get entityName() {
+    public get entityName(): string | undefined {
         return this._entityName;
     }
 }

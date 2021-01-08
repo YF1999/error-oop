@@ -20,7 +20,7 @@ export abstract class AbstractArgumentError extends AbstractError {
         this._setNonEnumerable('_paramName');
     }
 
-    public get paramName() {
+    public get paramName(): string | undefined {
         return this._paramName;
     }
 }

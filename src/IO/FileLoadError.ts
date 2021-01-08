@@ -20,7 +20,7 @@ export abstract class AbstractFileLoadError extends AbstractIOError {
         this._setNonEnumerable('_fileName');
     }
 
-    public get fileName() {
+    public get fileName(): string | undefined {
         return this._fileName;
     }
 }

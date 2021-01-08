@@ -20,7 +20,7 @@ export abstract class AbstractAlreadyInUseError extends AbstractError {
         this._setNonEnumerable('_entityName');
     }
 
-    public get entityName() {
+    public get entityName(): string {
         return this._entityName;
     }
 }

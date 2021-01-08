@@ -24,7 +24,7 @@ export abstract class AbstractArgumentOutOfRangeError extends AbstractArgumentEr
         this._setNonEnumerable('_actualValue');
     }
 
-    public get actualValue() {
+    public get actualValue(): string | undefined {
         return this._actualValue;
     }
 }
