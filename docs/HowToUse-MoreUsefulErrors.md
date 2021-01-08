@@ -1,4 +1,31 @@
 # How To Use More Useful Errors
+
+- [AlreadyInUseError](#AlreadyInUseError)
+- [ArgumentError](#ArgumentError)
+    - [ArgumentNullError](#ArgumentNullError)
+    - [ArgumentOutOfRangeError](#ArgumentOutOfRangeError)
+- [AuthenticationError](#AuthenticationError)
+    - [AuthenticationRequiredError](#AuthenticationRequiredError)
+- [ConnectionError](#ConnectionError)
+- [DataError](#DataError)
+    - [TransactionError](#TransactionError)
+- [InvalidOperationError](#InvalidOperationError)
+- [IOError](#IOError)
+    - [DirectoryNotFoundError](#DirectoryNotFoundError)
+    - [DriveNotFoundError](#DriveNotFoundError)
+    - [EndOfStreamError](#EndOfStreamError)
+    - [FileLoadError](#FileLoadError)
+    - [FileNotFoundError](#FileNotFoundError)
+    - [PathTooLongError](#PathTooLongError)
+    - [SocketError](#SocketError)
+- [NotFoundError](#NotFoundError)
+- [NotImplementedError](#NotImplementedError)
+- [NotPermittedError](#NotPermittedError)
+- [NotSupportedError](#NotSupportedError)
+- [OutOfMemoryError](#OutOfMemoryError)
+- [StackOverflowError](#StackOverflowError)
+- [TimeoutError](#TimeoutError)
+
 ## AlreadyInUseError
 
 Applicable when a resource is already in use, for example unique key constraints like a username.
@@ -141,6 +168,44 @@ new ConnectionError(message?, innerError?)
 
 ```ts
 throw new ConnectionError('Database connection no longer available');
+```
+
+## DataError
+
+Applicable when an error occurs on or with an external data source.
+
+```ts
+new DataError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new DataError('Too many rows returned from database');
+```
+
+## TransactionError
+
+Applicable when attempt to do work on a transaction that cannot accept new work.
+
+```ts
+new TransactionError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new TransactionError('Transaction already complete');
 ```
 
 ## InvalidOperationError

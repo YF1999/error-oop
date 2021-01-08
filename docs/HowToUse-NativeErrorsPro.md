@@ -1,4 +1,12 @@
 # How To Use Native Errors Pro
+
+- [ErrorPro (or Error)](#ErrorPro)
+- [RangeErrorPro (or RangeError)](#RangeErrorPro)
+- [ReferenceErrorPro (or ReferenceError)](#ReferenceErrorPro)
+- [SyntaxErrorPro (or SyntaxError)](#SyntaxErrorPro)
+- [TypeErrorPro (or TypeError)](#TypeErrorPro)
+- [URIErrorPro (or URIError)](#URIErrorPro)
+
 ## ErrorPro
 
 The `ErrorPro`, also named `Error`, is roughly the same as the native `Error` class. It additionally supports an innerError attribute.

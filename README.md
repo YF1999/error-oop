@@ -33,6 +33,8 @@ Click to know how to use them.
 - [AuthenticationError](./docs/HowToUse-MoreUsefulErrors.md#AuthenticationError)
     - [AuthenticationRequiredError](./docs/HowToUse-MoreUsefulErrors.md#AuthenticationRequiredError)
 - [ConnectionError](./docs/HowToUse-MoreUsefulErrors.md#ConnectionError)
+- [DataError](./docs/HowToUse-MoreUsefulErrors.md#DataError)
+    - [TransactionError](./docs/HowToUse-MoreUsefulErrors.md#TransactionError)
 - [InvalidOperationError](./docs/HowToUse-MoreUsefulErrors.md#InvalidOperationError)
 - [IOError](./docs/HowToUse-MoreUsefulErrors.md#IOError)
     - [DirectoryNotFoundError](./docs/HowToUse-MoreUsefulErrors.md#DirectoryNotFoundError)
