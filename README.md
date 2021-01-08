@@ -54,6 +54,8 @@ Click to know how to use them.
     - [PathTooLongError](./docs/HowToUse-MoreUsefulErrors.md#PathTooLongError)
     - [SocketError](./docs/HowToUse-MoreUsefulErrors.md#SocketError)
 
+If you want to create your own custom errors, please see [How To Create Custom Errors](./docs/HowToCreateCustomErrors.md).
+
 ### Errors to Support
 
 - IndexOutOfRangeError
