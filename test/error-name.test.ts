@@ -92,6 +92,7 @@ describe('More-Useful-Errors', () => {
     const AuthenticationError = 'AuthenticationError';
     const AuthenticationRequiredError = 'AuthenticationRequiredError';
     const ConnectionError = 'ConnectionError';
+    const DataError = 'DataError';
     const DirectoryNotFoundError = 'DirectoryNotFoundError';
     const DriveNotFoundError = 'DriveNotFoundError';
     const EndOfStreamError = 'EndOfStreamError';
@@ -107,6 +108,7 @@ describe('More-Useful-Errors', () => {
     const PathTooLongError = 'PathTooLongError';
     const SocketError = 'SocketError';
     const StackOverflowError = 'StackOverflowError';
+    const TransactionError = 'TransactionError';
     const TimeoutError = 'TimeoutError';
     /* eslint-enable @typescript-eslint/naming-convention */
 
@@ -198,6 +200,16 @@ describe('More-Useful-Errors', () => {
         expect(err1.name).toBe(ConnectionError);
         expect(err2.name).toBe(ConnectionError);
         expect(err3.name).toBe(ConnectionError);
+    });
+
+    test(DataError, () => {
+        const err1 = new errors[DataError]();
+        const err2 = new errors[DataError]('error');
+        const err3 = new errors[DataError]('error', err2);
+
+        expect(err1.name).toBe(DataError);
+        expect(err2.name).toBe(DataError);
+        expect(err3.name).toBe(DataError);
     });
 
     test(DirectoryNotFoundError, () => {
@@ -360,6 +372,16 @@ describe('More-Useful-Errors', () => {
         expect(err1.name).toBe(StackOverflowError);
         expect(err2.name).toBe(StackOverflowError);
         expect(err3.name).toBe(StackOverflowError);
+    });
+
+    test(TransactionError, () => {
+        const err1 = new errors[TransactionError]();
+        const err2 = new errors[TransactionError]('error');
+        const err3 = new errors[TransactionError]('error', err2);
+
+        expect(err1.name).toBe(TransactionError);
+        expect(err2.name).toBe(TransactionError);
+        expect(err3.name).toBe(TransactionError);
     });
 
     test(TimeoutError, () => {

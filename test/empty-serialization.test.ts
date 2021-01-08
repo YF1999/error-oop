@@ -92,6 +92,7 @@ describe('More-Useful-Errors', () => {
     const AuthenticationError = 'AuthenticationError';
     const AuthenticationRequiredError = 'AuthenticationRequiredError';
     const ConnectionError = 'ConnectionError';
+    const DataError = 'DataError';
     const DirectoryNotFoundError = 'DirectoryNotFoundError';
     const DriveNotFoundError = 'DriveNotFoundError';
     const EndOfStreamError = 'EndOfStreamError';
@@ -107,6 +108,7 @@ describe('More-Useful-Errors', () => {
     const PathTooLongError = 'PathTooLongError';
     const SocketError = 'SocketError';
     const StackOverflowError = 'StackOverflowError';
+    const TransactionError = 'TransactionError';
     const TimeoutError = 'TimeoutError';
     /* eslint-enable @typescript-eslint/naming-convention */
 
@@ -194,6 +196,16 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[ConnectionError]();
         const err2 = new errors[ConnectionError]('error');
         const err3 = new errors[ConnectionError]('error', err2);
+
+        expect(JSON.stringify(err1)).toBe('{}');
+        expect(JSON.stringify(err2)).toBe('{}');
+        expect(JSON.stringify(err3)).toBe('{}');
+    });
+
+    test(DataError, () => {
+        const err1 = new errors[DataError]();
+        const err2 = new errors[DataError]('error');
+        const err3 = new errors[DataError]('error', err2);
 
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');
@@ -356,6 +368,16 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[StackOverflowError]();
         const err2 = new errors[StackOverflowError]('error');
         const err3 = new errors[StackOverflowError]('error', err2);
+
+        expect(JSON.stringify(err1)).toBe('{}');
+        expect(JSON.stringify(err2)).toBe('{}');
+        expect(JSON.stringify(err3)).toBe('{}');
+    });
+
+    test(TransactionError, () => {
+        const err1 = new errors[TransactionError]();
+        const err2 = new errors[TransactionError]('error');
+        const err3 = new errors[TransactionError]('error', err2);
 
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');
