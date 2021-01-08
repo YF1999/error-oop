@@ -2,22 +2,12 @@
 
 - [AlreadyInUseError](#AlreadyInUseError)
 - [ArgumentError](#ArgumentError)
-    - [ArgumentNullError](#ArgumentNullError)
-    - [ArgumentOutOfRangeError](#ArgumentOutOfRangeError)
+- [ArgumentNullError](#ArgumentNullError)
+- [ArgumentOutOfRangeError](#ArgumentOutOfRangeError)
 - [AuthenticationError](#AuthenticationError)
-    - [AuthenticationRequiredError](#AuthenticationRequiredError)
+- [AuthenticationRequiredError](#AuthenticationRequiredError)
 - [ConnectionError](#ConnectionError)
-- [DataError](#DataError)
-    - [TransactionError](#TransactionError)
 - [InvalidOperationError](#InvalidOperationError)
-- [IOError](#IOError)
-    - [DirectoryNotFoundError](#DirectoryNotFoundError)
-    - [DriveNotFoundError](#DriveNotFoundError)
-    - [EndOfStreamError](#EndOfStreamError)
-    - [FileLoadError](#FileLoadError)
-    - [FileNotFoundError](#FileNotFoundError)
-    - [PathTooLongError](#PathTooLongError)
-    - [SocketError](#SocketError)
 - [NotFoundError](#NotFoundError)
 - [NotImplementedError](#NotImplementedError)
 - [NotPermittedError](#NotPermittedError)
@@ -25,6 +15,18 @@
 - [OutOfMemoryError](#OutOfMemoryError)
 - [StackOverflowError](#StackOverflowError)
 - [TimeoutError](#TimeoutError)
+- Data
+    - [DataError](#DataError)
+    - [TransactionError](#TransactionError)
+- IO
+    - [DirectoryNotFoundError](#DirectoryNotFoundError)
+    - [DriveNotFoundError](#DriveNotFoundError)
+    - [EndOfStreamError](#EndOfStreamError)
+    - [FileLoadError](#FileLoadError)
+    - [FileNotFoundError](#FileNotFoundError)
+    - [IOError](#IOError)
+    - [PathTooLongError](#PathTooLongError)
+    - [SocketError](#SocketError)
 
 ## AlreadyInUseError
 
@@ -170,33 +172,6 @@ new ConnectionError(message?, innerError?)
 throw new ConnectionError('Database connection no longer available');
 ```
 
-## DataError
-
-Applicable when an error occurs on or with an external data source.
-
-```ts
-new DataError(message?, innerError?)
-```
-
-### Arguments
-
-- `message` The error message that explains the reason for this error.
-- `innerError` The error that is the cause of the current error. Stack trace will be appended.
-
-### Example
-
-```ts
-throw new DataError('Too many rows returned from database');
-```
-
-## TransactionError
-
-Applicable when attempt to do work on a transaction that cannot accept new work.
-
-```ts
-new TransactionError(message?, innerError?)
-```
-
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
@@ -225,6 +200,168 @@ new InvalidOperationError(message?, innerError?)
 
 ```ts
 throw new InvalidOperationError('Invalid operation for ...');
+```
+
+## NotFoundError
+
+Applicable when an attempt to retrieve data yielded no result.
+
+```ts
+new NotFoundError(message?, innerError?)
+new NotFoundError(message?, fileName?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `entityName` The entity which is not found.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new NotFoundError('username not found', 'username');
+```
+
+## NotImplementedError
+
+Applicable when a requested method or operation is not implemented.
+
+```ts
+new NotImplementedError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new NotImplementedError('Method is not yet implemented');
+```
+
+## NotPermittedError
+
+Applicable when an operation is not permitted.
+
+```ts
+new NotPermittedError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new NotPermittedError('username cannot be changed once set');
+```
+
+## NotSupportedError
+
+Applicable when an invoked method is not supported, or when there is an attempt to read, seek, or write to a stream that does not support the invoked functionality.
+
+```ts
+new NotSupportedError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new NotSupportedError('Not support mp3 file yet');
+```
+
+## OutOfMemoryError
+
+Applicable when there is not enough memory to continue the execution of a program.
+
+```ts
+new OutOfMemoryError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new OutOfMemoryError('Maximum mem size exceeded');
+```
+
+## StackOverflowError
+
+Applicable when the execution stack overflows because it contains too many nested method calls.
+
+```ts
+new StackOverflowError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new StackOverflowError('Stack overflow detected', innerError);
+```
+
+## TimeoutError
+
+Applicable when the time allotted for a process or operation has expired.
+
+```ts
+new TimeoutError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new TimeoutError("Timeout exceeded '470ms'");
+```
+
+## DataError
+
+Applicable when an error occurs on or with an external data source.
+
+```ts
+new DataError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new DataError('Too many rows returned from database');
+```
+
+## TransactionError
+
+Applicable when attempt to do work on a transaction that cannot accept new work.
+
+```ts
+new TransactionError(message?, innerError?)
 ```
 
 ## IOError
@@ -381,139 +518,4 @@ new SocketError(message?, innerError?)
 
 ```ts
 throw new SocketError('Socket no longer available');
-```
-
-## NotFoundError
-
-Applicable when an attempt to retrieve data yielded no result.
-
-```ts
-new NotFoundError(message?, innerError?)
-new NotFoundError(message?, fileName?, innerError?)
-```
-
-### Arguments
-
-- `message` The error message that explains the reason for this error.
-- `entityName` The entity which is not found.
-- `innerError` The error that is the cause of the current error. Stack trace will be appended.
-
-### Example
-
-```ts
-throw new NotFoundError('username not found', 'username');
-```
-
-## NotImplementedError
-
-Applicable when a requested method or operation is not implemented.
-
-```ts
-new NotImplementedError(message?, innerError?)
-```
-
-### Arguments
-
-- `message` The error message that explains the reason for this error.
-- `innerError` The error that is the cause of the current error. Stack trace will be appended.
-
-### Example
-
-```ts
-throw new NotImplementedError('Method is not yet implemented');
-```
-
-## NotPermittedError
-
-Applicable when an operation is not permitted.
-
-```ts
-new NotPermittedError(message?, innerError?)
-```
-
-### Arguments
-
-- `message` The error message that explains the reason for this error.
-- `innerError` The error that is the cause of the current error. Stack trace will be appended.
-
-### Example
-
-```ts
-throw new NotPermittedError('username cannot be changed once set');
-```
-
-## NotSupportedError
-
-Applicable when an invoked method is not supported, or when there is an attempt to read, seek, or write to a stream that does not support the invoked functionality.
-
-```ts
-new NotSupportedError(message?, innerError?)
-```
-
-### Arguments
-
-- `message` The error message that explains the reason for this error.
-- `innerError` The error that is the cause of the current error. Stack trace will be appended.
-
-### Example
-
-```ts
-throw new NotSupportedError('Not support mp3 file yet');
-```
-
-## OutOfMemoryError
-
-Applicable when there is not enough memory to continue the execution of a program.
-
-```ts
-new OutOfMemoryError(message?, innerError?)
-```
-
-### Arguments
-
-- `message` The error message that explains the reason for this error.
-- `innerError` The error that is the cause of the current error. Stack trace will be appended.
-
-### Example
-
-```ts
-throw new OutOfMemoryError('Maximum mem size exceeded');
-```
-
-## StackOverflowError
-
-Applicable when the execution stack overflows because it contains too many nested method calls.
-
-```ts
-new StackOverflowError(message?, innerError?)
-```
-
-### Arguments
-
-- `message` The error message that explains the reason for this error.
-- `innerError` The error that is the cause of the current error. Stack trace will be appended.
-
-### Example
-
-```ts
-throw new StackOverflowError('Stack overflow detected', innerError);
-```
-
-## TimeoutError
-
-Applicable when the time allotted for a process or operation has expired.
-
-```ts
-new TimeoutError(message?, innerError?)
-```
-
-### Arguments
-
-- `message` The error message that explains the reason for this error.
-- `innerError` The error that is the cause of the current error. Stack trace will be appended.
-
-### Example
-
-```ts
-throw new TimeoutError("Timeout exceeded '470ms'");
 ```
