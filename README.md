@@ -51,3 +51,10 @@ Click to know how to use them.
 - [OutOfMemoryError](./docs/HowToUse-MoreUsefulErrors.md#OutOfMemoryError)
 - [StackOverflowError](./docs/HowToUse-MoreUsefulErrors.md#StackOverflowError)
 - [TimeoutError](./docs/HowToUse-MoreUsefulErrors.md#TimeoutError)
+
+### Errors to Support
+
+- OperationCanceledError
+- UnauthorizedAccessError
+- ValidationError
+- IO.InvalidDataError
