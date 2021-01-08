@@ -29,7 +29,7 @@ throw new ErrorPro('any message', innerError);
 Or use `Error`, but don't forget importing it:
 
 ```ts
-import { Error } from 'node-errors-es';
+import { Error } from 'node-errors-pro';
 
 throw new Error('any message', innerError);
 ```
@@ -58,7 +58,7 @@ throw new RangeErrorPro(`Value must be between ${min} and ${max}`);
 Or use `RangeError`, but don't forget importing it:
 
 ```ts
-import { RangeError } from 'node-errros-es';
+import { RangeError } from 'node-errors-pro';
 
 throw new RangeError(`Value must be between ${min} and ${max}`);
 ```
@@ -87,7 +87,7 @@ throw new ReferenceErrorPro('variable xxx is not defined');
 Or use `ReferenceError`, but don't forget importing it:
 
 ```ts
-import { ReferenceError } from 'node-errros-es';
+import { ReferenceError } from 'node-errors-pro';
 
 throw new ReferenceError('variable xxx is not defined');
 ```
@@ -116,7 +116,7 @@ throw new SyntaxErrorPro("Unexpected token '('");
 Or use `SyntaxError`, but don't forget importing it:
 
 ```ts
-import { SyntaxError } from 'node-errros-es';
+import { SyntaxError } from 'node-errors-pro';
 
 throw new SyntaxError("Unexpected token '('");
 ```
@@ -145,7 +145,7 @@ throw new TypeErrorPro("callback must be a function");
 Or use `TypeError`, but don't forget importing it:
 
 ```ts
-import { TypeError } from 'node-errros-es';
+import { TypeError } from 'node-errors-pro';
 
 throw new TypeError("callback must be a function");
 ```
@@ -174,7 +174,7 @@ throw new URIErrorPro("URI malformed");
 Or use `URIError`, but don't forget importing it:
 
 ```ts
-import { URIError } from 'node-errros-es';
+import { URIError } from 'node-errors-pro';
 
 throw new URIError("URI malformed");
 ```

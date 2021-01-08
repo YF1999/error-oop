@@ -1,15 +1,15 @@
-# node-errors-es
+# node-errors-pro
 
 More error classes for nodejs.
 
-- Full suite of node.js Error classes like most other modern languages
+- Full suite of node.js Error classes.
 - Append stack traces from other generated Errors
 - Full typescript code, provide typescript declarations
 - Support CommonJS and ESModule, support tree shaking
 
 ## Install
 
-`npm install node-errors-es` or `yarn add node-errors-es`.
+`npm install node-errors-pro` or `yarn add node-errors-pro`.
 
 ## Errors
 
@@ -56,7 +56,11 @@ Click to know how to use them.
 
 ### Errors to Support
 
+- IndexOutOfRangeError
 - OperationCanceledError
 - UnauthorizedAccessError
 - ValidationError
-- IO.InvalidDataError
+- Data
+    - SQLError
+- IO
+    - InvalidDataError

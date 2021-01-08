@@ -1,20 +1,20 @@
 {
-    "name": "node-errors-es",
+    "name": "node-errors-pro",
     "version": "0.0.0",
     "description": "More error classes for nodejs",
     "main": "cjs/index.js",
     "module": "esm/index.js",
     "types": "types/index.d.ts",
-    "homepage": "https://github.com/YF1999/node-errors-es#readme",
+    "homepage": "https://github.com/YF1999/node-errors-pro#readme",
     "license": "MIT",
     "author": {
         "name": "YF1999",
         "url": "https://github.com/YF1999"
     },
     "bugs": {
-        "url": "https://github.com/YF1999/node-errors-es/issues"
+        "url": "https://github.com/YF1999/node-errors-pro/issues"
     },
-    "repository": "https://github.com/YF1999/node-errors-es",
+    "repository": "https://github.com/YF1999/node-errors-pro",
     "eslintConfig": {
         "extends": ".eslintrc.js"
     },
