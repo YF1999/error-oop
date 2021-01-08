@@ -36,6 +36,8 @@ new RangeError(message?, innerError?)
 ### Example
 
 ```ts
+import { RangeError } from 'node-errros-es';
+
 throw new RangeError(`Value must be between ${min} and ${max}`);
 ```
 
@@ -55,6 +57,8 @@ new ReferenceError(message?, innerError?)
 ### Example
 
 ```ts
+import { ReferenceError } from 'node-errros-es';
+
 throw new ReferenceError('variable xxx is not defined');
 ```
 
@@ -74,6 +78,8 @@ new SyntaxError(message?, innerError?)
 ### Example
 
 ```ts
+import { SyntaxError } from 'node-errros-es';
+
 throw new SyntaxError("Unexpected token '('");
 ```
 
@@ -93,6 +99,8 @@ new TypeError(message?, innerError?)
 ### Example
 
 ```ts
+import { TypeError } from 'node-errros-es';
+
 throw new TypeError("callback must be a function");
 ```
 
@@ -112,5 +120,7 @@ new URIError(message?, innerError?)
 ### Example
 
 ```ts
+import { URIError } from 'node-errros-es';
+
 throw new URIError("URI malformed");
 ```
