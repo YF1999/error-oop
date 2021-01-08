@@ -1,6 +1,6 @@
 {
     "name": "node-errors-pro",
-    "version": "0.0.0",
+    "version": "0.1.0-alpha",
     "description": "More error classes for nodejs",
     "main": "cjs/index.js",
     "module": "esm/index.js",
