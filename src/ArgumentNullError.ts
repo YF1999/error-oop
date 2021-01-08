@@ -1,34 +1,24 @@
-import { ArgumentErrorProps, ErrorOptions, ArgumentErrorMessageProps } from '../CommonTypes';
-import { _Error } from '../NativeErrorsPro';
+import {
+    ErrorOptions,
+    ArgumentNullErrorMessageProps,
+    ArgumentNullErrorProps,
+} from './CommonTypes';
+import { _ArgumentError } from './ArgumentError';
 
-export class _ArgumentError extends _Error {
-    protected _paramName?: string;
-
+export class _ArgumentNullError extends _ArgumentError {
     public constructor(
-        props: ArgumentErrorProps,
-        options: ErrorOptions<ArgumentErrorMessageProps>,
+        props: ArgumentNullErrorProps,
+        options: ErrorOptions<ArgumentNullErrorMessageProps>,
     ) {
-        const { paramName } = props;
-        const { generateMessage: gm, ...others } = options;
-
-        super(props, {
-            generateMessage: gm && ((_props) => gm({ ..._props, paramName })),
-            ...others,
-        });
-
-        this._paramName = paramName;
-        this._setNonEnumerable('_paramName');
-    }
-
-    public get paramName() {
-        return this._paramName;
+        super(props, options);
     }
 }
 
 /**
- * Applicable when one of the arguments provided to a function or method is not valid.
+ * Applicable when a null reference or undefined is passed to a function or a method that does not
+ * accept it as a valid argument.
  */
-export class ArgumentError extends _ArgumentError {
+export class ArgumentNullError extends _ArgumentNullError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -54,7 +44,7 @@ export class ArgumentError extends _ArgumentError {
     public constructor(message: string, paramName: string, innerError: Error);
 
     public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
-        function generateMessage(props: ArgumentErrorMessageProps) {
+        function generateMessage(props: ArgumentNullErrorMessageProps) {
             return props.paramName
                 ? `${props.message} (Parameter '${props.paramName}')`
                 : props.message;

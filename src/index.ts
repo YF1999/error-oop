@@ -3,11 +3,11 @@ export * from './CommonTypes';
 export * from './NativeErrorsPro';
 
 export * from './AlreadyInUseError';
-export * from './Argument/ArgumentError';
-export * from './Argument/ArgumentNullError';
-export * from './Argument/ArgumentOutOfRangeError';
-export * from './Authentication/AuthenticationError';
-export * from './Authentication/AuthenticationRequiredError';
+export * from './ArgumentError';
+export * from './ArgumentNullError';
+export * from './ArgumentOutOfRangeError';
+export * from './AuthenticationError';
+export * from './AuthenticationRequiredError';
 export * from './ConnectionError';
 export * from './InvalidOperationError';
 export * from './IO/DirectoryNotFoundError';

@@ -2,7 +2,7 @@ import {
     ErrorOptions,
     ArgumentOutOfRangeMessageProps,
     ArgumentOutOfRangeErrorProps,
-} from '../CommonTypes';
+} from './CommonTypes';
 import { _ArgumentError } from './ArgumentError';
 
 export class _ArgumentOutOfRangeError extends _ArgumentError {
