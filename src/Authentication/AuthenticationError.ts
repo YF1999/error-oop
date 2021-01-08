@@ -3,7 +3,7 @@ import {
     AuthenticationErrorMessageProps,
     AuthenticationErrorProps,
 } from '../CommonTypes';
-import { _Error } from '../ExtendedNodeError';
+import { _Error } from '../NativeErrorsPro';
 
 export class _AuthenticationError extends _Error {
     public constructor(

@@ -37,7 +37,7 @@ export class _Error extends Error {
  * This is roughly the same as the native Error class. It additionally supports an innerError
  * attribute.
  */
-export class ExtendedError extends _Error {
+export class ErrorPro extends _Error {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.

@@ -1,5 +1,5 @@
 import { ErrorOptions, ConnectionErrorMessageProps, ConnectionErrorProps } from './CommonTypes';
-import { _Error } from './ExtendedNodeError';
+import { _Error } from './NativeErrorsPro';
 
 export class _ConnectionError extends _Error {
     public constructor(

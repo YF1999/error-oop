@@ -1,5 +1,5 @@
 import { ArgumentErrorProps, ErrorOptions, ArgumentErrorMessageProps } from '../CommonTypes';
-import { _Error } from '../ExtendedNodeError';
+import { _Error } from '../NativeErrorsPro';
 
 export class _ArgumentError extends _Error {
     protected _paramName?: string;

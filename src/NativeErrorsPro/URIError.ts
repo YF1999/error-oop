@@ -1,16 +1,12 @@
-import {
-    ErrorOptions,
-    ReferenceErrorMessageProps,
-    ReferenceErrorProps,
-} from '../CommonTypes';
+import { ErrorOptions, URIErrorMessageProps, URIErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
-export class _ReferenceError extends ReferenceError {
+export class _URIError extends URIError {
     protected _innerError?: Error;
 
     public constructor(
-        props: ReferenceErrorProps,
-        options: ErrorOptions<ReferenceErrorMessageProps>,
+        props: URIErrorProps,
+        options: ErrorOptions<URIErrorMessageProps>,
     ) {
         super();
 
@@ -41,10 +37,10 @@ export class _ReferenceError extends ReferenceError {
 }
 
 /**
- * Represents an error when a non-existent variable is referenced. This is roughly the same as the
- * native ReferenceError class. It additionally supports an innerError attribute.
+ * Represents an error when a value is not of the expected type. This is roughly the same as the
+ * native URIError class. It additionally supports an innerError attribute.
  */
-export class ExtendedReferenceError extends _ReferenceError {
+export class URIErrorPro extends _URIError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -58,6 +54,6 @@ export class ExtendedReferenceError extends _ReferenceError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, { name: 'ReferenceError' });
+        super({ message, innerError }, { name: 'URIError' });
     }
 }

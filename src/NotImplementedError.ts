@@ -3,7 +3,7 @@ import {
     NotImplementedErrorMessageProps,
     NotImplementedErrorProps,
 } from './CommonTypes';
-import { _Error } from './ExtendedNodeError';
+import { _Error } from './NativeErrorsPro';
 
 export class _NotImplementedError extends _Error {
     public constructor(

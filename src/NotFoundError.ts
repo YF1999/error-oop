@@ -1,5 +1,5 @@
 import { ErrorOptions, NotFoundErrorMessageProps, NotFoundErrorProps } from './CommonTypes';
-import { _Error } from './ExtendedNodeError';
+import { _Error } from './NativeErrorsPro';
 
 export class _NotFoundError extends _Error {
     protected _entityName?: string;

@@ -1,12 +1,16 @@
-import { ErrorOptions, TypeErrorMessageProps, TypeErrorProps } from '../CommonTypes';
+import {
+    ErrorOptions,
+    ReferenceErrorMessageProps,
+    ReferenceErrorProps,
+} from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from '../utils';
 
-export class _TypeError extends TypeError {
+export class _ReferenceError extends ReferenceError {
     protected _innerError?: Error;
 
     public constructor(
-        props: TypeErrorProps,
-        options: ErrorOptions<TypeErrorMessageProps>,
+        props: ReferenceErrorProps,
+        options: ErrorOptions<ReferenceErrorMessageProps>,
     ) {
         super();
 
@@ -37,10 +41,10 @@ export class _TypeError extends TypeError {
 }
 
 /**
- * Represents an error when a value is not of the expected type. This is roughly the same as the
- * native TypeError class. It additionally supports an innerError attribute.
+ * Represents an error when a non-existent variable is referenced. This is roughly the same as the
+ * native ReferenceError class. It additionally supports an innerError attribute.
  */
-export class ExtendedTypeError extends _TypeError {
+export class ReferenceErrorPro extends _ReferenceError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -54,6 +58,6 @@ export class ExtendedTypeError extends _TypeError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, { name: 'TypeError' });
+        super({ message, innerError }, { name: 'ReferenceError' });
     }
 }
