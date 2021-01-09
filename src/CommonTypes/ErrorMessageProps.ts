@@ -26,6 +26,7 @@ export interface ArgumentOutOfRangeMessageProps extends ArgumentErrorMessageProp
 export interface AuthenticationErrorMessageProps extends ErrorMessageProps {}
 export interface AuthenticationRequiredErrorMessageProps extends AuthenticationErrorMessageProps {}
 export interface ConnectionErrorMessageProps extends ErrorMessageProps {}
+export interface IndexOutOfRangeErrorMessageProps extends ErrorMessageProps {}
 export interface InvalidOperationErrorMessageProps extends ErrorMessageProps {}
 export interface NotFoundErrorMessageProps extends ErrorMessageProps {
     entityName?: string;
@@ -33,9 +34,12 @@ export interface NotFoundErrorMessageProps extends ErrorMessageProps {
 export interface NotImplementedErrorMessageProps extends ErrorMessageProps {}
 export interface NotPermittedErrorMessageProps extends ErrorMessageProps {}
 export interface NotSupportedErrorMessageProps extends ErrorMessageProps {}
+export interface OperationCanceledErrorMessageProps extends ErrorMessageProps {}
 export interface OutOfMemoryErrorMessageProps extends ErrorMessageProps {}
 export interface StackOverflowErrorMessageProps extends ErrorMessageProps {}
 export interface TimeoutErrorMessageProps extends ErrorMessageProps {}
+export interface UnauthorizedAccessErrorMessageProps extends ErrorMessageProps {}
+export interface UnauthorizedErrorMessageProps extends ErrorMessageProps {}
 
 // Data
 
