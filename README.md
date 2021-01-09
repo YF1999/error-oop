@@ -33,14 +33,18 @@ Click to know how to use them.
 - [AuthenticationError](./docs/HowToUse-MoreUsefulErrors.md#AuthenticationError)
 - [AuthenticationRequiredError](./docs/HowToUse-MoreUsefulErrors.md#AuthenticationRequiredError)
 - [ConnectionError](./docs/HowToUse-MoreUsefulErrors.md#ConnectionError)
+- [IndexOutOfRangeError](./docs/HowToUse-MoreUsefulErrors.md#IndexOutOfRangeError)
 - [InvalidOperationError](./docs/HowToUse-MoreUsefulErrors.md#InvalidOperationError)
 - [NotFoundError](./docs/HowToUse-MoreUsefulErrors.md#NotFoundError)
 - [NotImplementedError](./docs/HowToUse-MoreUsefulErrors.md#NotImplementedError)
 - [NotPermittedError](./docs/HowToUse-MoreUsefulErrors.md#NotPermittedError)
 - [NotSupportedError](./docs/HowToUse-MoreUsefulErrors.md#NotSupportedError)
+- [OperationCanceledError](./docs/HowToUse-MoreUsefulErrors.md#OperationCanceledError)
 - [OutOfMemoryError](./docs/HowToUse-MoreUsefulErrors.md#OutOfMemoryError)
 - [StackOverflowError](./docs/HowToUse-MoreUsefulErrors.md#StackOverflowError)
 - [TimeoutError](./docs/HowToUse-MoreUsefulErrors.md#TimeoutError)
+- [UnauthorizedAccessError](./docs/HowToUse-MoreUsefulErrors.md#UnauthorizedAccessError)
+- [UnauthorizedError](./docs/HowToUse-MoreUsefulErrors.md#UnauthorizedError)
 - Data
     - [DataError](./docs/HowToUse-MoreUsefulErrors.md#DataError)
     - [TransactionError](./docs/HowToUse-MoreUsefulErrors.md#TransactionError)
@@ -58,9 +62,6 @@ If you want to create your own custom errors, please see [How To Create Custom E
 
 ### Errors to Support
 
-- IndexOutOfRangeError
-- OperationCanceledError
-- UnauthorizedAccessError
 - ValidationError
 - Data
     - SQLError

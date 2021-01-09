@@ -7,14 +7,18 @@
 - [AuthenticationError](#AuthenticationError)
 - [AuthenticationRequiredError](#AuthenticationRequiredError)
 - [ConnectionError](#ConnectionError)
+- [IndexOutOfRangeError](#IndexOutOfRangeError)
 - [InvalidOperationError](#InvalidOperationError)
 - [NotFoundError](#NotFoundError)
 - [NotImplementedError](#NotImplementedError)
 - [NotPermittedError](#NotPermittedError)
 - [NotSupportedError](#NotSupportedError)
+- [OperationCanceledError](#OperationCanceledError)
 - [OutOfMemoryError](#OutOfMemoryError)
 - [StackOverflowError](#StackOverflowError)
 - [TimeoutError](#TimeoutError)
+- [UnauthorizedAccessError](#UnauthorizedAccessError)
+- [UnauthorizedError](#UnauthorizedError)
 - Data
     - [DataError](#DataError)
     - [TransactionError](#TransactionError)
@@ -172,6 +176,25 @@ new ConnectionError(message?, innerError?)
 throw new ConnectionError('Database connection no longer available');
 ```
 
+## IndexOutOfRangeError
+
+Applicable when an attempt is made to access an element of an array or collection with an index that is outside its bounds.
+
+```ts
+new IndexOutOfRangeError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new IndexOutOfRangeError('index out of range');
+```
+
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
@@ -280,6 +303,25 @@ new NotSupportedError(message?, innerError?)
 throw new NotSupportedError('Not support mp3 file yet');
 ```
 
+## OperationCanceledError
+
+Applicable when an operation was canceled.
+
+```ts
+new OperationCanceledError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new OperationCanceledError('fetching operation was canceled by users');
+```
+
 ## OutOfMemoryError
 
 Applicable when there is not enough memory to continue the execution of a program.
@@ -335,6 +377,44 @@ new TimeoutError(message?, innerError?)
 
 ```ts
 throw new TimeoutError("Timeout exceeded '470ms'");
+```
+
+## UnauthorizedAccessError
+
+Applicable when the operating system denies access because of an I/O error or a specific type of security error.
+
+```ts
+new UnauthorizedAccessError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new UnauthorizedAccessError("Opening 'package.json' operation requires elevation (run as administrator)");
+```
+
+## UnauthorizedError
+
+Applicable when the operating system denies access because of an I/O error or a specific type of security error.
+
+```ts
+new UnauthorizedError(message?, innerError?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+
+### Example
+
+```ts
+throw new UnauthorizedError("Opening 'package.json' operation requires elevation (run as administrator)");
 ```
 
 ## DataError
