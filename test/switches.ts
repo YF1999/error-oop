@@ -7,6 +7,10 @@ export const switches = {
         moreUsefulErrors: true,
         nativeErrorsPro: true,
     },
+    jestExpectToThrow: {
+        moreUsefulErrors: true,
+        nativeErrorsPro: true,
+    },
     noEnumerableFields: {
         moreUsefulErrors: true,
         nativeErrorsPro: true,
