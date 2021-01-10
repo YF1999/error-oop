@@ -98,18 +98,22 @@ describe('More-Useful-Errors', () => {
     const EndOfStreamError = 'EndOfStreamError';
     const FileLoadError = 'FileLoadError';
     const FileNotFoundError = 'FileNotFoundError';
+    const IndexOutOfRangeError = 'IndexOutOfRangeError';
     const InvalidOperationError = 'InvalidOperationError';
     const IOError = 'IOError';
     const NotFoundError = 'NotFoundError';
     const NotImplementedError = 'NotImplementedError';
     const NotPermittedError = 'NotPermittedError';
     const NotSupportedError = 'NotSupportedError';
+    const OperationCanceledError = 'OperationCanceledError';
     const OutOfMemoryError = 'OutOfMemoryError';
     const PathTooLongError = 'PathTooLongError';
     const SocketError = 'SocketError';
     const StackOverflowError = 'StackOverflowError';
     const TransactionError = 'TransactionError';
     const TimeoutError = 'TimeoutError';
+    const UnauthorizedAccessError = 'UnauthorizedAccessError';
+    const UnauthorizedError = 'UnauthorizedError';
     /* eslint-enable @typescript-eslint/naming-convention */
 
     test(AlreadyInUseError, () => {
@@ -270,6 +274,16 @@ describe('More-Useful-Errors', () => {
         expect(JSON.stringify(err5)).toBe('{}');
     });
 
+    test(IndexOutOfRangeError, () => {
+        const err1 = new errors[IndexOutOfRangeError]();
+        const err2 = new errors[IndexOutOfRangeError]('error');
+        const err3 = new errors[IndexOutOfRangeError]('error', err2);
+
+        expect(JSON.stringify(err1)).toBe('{}');
+        expect(JSON.stringify(err2)).toBe('{}');
+        expect(JSON.stringify(err3)).toBe('{}');
+    });
+
     test(InvalidOperationError, () => {
         const err1 = new errors[InvalidOperationError]();
         const err2 = new errors[InvalidOperationError]('error');
@@ -334,6 +348,16 @@ describe('More-Useful-Errors', () => {
         expect(JSON.stringify(err3)).toBe('{}');
     });
 
+    test(OperationCanceledError, () => {
+        const err1 = new errors[OperationCanceledError]();
+        const err2 = new errors[OperationCanceledError]('error');
+        const err3 = new errors[OperationCanceledError]('error', err2);
+
+        expect(JSON.stringify(err1)).toBe('{}');
+        expect(JSON.stringify(err2)).toBe('{}');
+        expect(JSON.stringify(err3)).toBe('{}');
+    });
+
     test(OutOfMemoryError, () => {
         const err1 = new errors[OutOfMemoryError]();
         const err2 = new errors[OutOfMemoryError]('error');
@@ -388,6 +412,26 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[TimeoutError]();
         const err2 = new errors[TimeoutError]('error');
         const err3 = new errors[TimeoutError]('error', err2);
+
+        expect(JSON.stringify(err1)).toBe('{}');
+        expect(JSON.stringify(err2)).toBe('{}');
+        expect(JSON.stringify(err3)).toBe('{}');
+    });
+
+    test(UnauthorizedAccessError, () => {
+        const err1 = new errors[UnauthorizedAccessError]();
+        const err2 = new errors[UnauthorizedAccessError]('error');
+        const err3 = new errors[UnauthorizedAccessError]('error', err2);
+
+        expect(JSON.stringify(err1)).toBe('{}');
+        expect(JSON.stringify(err2)).toBe('{}');
+        expect(JSON.stringify(err3)).toBe('{}');
+    });
+
+    test(UnauthorizedError, () => {
+        const err1 = new errors[UnauthorizedError]();
+        const err2 = new errors[UnauthorizedError]('error');
+        const err3 = new errors[UnauthorizedError]('error', err2);
 
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');
