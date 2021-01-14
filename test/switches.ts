@@ -15,4 +15,8 @@ export const switches = {
         moreUsefulErrors: true,
         nativeErrorsPro: true,
     },
+    properties: {
+        moreUsefulErrors: true,
+        nativeErrorsPro: true,
+    },
 };
