@@ -21,7 +21,6 @@ describe('Native-Errors-Pro', () => {
         const err1 = new errors[ErrorPro]();
         const err2 = new errors[ErrorPro]('error');
         const err3 = new errors[ErrorPro]('error', err2);
-
         expect(err1.name).toBe(ErrorPro);
         expect(err2.name).toBe(ErrorPro);
         expect(err3.name).toBe(ErrorPro);
@@ -31,7 +30,6 @@ describe('Native-Errors-Pro', () => {
         const err1 = new errors[RangeErrorPro]();
         const err2 = new errors[RangeErrorPro]('error');
         const err3 = new errors[RangeErrorPro]('error', err2);
-
         expect(err1.name).toBe(RangeErrorPro);
         expect(err2.name).toBe(RangeErrorPro);
         expect(err3.name).toBe(RangeErrorPro);
@@ -41,7 +39,6 @@ describe('Native-Errors-Pro', () => {
         const err1 = new errors[ReferenceErrorPro]();
         const err2 = new errors[ReferenceErrorPro]('error');
         const err3 = new errors[ReferenceErrorPro]('error', err2);
-
         expect(err1.name).toBe(ReferenceErrorPro);
         expect(err2.name).toBe(ReferenceErrorPro);
         expect(err3.name).toBe(ReferenceErrorPro);
@@ -51,7 +48,6 @@ describe('Native-Errors-Pro', () => {
         const err1 = new errors[SyntaxErrorPro]();
         const err2 = new errors[SyntaxErrorPro]('error');
         const err3 = new errors[SyntaxErrorPro]('error', err2);
-
         expect(err1.name).toBe(SyntaxErrorPro);
         expect(err2.name).toBe(SyntaxErrorPro);
         expect(err3.name).toBe(SyntaxErrorPro);
@@ -61,7 +57,6 @@ describe('Native-Errors-Pro', () => {
         const err1 = new errors[TypeErrorPro]();
         const err2 = new errors[TypeErrorPro]('error');
         const err3 = new errors[TypeErrorPro]('error', err2);
-
         expect(err1.name).toBe(TypeErrorPro);
         expect(err2.name).toBe(TypeErrorPro);
         expect(err3.name).toBe(TypeErrorPro);
@@ -71,7 +66,6 @@ describe('Native-Errors-Pro', () => {
         const err1 = new errors[URIErrorPro]();
         const err2 = new errors[URIErrorPro]('error');
         const err3 = new errors[URIErrorPro]('error', err2);
-
         expect(err1.name).toBe(URIErrorPro);
         expect(err2.name).toBe(URIErrorPro);
         expect(err3.name).toBe(URIErrorPro);
@@ -122,7 +116,6 @@ describe('More-Useful-Errors', () => {
         const err3 = new errors[AlreadyInUseError]('object', 'obj1', 'obj2');
         const err4 = new errors[AlreadyInUseError]('object', 'obj1', 'obj2', 'obj3');
         const err5 = new errors[AlreadyInUseError]('object', 'obj1', 'obj2', 'obj3', 'obj4');
-
         expect(err1.name).toBe(AlreadyInUseError);
         expect(err2.name).toBe(AlreadyInUseError);
         expect(err3.name).toBe(AlreadyInUseError);
@@ -136,7 +129,6 @@ describe('More-Useful-Errors', () => {
         const err3 = new errors[ArgumentError]('error', err2);
         const err4 = new errors[ArgumentError]('error', 'parameter');
         const err5 = new errors[ArgumentError]('error', 'parameter', err4);
-
         expect(err1.name).toBe(ArgumentError);
         expect(err2.name).toBe(ArgumentError);
         expect(err3.name).toBe(ArgumentError);
@@ -150,7 +142,6 @@ describe('More-Useful-Errors', () => {
         const err3 = new errors[ArgumentNullError]('error', err2);
         const err4 = new errors[ArgumentNullError]('error', 'parameter');
         const err5 = new errors[ArgumentNullError]('error', 'parameter', err4);
-
         expect(err1.name).toBe(ArgumentNullError);
         expect(err2.name).toBe(ArgumentNullError);
         expect(err3.name).toBe(ArgumentNullError);
@@ -166,7 +157,6 @@ describe('More-Useful-Errors', () => {
         const err5 = new errors[ArgumentOutOfRangeError]('error', 'parameter', err4);
         const err6 = new errors[ArgumentOutOfRangeError]('error', 'parameter', 'value');
         const err7 = new errors[ArgumentOutOfRangeError]('error', 'parameter', 'value', err5);
-
         expect(err1.name).toBe(ArgumentOutOfRangeError);
         expect(err2.name).toBe(ArgumentOutOfRangeError);
         expect(err3.name).toBe(ArgumentOutOfRangeError);
@@ -180,7 +170,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[AuthenticationError]();
         const err2 = new errors[AuthenticationError]('error');
         const err3 = new errors[AuthenticationError]('error', err2);
-
         expect(err1.name).toBe(AuthenticationError);
         expect(err2.name).toBe(AuthenticationError);
         expect(err3.name).toBe(AuthenticationError);
@@ -190,7 +179,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[AuthenticationRequiredError]();
         const err2 = new errors[AuthenticationRequiredError]('error');
         const err3 = new errors[AuthenticationRequiredError]('error', err2);
-
         expect(err1.name).toBe(AuthenticationRequiredError);
         expect(err2.name).toBe(AuthenticationRequiredError);
         expect(err3.name).toBe(AuthenticationRequiredError);
@@ -200,7 +188,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[ConnectionError]();
         const err2 = new errors[ConnectionError]('error');
         const err3 = new errors[ConnectionError]('error', err2);
-
         expect(err1.name).toBe(ConnectionError);
         expect(err2.name).toBe(ConnectionError);
         expect(err3.name).toBe(ConnectionError);
@@ -210,7 +197,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[DataError]();
         const err2 = new errors[DataError]('error');
         const err3 = new errors[DataError]('error', err2);
-
         expect(err1.name).toBe(DataError);
         expect(err2.name).toBe(DataError);
         expect(err3.name).toBe(DataError);
@@ -220,7 +206,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[DirectoryNotFoundError]();
         const err2 = new errors[DirectoryNotFoundError]('error');
         const err3 = new errors[DirectoryNotFoundError]('error', err2);
-
         expect(err1.name).toBe(DirectoryNotFoundError);
         expect(err2.name).toBe(DirectoryNotFoundError);
         expect(err3.name).toBe(DirectoryNotFoundError);
@@ -230,7 +215,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[DriveNotFoundError]();
         const err2 = new errors[DriveNotFoundError]('error');
         const err3 = new errors[DriveNotFoundError]('error', err2);
-
         expect(err1.name).toBe(DriveNotFoundError);
         expect(err2.name).toBe(DriveNotFoundError);
         expect(err3.name).toBe(DriveNotFoundError);
@@ -240,7 +224,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[EndOfStreamError]();
         const err2 = new errors[EndOfStreamError]('error');
         const err3 = new errors[EndOfStreamError]('error', err2);
-
         expect(err1.name).toBe(EndOfStreamError);
         expect(err2.name).toBe(EndOfStreamError);
         expect(err3.name).toBe(EndOfStreamError);
@@ -252,7 +235,6 @@ describe('More-Useful-Errors', () => {
         const err3 = new errors[FileLoadError]('error', err2);
         const err4 = new errors[FileLoadError]('error', 'file1.txt');
         const err5 = new errors[FileLoadError]('error', 'file2.txt', err4);
-
         expect(err1.name).toBe(FileLoadError);
         expect(err2.name).toBe(FileLoadError);
         expect(err3.name).toBe(FileLoadError);
@@ -266,7 +248,6 @@ describe('More-Useful-Errors', () => {
         const err3 = new errors[FileNotFoundError]('error', err2);
         const err4 = new errors[FileNotFoundError]('error', 'file3.txt');
         const err5 = new errors[FileNotFoundError]('error', 'file4.txt', err4);
-
         expect(err1.name).toBe(FileNotFoundError);
         expect(err2.name).toBe(FileNotFoundError);
         expect(err3.name).toBe(FileNotFoundError);
@@ -278,7 +259,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[IndexOutOfRangeError]();
         const err2 = new errors[IndexOutOfRangeError]('error');
         const err3 = new errors[IndexOutOfRangeError]('error', err2);
-
         expect(err1.name).toBe(IndexOutOfRangeError);
         expect(err2.name).toBe(IndexOutOfRangeError);
         expect(err3.name).toBe(IndexOutOfRangeError);
@@ -288,7 +268,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[InvalidOperationError]();
         const err2 = new errors[InvalidOperationError]('error');
         const err3 = new errors[InvalidOperationError]('error', err2);
-
         expect(err1.name).toBe(InvalidOperationError);
         expect(err2.name).toBe(InvalidOperationError);
         expect(err3.name).toBe(InvalidOperationError);
@@ -298,7 +277,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[IOError]();
         const err2 = new errors[IOError]('error');
         const err3 = new errors[IOError]('error', err2);
-
         expect(err1.name).toBe(IOError);
         expect(err2.name).toBe(IOError);
         expect(err3.name).toBe(IOError);
@@ -310,7 +288,6 @@ describe('More-Useful-Errors', () => {
         const err3 = new errors[NotFoundError]('error', err2);
         const err4 = new errors[NotFoundError]('error', 'args');
         const err5 = new errors[NotFoundError]('error', 'args', err4);
-
         expect(err1.name).toBe(NotFoundError);
         expect(err2.name).toBe(NotFoundError);
         expect(err3.name).toBe(NotFoundError);
@@ -322,7 +299,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[NotImplementedError]();
         const err2 = new errors[NotImplementedError]('error');
         const err3 = new errors[NotImplementedError]('error', err2);
-
         expect(err1.name).toBe(NotImplementedError);
         expect(err2.name).toBe(NotImplementedError);
         expect(err3.name).toBe(NotImplementedError);
@@ -332,7 +308,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[NotPermittedError]();
         const err2 = new errors[NotPermittedError]('error');
         const err3 = new errors[NotPermittedError]('error', err2);
-
         expect(err1.name).toBe(NotPermittedError);
         expect(err2.name).toBe(NotPermittedError);
         expect(err3.name).toBe(NotPermittedError);
@@ -342,7 +317,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[NotSupportedError]();
         const err2 = new errors[NotSupportedError]('error');
         const err3 = new errors[NotSupportedError]('error', err2);
-
         expect(err1.name).toBe(NotSupportedError);
         expect(err2.name).toBe(NotSupportedError);
         expect(err3.name).toBe(NotSupportedError);
@@ -352,7 +326,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[OperationCanceledError]();
         const err2 = new errors[OperationCanceledError]('error');
         const err3 = new errors[OperationCanceledError]('error', err2);
-
         expect(err1.name).toBe(OperationCanceledError);
         expect(err2.name).toBe(OperationCanceledError);
         expect(err3.name).toBe(OperationCanceledError);
@@ -362,7 +335,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[OutOfMemoryError]();
         const err2 = new errors[OutOfMemoryError]('error');
         const err3 = new errors[OutOfMemoryError]('error', err2);
-
         expect(err1.name).toBe(OutOfMemoryError);
         expect(err2.name).toBe(OutOfMemoryError);
         expect(err3.name).toBe(OutOfMemoryError);
@@ -372,7 +344,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[PathTooLongError]();
         const err2 = new errors[PathTooLongError]('error');
         const err3 = new errors[PathTooLongError]('error', err2);
-
         expect(err1.name).toBe(PathTooLongError);
         expect(err2.name).toBe(PathTooLongError);
         expect(err3.name).toBe(PathTooLongError);
@@ -382,7 +353,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[SocketError]();
         const err2 = new errors[SocketError]('error');
         const err3 = new errors[SocketError]('error', err2);
-
         expect(err1.name).toBe(SocketError);
         expect(err2.name).toBe(SocketError);
         expect(err3.name).toBe(SocketError);
@@ -392,7 +362,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[StackOverflowError]();
         const err2 = new errors[StackOverflowError]('error');
         const err3 = new errors[StackOverflowError]('error', err2);
-
         expect(err1.name).toBe(StackOverflowError);
         expect(err2.name).toBe(StackOverflowError);
         expect(err3.name).toBe(StackOverflowError);
@@ -402,7 +371,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[TransactionError]();
         const err2 = new errors[TransactionError]('error');
         const err3 = new errors[TransactionError]('error', err2);
-
         expect(err1.name).toBe(TransactionError);
         expect(err2.name).toBe(TransactionError);
         expect(err3.name).toBe(TransactionError);
@@ -412,7 +380,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[TimeoutError]();
         const err2 = new errors[TimeoutError]('error');
         const err3 = new errors[TimeoutError]('error', err2);
-
         expect(err1.name).toBe(TimeoutError);
         expect(err2.name).toBe(TimeoutError);
         expect(err3.name).toBe(TimeoutError);
@@ -422,7 +389,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[UnauthorizedAccessError]();
         const err2 = new errors[UnauthorizedAccessError]('error');
         const err3 = new errors[UnauthorizedAccessError]('error', err2);
-
         expect(err1.name).toBe(UnauthorizedAccessError);
         expect(err2.name).toBe(UnauthorizedAccessError);
         expect(err3.name).toBe(UnauthorizedAccessError);
@@ -432,7 +398,6 @@ describe('More-Useful-Errors', () => {
         const err1 = new errors[UnauthorizedError]();
         const err2 = new errors[UnauthorizedError]('error');
         const err3 = new errors[UnauthorizedError]('error', err2);
-
         expect(err1.name).toBe(UnauthorizedError);
         expect(err2.name).toBe(UnauthorizedError);
         expect(err3.name).toBe(UnauthorizedError);
