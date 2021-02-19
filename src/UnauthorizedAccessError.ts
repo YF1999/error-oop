@@ -1,8 +1,4 @@
-import {
-    ErrorOptions,
-    UnauthorizedAccessErrorMessageProps,
-    UnauthorizedAccessErrorProps,
-} from './CommonTypes';
+import { ErrorOptions, UnauthorizedAccessErrorMessageProps, UnauthorizedAccessErrorProps } from './CommonTypes';
 import { AbstractError } from './NativeErrors';
 
 export abstract class AbstractUnauthorizedAccessError extends AbstractError {
@@ -26,8 +22,7 @@ export class UnauthorizedAccessError extends AbstractUnauthorizedAccessError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, innerError: Error);
 

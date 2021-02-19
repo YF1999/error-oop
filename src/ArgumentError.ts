@@ -4,10 +4,7 @@ import { AbstractError } from './NativeErrors';
 export abstract class AbstractArgumentError extends AbstractError {
     protected _paramName?: string;
 
-    public constructor(
-        props: ArgumentErrorProps,
-        options: ErrorOptions<ArgumentErrorMessageProps>,
-    ) {
+    public constructor(props: ArgumentErrorProps, options: ErrorOptions<ArgumentErrorMessageProps>) {
         const { paramName } = props;
         const { generateMessage: gm, ...others } = options;
 
@@ -36,8 +33,7 @@ export class ArgumentError extends AbstractArgumentError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, innerError: Error);
     /**
@@ -48,16 +44,13 @@ export class ArgumentError extends AbstractArgumentError {
     /**
      * @param message The error message that explains the reason for this error.
      * @param paramName The name of the parameter that caused the current error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, paramName: string, innerError: Error);
 
     public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
         function generateMessage(props: ArgumentErrorMessageProps) {
-            return props.paramName
-                ? `${props.message} (Parameter '${props.paramName}')`
-                : props.message;
+            return props.paramName ? `${props.message} (Parameter '${props.paramName}')` : props.message;
         }
 
         // message + innerError?

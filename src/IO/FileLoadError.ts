@@ -4,10 +4,7 @@ import { AbstractIOError } from './IOError';
 export abstract class AbstractFileLoadError extends AbstractIOError {
     private _fileName?: string;
 
-    public constructor(
-        props: FileLoadErrorProps,
-        options: ErrorOptions<FileLoadErrorMessageProps>,
-    ) {
+    public constructor(props: FileLoadErrorProps, options: ErrorOptions<FileLoadErrorMessageProps>) {
         const { fileName } = props;
         const { generateMessage: gm, ...others } = options;
 
@@ -36,8 +33,7 @@ export class FileLoadError extends AbstractFileLoadError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append. appended.
      */
     public constructor(message: string, innerError: Error);
     /**
@@ -48,8 +44,7 @@ export class FileLoadError extends AbstractFileLoadError {
     /**
      * @param message The error message that explains the reason for this error.
      * @param fileName A String containing the name of the file that was not loaded.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append. appended.
      */
     public constructor(message: string, fileName: string, innerError: Error);
 

@@ -4,10 +4,7 @@ import { AbstractError } from './NativeErrors';
 export abstract class AbstractAlreadyInUseError extends AbstractError {
     protected _entityName: string;
 
-    public constructor(
-        props: AlreadyInUseErrorProps,
-        options: ErrorOptions<AlreadyInUseErrorMessageProps>,
-    ) {
+    public constructor(props: AlreadyInUseErrorProps, options: ErrorOptions<AlreadyInUseErrorMessageProps>) {
         const { entityName, inUse } = props;
         const { generateMessage: gm, ...others } = options;
 
@@ -58,26 +55,13 @@ export class AlreadyInUseError extends AbstractAlreadyInUseError {
      * @param arg3 A field or attribute that is already in use.
      * @param args Fields or attributes that are already in use.
      */
-    public constructor(
-        entityName: string,
-        arg1: string,
-        arg2: string,
-        arg3: string,
-        ...args: string[]
-    );
+    public constructor(entityName: string, arg1: string, arg2: string, arg3: string, ...args: string[]);
 
-    public constructor(
-        entityName: string,
-        arg1?: string,
-        arg2?: string,
-        arg3?: string,
-        ...args: string[]
-    ) {
+    public constructor(entityName: string, arg1?: string, arg2?: string, arg3?: string, ...args: string[]) {
         function generateMessage(props: AlreadyInUseErrorMessageProps) {
             return props.inUse.length === 0
                 ? `The specified '${props.entityName}' value is already in use.`
-                : `The specified '${props.entityName}' value is already in use:` +
-                      `${props.inUse.join(', ')}`;
+                : `The specified '${props.entityName}' value is already in use: ${props.inUse.join(', ')}`;
         }
 
         super(

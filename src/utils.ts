@@ -2,9 +2,7 @@ export function appendInnerErrorStack(
     currStack: string | undefined,
     innerError: Error | undefined,
 ): string | undefined {
-    return innerError && innerError.stack
-        ? `${currStack ?? ''}\n--- inner error ---\n${innerError.stack}`
-        : currStack;
+    return innerError && innerError.stack ? `${currStack ?? ''}\n--- inner error ---\n${innerError.stack}` : currStack;
 }
 
 export function setNonEnumerable(obj: object, property: string): void {

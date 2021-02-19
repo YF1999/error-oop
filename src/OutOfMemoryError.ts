@@ -2,10 +2,7 @@ import { ErrorOptions, OutOfMemoryErrorMessageProps, OutOfMemoryErrorProps } fro
 import { AbstractError } from './NativeErrors';
 
 export abstract class AbstractOutOfMemoryError extends AbstractError {
-    public constructor(
-        props: OutOfMemoryErrorProps,
-        options: ErrorOptions<OutOfMemoryErrorMessageProps>,
-    ) {
+    public constructor(props: OutOfMemoryErrorProps, options: ErrorOptions<OutOfMemoryErrorMessageProps>) {
         super(props, options);
     }
 }
@@ -21,8 +18,7 @@ export class OutOfMemoryError extends AbstractOutOfMemoryError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, innerError: Error);
 

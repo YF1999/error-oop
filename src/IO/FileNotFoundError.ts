@@ -1,17 +1,10 @@
-import {
-    ErrorOptions,
-    FileNotFoundErrorMessageProps,
-    FileNotFoundErrorProps,
-} from '../CommonTypes';
+import { ErrorOptions, FileNotFoundErrorMessageProps, FileNotFoundErrorProps } from '../CommonTypes';
 import { AbstractIOError } from './IOError';
 
 export abstract class AbstractFileNotFoundError extends AbstractIOError {
     private _fileName?: string;
 
-    public constructor(
-        props: FileNotFoundErrorProps,
-        options: ErrorOptions<FileNotFoundErrorMessageProps>,
-    ) {
+    public constructor(props: FileNotFoundErrorProps, options: ErrorOptions<FileNotFoundErrorMessageProps>) {
         const { fileName } = props;
         const { generateMessage: gm, ...others } = options;
 
@@ -40,8 +33,7 @@ export class FileNotFoundError extends AbstractFileNotFoundError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append. appended.
      */
     public constructor(message: string, innerError: Error);
     /**
@@ -52,8 +44,7 @@ export class FileNotFoundError extends AbstractFileNotFoundError {
     /**
      * @param message The error message that explains the reason for this error.
      * @param fileName The full name of the file with the invalid image.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append. appended.
      */
     public constructor(message: string, fileName: string, innerError: Error);
 

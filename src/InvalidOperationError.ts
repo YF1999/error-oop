@@ -1,15 +1,8 @@
-import {
-    ErrorOptions,
-    InvalidOperationErrorMessageProps,
-    InvalidOperationErrorProps,
-} from './CommonTypes';
+import { ErrorOptions, InvalidOperationErrorMessageProps, InvalidOperationErrorProps } from './CommonTypes';
 import { AbstractError } from './NativeErrors';
 
 export abstract class AbstractInvalidOperationError extends AbstractError {
-    public constructor(
-        props: InvalidOperationErrorProps,
-        options: ErrorOptions<InvalidOperationErrorMessageProps>,
-    ) {
+    public constructor(props: InvalidOperationErrorProps, options: ErrorOptions<InvalidOperationErrorMessageProps>) {
         super(props, options);
     }
 }
@@ -25,8 +18,7 @@ export class InvalidOperationError extends AbstractInvalidOperationError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, innerError: Error);
 

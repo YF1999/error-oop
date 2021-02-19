@@ -2,10 +2,7 @@ import { ErrorOptions, NotSupportedErrorMessageProps, NotSupportedErrorProps } f
 import { AbstractError } from './NativeErrors';
 
 export abstract class AbstractNotSupportedError extends AbstractError {
-    public constructor(
-        props: NotSupportedErrorProps,
-        options: ErrorOptions<NotSupportedErrorMessageProps>,
-    ) {
+    public constructor(props: NotSupportedErrorProps, options: ErrorOptions<NotSupportedErrorMessageProps>) {
         super(props, options);
     }
 }
@@ -22,8 +19,7 @@ export class NotSupportedError extends AbstractNotSupportedError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, innerError: Error);
 

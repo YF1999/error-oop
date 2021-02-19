@@ -17,7 +17,7 @@ module.exports = {
         'guard-for-in': 'off',
         'implicit-arrow-linebreak': 'off',
         'max-classes-per-file': ['error', 2],
-        'max-len': ['error', { code: 100 }],
+        'max-len': ['error', { code: 120 }],
         'no-continue': 'off',
         'no-console': ['error', { allow: ['log', 'debug', 'info', 'warn', 'error'] }],
         'no-else-return': 'off',

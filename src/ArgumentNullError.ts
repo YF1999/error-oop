@@ -2,10 +2,7 @@ import { ErrorOptions, ArgumentNullErrorMessageProps, ArgumentNullErrorProps } f
 import { AbstractArgumentError } from './ArgumentError';
 
 export abstract class AbstractArgumentNullError extends AbstractArgumentError {
-    public constructor(
-        props: ArgumentNullErrorProps,
-        options: ErrorOptions<ArgumentNullErrorMessageProps>,
-    ) {
+    public constructor(props: ArgumentNullErrorProps, options: ErrorOptions<ArgumentNullErrorMessageProps>) {
         super(props, options);
     }
 }
@@ -22,8 +19,7 @@ export class ArgumentNullError extends AbstractArgumentNullError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, innerError: Error);
     /**
@@ -34,16 +30,13 @@ export class ArgumentNullError extends AbstractArgumentNullError {
     /**
      * @param message The error message that explains the reason for this error.
      * @param paramName The name of the parameter that caused the current error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, paramName: string, innerError: Error);
 
     public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
         function generateMessage(props: ArgumentNullErrorMessageProps) {
-            return props.paramName
-                ? `${props.message} (Parameter '${props.paramName}')`
-                : props.message;
+            return props.paramName ? `${props.message} (Parameter '${props.paramName}')` : props.message;
         }
 
         // message + innerError?

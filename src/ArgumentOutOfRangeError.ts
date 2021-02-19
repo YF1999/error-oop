@@ -1,17 +1,10 @@
-import {
-    ErrorOptions,
-    ArgumentOutOfRangeMessageProps,
-    ArgumentOutOfRangeErrorProps,
-} from './CommonTypes';
+import { ErrorOptions, ArgumentOutOfRangeMessageProps, ArgumentOutOfRangeErrorProps } from './CommonTypes';
 import { AbstractArgumentError } from './ArgumentError';
 
 export abstract class AbstractArgumentOutOfRangeError extends AbstractArgumentError {
     protected _actualValue?: string;
 
-    public constructor(
-        props: ArgumentOutOfRangeErrorProps,
-        options: ErrorOptions<ArgumentOutOfRangeMessageProps>,
-    ) {
+    public constructor(props: ArgumentOutOfRangeErrorProps, options: ErrorOptions<ArgumentOutOfRangeMessageProps>) {
         const { actualValue } = props;
         const { generateMessage: gm, ...others } = options;
 
@@ -41,8 +34,7 @@ export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, innerError: Error);
     /**
@@ -53,8 +45,8 @@ export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
     /**
      * @param message The error message that explains the reason for this error.
      * @param paramName The name of the parameter that caused the current error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
+
      */
     public constructor(message: string, paramName: string, innerError: Error);
     /**
@@ -67,8 +59,7 @@ export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
      * @param message The error message that explains the reason for this error.
      * @param paramName The name of the parameter that caused the current error.
      * @param actualValue The value of the argument that causes this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, paramName: string, actualValue: any, innerError: Error);
 
@@ -96,10 +87,7 @@ export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
 
         // message + paramName + actualValue + innerError?
         else {
-            super(
-                { message, actualValue: arg2, innerError: arg3, paramName: arg1 },
-                { generateMessage },
-            );
+            super({ message, actualValue: arg2, innerError: arg3, paramName: arg1 }, { generateMessage });
         }
     }
 }

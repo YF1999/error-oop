@@ -1,15 +1,8 @@
-import {
-    ErrorOptions,
-    AuthenticationErrorMessageProps,
-    AuthenticationErrorProps,
-} from './CommonTypes';
+import { ErrorOptions, AuthenticationErrorMessageProps, AuthenticationErrorProps } from './CommonTypes';
 import { AbstractError } from './NativeErrors';
 
 export abstract class AbstractAuthenticationError extends AbstractError {
-    public constructor(
-        props: AuthenticationErrorProps,
-        options: ErrorOptions<AuthenticationErrorMessageProps>,
-    ) {
+    public constructor(props: AuthenticationErrorProps, options: ErrorOptions<AuthenticationErrorMessageProps>) {
         super(props, options);
     }
 }
@@ -25,8 +18,7 @@ export class AuthenticationError extends AbstractAuthenticationError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, innerError: Error);
 

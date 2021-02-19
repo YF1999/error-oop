@@ -1,15 +1,8 @@
-import {
-    ErrorOptions,
-    StackOverflowErrorMessageProps,
-    StackOverflowErrorProps,
-} from './CommonTypes';
+import { ErrorOptions, StackOverflowErrorMessageProps, StackOverflowErrorProps } from './CommonTypes';
 import { AbstractError } from './NativeErrors';
 
 export abstract class AbstractStackOverflowError extends AbstractError {
-    public constructor(
-        props: StackOverflowErrorProps,
-        options: ErrorOptions<StackOverflowErrorMessageProps>,
-    ) {
+    public constructor(props: StackOverflowErrorProps, options: ErrorOptions<StackOverflowErrorMessageProps>) {
         super(props, options);
     }
 }
@@ -25,8 +18,7 @@ export class StackOverflowError extends AbstractStackOverflowError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, innerError: Error);
 

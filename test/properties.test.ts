@@ -86,9 +86,7 @@ describe('More-Useful-Errors', () => {
 
     test(ArgumentOutOfRangeError, () => {
         expect(new errors[ArgumentOutOfRangeError]().actualValue).toBe(undefined);
-        expect(new errors[ArgumentOutOfRangeError]('error', 'parameter', 'value').actualValue).toBe(
-            'value',
-        );
+        expect(new errors[ArgumentOutOfRangeError]('error', 'parameter', 'value').actualValue).toBe('value');
     });
 
     test(FileLoadError, () => {

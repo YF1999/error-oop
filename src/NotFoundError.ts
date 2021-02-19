@@ -4,10 +4,7 @@ import { AbstractError } from './NativeErrors';
 export abstract class AbstractNotFoundError extends AbstractError {
     protected _entityName?: string;
 
-    public constructor(
-        props: NotFoundErrorProps,
-        options: ErrorOptions<NotFoundErrorMessageProps>,
-    ) {
+    public constructor(props: NotFoundErrorProps, options: ErrorOptions<NotFoundErrorMessageProps>) {
         const { entityName } = props;
         const { generateMessage: gm, ...others } = options;
 
@@ -36,8 +33,7 @@ export class NotFoundError extends AbstractNotFoundError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, innerError: Error);
     /**
@@ -48,8 +44,7 @@ export class NotFoundError extends AbstractNotFoundError {
     /**
      * @param message The error message that explains the reason for this error.
      * @param entityName The entity which is not found.
-     * @param innerError The error that is the cause of the current error. Stack trace will be
-     * appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
     public constructor(message: string, entityName: string, innerError: Error);
 
