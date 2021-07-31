@@ -15,6 +15,7 @@
 
 # Source
 
+/scripts
 /src
 /test
 
@@ -28,7 +29,11 @@
 
 # Configs
 
-/.eslintrc.js
+/.eslintrc.json
+/.prettierignore
 /.prettierrc
-/jest.config.js
 /tsconfig.json
+
+# Test
+
+/coverage

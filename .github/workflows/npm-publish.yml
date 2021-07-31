@@ -1,16 +1,16 @@
-name: CI
+name: NPM publish
 
 on:
   push:
-    tags: v*
+    tags: v*.*.*
 
 env:
   NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
 
 jobs:
-  Publish:
+  publish:
     runs-on: ubuntu-latest
-    timeout-minutes: 3
+    timeout-minutes: 5
 
     steps:
       - name: Checkout code
@@ -25,10 +25,10 @@ jobs:
           node-version: 14.x
 
       - name: Setup node modules
-        run: yarn install
+        run: npm ci
 
       - name: Build
-        run: yarn build
+        run: npm run build
 
       - name: Publish
         run: npm publish

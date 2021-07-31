@@ -31,6 +31,9 @@ cjs
 esm
 types
 
+scripts/**/*.js
+scripts/**/*.map
+
 # Testing
 
 coverage

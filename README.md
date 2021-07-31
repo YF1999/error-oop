@@ -1,6 +1,6 @@
-# node-errors-pro
+# error-oop
 
-More error classes for nodejs.
+More oop error classes for nodejs.
 
 - Full suite of node.js Error classes.
 - Append stack traces from other generated Errors
@@ -9,7 +9,7 @@ More error classes for nodejs.
 
 ## Install
 
-`npm install node-errors-pro` or `yarn add node-errors-pro`.
+`npm install error-oop` or `yarn add error-oop`.
 
 ## Errors
 
