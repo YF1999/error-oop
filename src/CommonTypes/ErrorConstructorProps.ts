@@ -20,8 +20,8 @@ export interface ArgumentErrorProps extends ErrorProps {
     paramName?: string;
 }
 export interface ArgumentNullErrorProps extends ArgumentErrorProps {}
-export interface ArgumentOutOfRangeErrorProps extends ArgumentErrorProps {
-    actualValue?: string;
+export interface ArgumentOutOfRangeErrorProps<T> extends ArgumentErrorProps {
+    actualValue?: T;
 }
 export interface AuthenticationErrorProps extends ErrorProps {}
 export interface AuthenticationRequiredErrorProps extends AuthenticationErrorProps {}

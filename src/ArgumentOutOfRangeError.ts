@@ -1,10 +1,13 @@
 import { ErrorOptions, ArgumentOutOfRangeMessageProps, ArgumentOutOfRangeErrorProps } from './CommonTypes';
 import { AbstractArgumentError } from './ArgumentError';
 
-export abstract class AbstractArgumentOutOfRangeError extends AbstractArgumentError {
-    protected _actualValue?: string;
+export abstract class AbstractArgumentOutOfRangeError<T> extends AbstractArgumentError {
+    protected _actualValue?: T;
 
-    public constructor(props: ArgumentOutOfRangeErrorProps, options: ErrorOptions<ArgumentOutOfRangeMessageProps>) {
+    public constructor(
+        props: ArgumentOutOfRangeErrorProps<T>,
+        options: ErrorOptions<ArgumentOutOfRangeMessageProps<T>>,
+    ) {
         const { actualValue } = props;
         const { generateMessage: gm, ...others } = options;
 
@@ -17,7 +20,7 @@ export abstract class AbstractArgumentOutOfRangeError extends AbstractArgumentEr
         this._setNonEnumerable('_actualValue');
     }
 
-    public get actualValue(): string | undefined {
+    public get actualValue(): T | undefined {
         return this._actualValue;
     }
 }
@@ -26,7 +29,7 @@ export abstract class AbstractArgumentOutOfRangeError extends AbstractArgumentEr
  * Applicable when the value of an argument is outside the allowable range of values as defined by
  * the invoked function or method.
  */
-export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
+export class ArgumentOutOfRangeError<T extends unknown> extends AbstractArgumentOutOfRangeError<T> {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -54,17 +57,17 @@ export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
      * @param paramName The name of the parameter that caused the current error.
      * @param actualValue The value of the argument that causes this error.
      */
-    public constructor(message: string, paramName: string, actualValue: any);
+    public constructor(message: string, paramName: string, actualValue: T);
     /**
      * @param message The error message that explains the reason for this error.
      * @param paramName The name of the parameter that caused the current error.
      * @param actualValue The value of the argument that causes this error.
      * @param innerError The error that is the cause of the current error. Stack trace will be append.
      */
-    public constructor(message: string, paramName: string, actualValue: any, innerError: Error);
+    public constructor(message: string, paramName: string, actualValue: T, innerError: Error);
 
-    public constructor(message: string = '', arg1?: string | Error, arg2?: any, arg3?: Error) {
-        function generateMessage(props: ArgumentOutOfRangeMessageProps) {
+    public constructor(message: string = '', arg1?: string | Error, arg2?: T, arg3?: Error) {
+        function generateMessage(props: ArgumentOutOfRangeMessageProps<T>) {
             let append = '';
             if (props.paramName && props.actualValue) {
                 append = ` (Parameter '${props.paramName}', ActualValue '${props.actualValue}')`;
@@ -82,7 +85,7 @@ export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
 
         // message + paramName + innerError?
         else if (arg2 === undefined || arg2 instanceof Error) {
-            super({ message, innerError: arg2, paramName: arg1 }, { generateMessage });
+            super({ message, innerError: arg2 as Error, paramName: arg1 }, { generateMessage });
         }
 
         // message + paramName + actualValue + innerError?

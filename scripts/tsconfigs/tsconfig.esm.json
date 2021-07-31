@@ -1,0 +1,12 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "baseUrl": "../..",
+        "module": "es6",
+        "outDir": "../../build/esm",
+        "removeComments": true,
+        "rootDir": "../.."
+    },
+    "include": ["../../src", "../../test"],
+    "exclude": ["../../build", "../../node_modules"]
+}

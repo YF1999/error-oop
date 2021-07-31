@@ -1,25 +1,10 @@
 {
+    "extends": "./scripts/tsconfigs/tsconfig.base.json",
     "compilerOptions": {
-        "allowJs": false,
         "baseUrl": ".",
-        "esModuleInterop": true,
-        "forceConsistentCasingInFileNames": true,
-        "isolatedModules": true,
-        "lib": ["ES6"],
-        "moduleResolution": "node",
-        "newLine": "lf",
-        "noImplicitAny": true,
-        "noImplicitThis": true,
-        "noImplicitReturns": true,
-        "rootDir": ".",
-        "sourceMap": true,
-        "strict": true,
-        "strictBindCallApply": true,
-        "strictFunctionTypes": true,
-        "strictNullChecks": true,
-        "strictPropertyInitialization": true,
-        "target": "ES6"
+        "noEmit": true,
+        "rootDir": "."
     },
-    "include": ["src", "test"],
+    "include": ["scripts", "src", "test"],
     "exclude": ["build", "node_modules"]
 }
