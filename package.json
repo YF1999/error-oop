@@ -1,22 +1,23 @@
 {
-    "name": "node-errors-pro",
+    "name": "error-oop",
     "version": "0.2.0",
-    "description": "More error classes for nodejs",
+    "description": "More oop error classes for nodejs.",
     "main": "cjs/index.js",
     "module": "esm/index.js",
     "types": "types/index.d.ts",
-    "homepage": "https://github.com/YF1999/node-errors-pro#readme",
+    "homepage": "https://github.com/YF1999/error-oop#readme",
     "license": "MIT",
     "author": {
         "name": "YF1999",
+        "email": "1586939317@qq.com",
         "url": "https://github.com/YF1999"
     },
     "bugs": {
-        "url": "https://github.com/YF1999/node-errors-pro/issues"
+        "url": "https://github.com/YF1999/error-oop/issues"
     },
-    "repository": "https://github.com/YF1999/node-errors-pro",
-    "eslintConfig": {
-        "extends": ".eslintrc.js"
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/YF1999/error-oop.git"
     },
     "scripts": {
         "build": "yarn build:cjs && yarn build:esm && yarn build:types",
@@ -24,25 +25,34 @@
         "build:esm": "tsc -p tsconfig.json --module es6 --outDir build/esm --removeComments",
         "build:types": "tsc -p tsconfig.json --declaration --emitDeclarationOnly --declarationDir build/types",
         "clean": "rimraf build",
-        "lint": "eslint . -c .eslintrc.js",
+        "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
+        "lint": "eslint .",
         "prepublishOnly": "ncp build/cjs/src cjs && ncp build/esm/src esm && ncp build/types/src types",
         "test": "jest --config jest.config.js"
     },
     "dependencies": {},
     "devDependencies": {
-        "@types/jest": "^26.0.19",
-        "@types/node": "^14.14.20",
-        "@typescript-eslint/eslint-plugin": "^4.15.1",
-        "eslint": "^7.17.0",
+        "@types/jest": "^26.0.24",
+        "@types/node": "^14.17.6",
+        "@typescript-eslint/eslint-plugin": "^4.28.5",
+        "@typescript-eslint/experimental-utils": "^4.28.5",
+        "@typescript-eslint/parser": "^4.28.5",
+        "@typescript-eslint/scope-manager": "^4.28.5",
+        "@typescript-eslint/types": "^4.28.5",
+        "@typescript-eslint/typescript-estree": "^4.28.5",
+        "@typescript-eslint/visitor-keys": "^4.28.5",
+        "eslint": "^7.32.0",
         "eslint-config-airbnb-typescript": "^12.3.1",
-        "eslint-plugin-import": "^2.22.1",
-        "eslint-plugin-jest": "^24.1.3",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-import": "^2.23.4",
+        "eslint-plugin-jest": "^24.4.0",
         "eslint-plugin-node": "^11.1.0",
-        "eslint-plugin-prettier": "^3.3.1",
+        "eslint-plugin-prettier": "^3.4.0",
         "jest": "^26.6.3",
         "ncp": "^2.0.0",
+        "prettier": "^2.3.2",
         "rimraf": "^3.0.2",
-        "typescript": "^4.1.3"
+        "typescript": "4.3.5"
     },
     "keywords": [
         "error",

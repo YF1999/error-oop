@@ -1,5 +1,7 @@
 *                           text=auto
 
+*.inf                       text eol=crlf
+
 *.bat                       text eol=lf
 *.c                         text eol=lf
 *.cc                        text eol=lf
@@ -46,6 +48,7 @@
 
 .clang-format               text eol=lf
 .editorconfig               text eol=lf
+.env                        text eol=lf
 .gitattributes              text eol=lf
 .gitmodules                 text eol=lf
 .gitignore                  text eol=lf

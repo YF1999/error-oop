@@ -1,21 +1,41 @@
+# Environment
+
+.DS_Store
+.env.development.local
+.env.local
+.env.production.local
+.env.test.local
+
 # Editors and IDEs
 
-/.vscode/settings.json
+.vscode/settings.json
 
 # Dependencies
 
-/node_modules
+.pnp
+.pnp.js
+node_modules
+
+# Source
+
+src/**/*.cjs
+src/**/*.js
+src/**/*.mjs
 
 # Compilation
 
-/build
-/cjs
-/esm
-/types
+*.tsbuildinfo
+
+build
+cjs
+esm
+types
+
+# Testing
+
+coverage
 
 # Misc
-
-.DS_Store
 
 .eslintcache
 
