@@ -1,6 +1,5 @@
 import { ErrorOptions, URIErrorMessageProps, URIErrorProps } from '../CommonTypes';
-import { setNonEnumerable } from '../utils';
-import { appendInnerErrorStack } from './AppendInnerErrorStack';
+import { appendInnerErrorStack, setNonEnumerable } from './Tools';
 
 export abstract class AbstractURIError extends URIError {
     #innerError?: Error;
