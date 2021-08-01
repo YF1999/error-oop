@@ -20,8 +20,8 @@ export interface ArgumentErrorMessageProps extends ErrorMessageProps {
     paramName?: string;
 }
 export interface ArgumentNullErrorMessageProps extends ArgumentErrorMessageProps {}
-export interface ArgumentOutOfRangeMessageProps<T> extends ArgumentErrorMessageProps {
-    actualValue?: T;
+export interface ArgumentOutOfRangeMessageProps extends ArgumentErrorMessageProps {
+    actualValue?: unknown;
 }
 export interface AuthenticationErrorMessageProps extends ErrorMessageProps {}
 export interface AuthenticationRequiredErrorMessageProps extends AuthenticationErrorMessageProps {}
