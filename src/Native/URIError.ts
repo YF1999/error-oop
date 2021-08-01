@@ -3,7 +3,7 @@ import { setNonEnumerable } from '../utils';
 import { appendInnerErrorStack } from './AppendInnerErrorStack';
 
 export abstract class AbstractURIError extends URIError {
-    protected _innerError?: Error;
+    #innerError?: Error;
 
     public constructor(props: URIErrorProps, options: ErrorOptions<URIErrorMessageProps>) {
         super();
@@ -11,16 +11,15 @@ export abstract class AbstractURIError extends URIError {
         const { message, innerError } = props;
         const { generateMessage } = options;
 
-        this._innerError = innerError;
+        this.#innerError = innerError;
         this.message = generateMessage ? generateMessage({ name: this.name, message }) : message;
 
         // When the first call to `stack` property happens, it will combine `name` and `message` with trace stack to
         // `stack` property, we should generate message before this call.
-        this.stack = appendInnerErrorStack(this.stack, this._innerError);
+        this.stack = appendInnerErrorStack(this.stack, this.#innerError);
 
         this._setNonEnumerable('message');
         this._setNonEnumerable('stack');
-        this._setNonEnumerable('_innerError');
     }
 
     public get name(): string {
@@ -28,7 +27,7 @@ export abstract class AbstractURIError extends URIError {
     }
 
     public get innerError(): Error | undefined {
-        return this._innerError;
+        return this.#innerError;
     }
 
     protected _setNonEnumerable(property: string): void {
