@@ -9,20 +9,22 @@ export abstract class AbstractReferenceError extends ReferenceError {
         super();
 
         const { message, innerError } = props;
-        const { name, generateMessage } = options;
+        const { generateMessage } = options;
 
         this._innerError = innerError;
-        this.name = name || this.constructor.name;
         this.message = generateMessage ? generateMessage({ name: this.name, message }) : message;
 
         // When the first call to `stack` property happens, it will combine `name` and `message` with trace stack to
         // `stack` property, we should generate message before this call.
         this.stack = appendInnerErrorStack(this.stack, this._innerError);
 
-        this._setNonEnumerable('name');
         this._setNonEnumerable('message');
         this._setNonEnumerable('stack');
         this._setNonEnumerable('_innerError');
+    }
+
+    public get name(): string {
+        return this.constructor.name;
     }
 
     public get innerError(): Error | undefined {
@@ -51,7 +53,7 @@ export class ReferenceErrorPro extends AbstractReferenceError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, { name: 'ReferenceError' });
+        super({ message, innerError }, {});
     }
 }
 

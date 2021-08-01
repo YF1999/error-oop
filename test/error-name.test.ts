@@ -2,12 +2,12 @@ import * as errors from '../src';
 
 describe('Native-Errors-Pro', () => {
     /* eslint-disable @typescript-eslint/naming-convention */
-    const ErrorPro = 'Error';
-    const RangeErrorPro = 'RangeError';
-    const ReferenceErrorPro = 'ReferenceError';
-    const SyntaxErrorPro = 'SyntaxError';
-    const TypeErrorPro = 'TypeError';
-    const URIErrorPro = 'URIError';
+    const ErrorPro = 'ErrorPro';
+    const RangeErrorPro = 'RangeErrorPro';
+    const ReferenceErrorPro = 'ReferenceErrorPro';
+    const SyntaxErrorPro = 'SyntaxErrorPro';
+    const TypeErrorPro = 'TypeErrorPro';
+    const URIErrorPro = 'URIErrorPro';
     /* eslint-enable @typescript-eslint/naming-convention */
 
     test(ErrorPro, () => {
