@@ -6,19 +6,14 @@ export abstract class AbstractTypeError extends TypeError {
     #innerError?: Error;
 
     public constructor(props: TypeErrorProps, options: ErrorOptions<TypeErrorMessageProps>) {
-        super();
+        super(options.generateMessage ? options.generateMessage({ message: props.message }) : props.message);
 
-        const { message, innerError } = props;
-        const { generateMessage } = options;
-
-        this.#innerError = innerError;
-        this.message = generateMessage ? generateMessage({ name: this.name, message }) : message;
+        this.#innerError = props.innerError;
 
         // When the first call to `stack` property happens, it will combine `name` and `message` with trace stack to
         // `stack` property, we should generate message before this call.
         this.stack = appendInnerErrorStack(this.stack, this.#innerError);
 
-        this._setNonEnumerable('message');
         this._setNonEnumerable('stack');
     }
 

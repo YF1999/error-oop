@@ -1,7 +1,6 @@
 // Native Errors Pro
 
 export interface ErrorMessageProps {
-    name: string;
     message: string;
 }
 export interface RangeErrorMessageProps extends ErrorMessageProps {}
