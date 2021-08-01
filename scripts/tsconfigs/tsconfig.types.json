@@ -1,13 +1,14 @@
 {
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": "../..",
+        "baseUrl": "../../src",
         "declaration": true,
         "declarationDir": "../../build/types",
         "emitDeclarationOnly": true,
-        "module": "es6",
-        "rootDir": "../.."
+        "module": "ES2015",
+        "rootDir": "../../src",
+        "tsBuildInfoFile": "../../build/tsconfig.types.tsbuildinfo"
     },
-    "include": ["../../src", "../../test"],
+    "include": ["../../src"],
     "exclude": ["../../build", "../../node_modules"]
 }

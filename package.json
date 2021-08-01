@@ -20,7 +20,7 @@
         "url": "https://github.com/YF1999/error-oop.git"
     },
     "scripts": {
-        "build": "npm run build:cjs && npm run build:esm && npm run build:types",
+        "build": "concurrently -n cjs,esm,types \"npm run build:cjs\" \"npm run build:esm\" \"npm run build:types\"",
         "build:cjs": "tsc --build scripts/tsconfigs/tsconfig.cjs.json",
         "build:esm": "tsc --build scripts/tsconfigs/tsconfig.esm.json",
         "build:types": "tsc --build scripts/tsconfigs/tsconfig.types.json",
@@ -30,7 +30,7 @@
         "format": "prettier --write \"**/*.{cjs,css,html,js,jsx,mjs,json,scss,ts,tsx,yaml,yml}\"",
         "lint": "eslint .",
         "prebuild": "npm run build-scripts",
-        "prepublishOnly": "ncp build/cjs/src cjs && ncp build/esm/src esm && ncp build/types/src types",
+        "prepublishOnly": "ncp build/cjs cjs && ncp build/esm esm && ncp build/types types",
         "test": "jest --config scripts/jest/jest.config.js --watch",
         "test-coverage": "jest --config scripts/jest/jest.config.js --coverage"
     },
@@ -45,6 +45,7 @@
         "@typescript-eslint/types": "^4.28.5",
         "@typescript-eslint/typescript-estree": "^4.28.5",
         "@typescript-eslint/visitor-keys": "^4.28.5",
+        "concurrently": "^6.2.0",
         "eslint": "^7.32.0",
         "eslint-config-airbnb-typescript": "^12.3.1",
         "eslint-config-prettier": "^8.3.0",

@@ -1,12 +1,13 @@
 {
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": "../..",
-        "module": "es6",
+        "baseUrl": "../../src",
+        "module": "ES2015",
         "outDir": "../../build/esm",
         "removeComments": true,
-        "rootDir": "../.."
+        "rootDir": "../../src",
+        "tsBuildInfoFile": "../../build/tsconfig.esm.tsbuildinfo"
     },
-    "include": ["../../src", "../../test"],
+    "include": ["../../src"],
     "exclude": ["../../build", "../../node_modules"]
 }
