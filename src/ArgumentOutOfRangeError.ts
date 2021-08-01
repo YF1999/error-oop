@@ -1,11 +1,11 @@
 import { ArgumentError, IArgumentErrorOptions } from './ArgumentError';
-import { ErrorTool } from './Tools';
+import { ErrorTool, IErrorArguments } from './Native';
 
 export interface IArgumentOutOfRangeErrorOptions extends IArgumentErrorOptions {
     /**
      * The value of the argument that causes this error.
      */
-    _actualValue?: unknown;
+    actualValue?: unknown;
 }
 
 /**
@@ -54,15 +54,8 @@ export class ArgumentOutOfRangeError extends ArgumentError {
      */
     public constructor(options: IArgumentOutOfRangeErrorOptions);
 
-    public constructor(
-        ...args:
-            | []
-            | [IArgumentOutOfRangeErrorOptions]
-            | [string, Error?]
-            | [string, string, Error?]
-            | [string, string, unknown, Error?]
-    ) {
-        const opts = ErrorTool.parseArgumentArguments(...args);
+    public constructor(...args: IErrorArguments<IArgumentOutOfRangeErrorOptions, ['paramName', 'actualValue']>) {
+        const opts = ErrorTool.parseErrorArguments(['paramName', 'actualValue'], ...args);
 
         if ('actualValue' in opts && opts.paramName && opts.noMessageSuffix !== true) {
             opts.noMessageSuffix = true;

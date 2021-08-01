@@ -1,5 +1,6 @@
+import { IErrorArguments } from './IErrorArguments';
 import { appendInnerErrorStack, setNonEnumerable } from './Tools';
-import { IErrorOptions, IStandardArguments } from './Types';
+import { IErrorOptions } from './Types';
 
 /**
  * Represents an error that occurs when a numeric variable or parameter is outside of its valid range.
@@ -23,7 +24,7 @@ export class NativeRangeError extends RangeError {
      */
     public constructor(options: IErrorOptions);
 
-    public constructor(...[arg1, arg2]: IStandardArguments<IErrorOptions>) {
+    public constructor(...[arg1, arg2]: IErrorArguments<IErrorOptions>) {
         super(typeof arg1 === 'object' ? arg1.message : arg1);
 
         // eslint-disable-next-line prefer-destructuring

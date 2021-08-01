@@ -1,5 +1,4 @@
-import { IErrorOptions, IStandardArguments, NativeError } from './Native';
-import { ErrorTool } from './Tools';
+import { IErrorOptions, IErrorArguments, NativeError, ErrorTool } from './Native';
 
 export interface IAuthenticationErrorOptions extends IErrorOptions {}
 
@@ -22,7 +21,7 @@ export class AuthenticationError extends NativeError {
      */
     public constructor(options: IAuthenticationErrorOptions);
 
-    public constructor(...args: IStandardArguments<IAuthenticationErrorOptions>) {
-        super(ErrorTool.parseStandardArguments(...args));
+    public constructor(...args: IErrorArguments<IAuthenticationErrorOptions>) {
+        super(ErrorTool.parseErrorArguments([], ...args));
     }
 }

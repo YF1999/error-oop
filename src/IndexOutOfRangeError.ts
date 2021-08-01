@@ -1,5 +1,4 @@
-import { IErrorOptions, IStandardArguments, NativeError } from './Native';
-import { ErrorTool } from './Tools';
+import { IErrorOptions, IErrorArguments, NativeError, ErrorTool } from './Native';
 
 export interface IIndexOutOfRangeErrorOptions extends IErrorOptions {}
 
@@ -23,7 +22,7 @@ export class IndexOutOfRangeError extends NativeError {
      */
     public constructor(options: IIndexOutOfRangeErrorOptions);
 
-    public constructor(...args: IStandardArguments<IIndexOutOfRangeErrorOptions>) {
-        super(ErrorTool.parseStandardArguments(...args));
+    public constructor(...args: IErrorArguments<IIndexOutOfRangeErrorOptions>) {
+        super(ErrorTool.parseErrorArguments([], ...args));
     }
 }

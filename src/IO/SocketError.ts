@@ -1,5 +1,5 @@
-import { IStandardArguments } from '../Native';
-import { ErrorTool } from '../Tools';
+import { ErrorTool, IErrorArguments } from '../Native';
+
 import { IIOErrorOptions, IOError } from './IOError';
 
 export interface ISocketErrorOptions extends IIOErrorOptions {}
@@ -23,7 +23,7 @@ export class SocketError extends IOError {
      */
     public constructor(options: ISocketErrorOptions);
 
-    public constructor(...args: IStandardArguments<ISocketErrorOptions>) {
-        super(ErrorTool.parseStandardArguments(...args));
+    public constructor(...args: IErrorArguments<ISocketErrorOptions>) {
+        super(ErrorTool.parseErrorArguments([], ...args));
     }
 }

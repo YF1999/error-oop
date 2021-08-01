@@ -1,5 +1,6 @@
+import { IErrorArguments } from './IErrorArguments';
 import { appendInnerErrorStack, setNonEnumerable } from './Tools';
-import { IErrorOptions, IStandardArguments } from './Types';
+import { IErrorOptions } from './Types';
 
 /**
  * This is roughly the same as the native Error class. It additionally supports an innerError attribute.
@@ -22,7 +23,7 @@ export class NativeError extends Error {
      */
     public constructor(options: IErrorOptions);
 
-    public constructor(...[arg1, arg2]: IStandardArguments<IErrorOptions>) {
+    public constructor(...[arg1, arg2]: IErrorArguments<IErrorOptions>) {
         super(typeof arg1 === 'object' ? arg1.message : arg1);
 
         // eslint-disable-next-line prefer-destructuring

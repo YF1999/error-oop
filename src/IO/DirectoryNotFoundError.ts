@@ -1,5 +1,5 @@
-import { IStandardArguments } from '../Native';
-import { ErrorTool } from '../Tools';
+import { ErrorTool, IErrorArguments } from '../Native';
+
 import { IOError, IIOErrorOptions } from './IOError';
 
 export interface IDirectoryNotFoundErrorOptions extends IIOErrorOptions {}
@@ -23,7 +23,7 @@ export class DirectoryNotFoundError extends IOError {
      */
     public constructor(options: IDirectoryNotFoundErrorOptions);
 
-    public constructor(...args: IStandardArguments<IDirectoryNotFoundErrorOptions>) {
-        super(ErrorTool.parseStandardArguments(...args));
+    public constructor(...args: IErrorArguments<IDirectoryNotFoundErrorOptions>) {
+        super(ErrorTool.parseErrorArguments([], ...args));
     }
 }

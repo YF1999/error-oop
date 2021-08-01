@@ -1,4 +1,4 @@
-import { ErrorTool } from '../Tools';
+import { ErrorTool, IErrorArguments } from '../Native';
 import { IIOErrorOptions, IOError } from './IOError';
 
 export interface IFileLoadErrorOptions extends IIOErrorOptions {
@@ -40,8 +40,8 @@ export class FileLoadError extends IOError {
      */
     public constructor(options: IFileLoadErrorOptions);
 
-    public constructor(...args: [] | [IFileLoadErrorOptions] | [string, Error?] | [string, string, Error?]) {
-        const options = ErrorTool.parseFileArguments(...args);
+    public constructor(...args: IErrorArguments<IFileLoadErrorOptions, ['fileName']>) {
+        const options = ErrorTool.parseErrorArguments(['fileName'] as const, ...args);
 
         super(options);
 

@@ -1,5 +1,6 @@
+import { IErrorArguments } from './IErrorArguments';
 import { appendInnerErrorStack, setNonEnumerable } from './Tools';
-import { IErrorOptions, IStandardArguments } from './Types';
+import { IErrorOptions } from './Types';
 
 /**
  * Represents an error when a value is not of the expected type.
@@ -23,7 +24,7 @@ export class NativeTypeError extends TypeError {
      */
     public constructor(options: IErrorOptions);
 
-    public constructor(...[arg1, arg2]: IStandardArguments<IErrorOptions>) {
+    public constructor(...[arg1, arg2]: IErrorArguments<IErrorOptions>) {
         super(typeof arg1 === 'object' ? arg1.message : arg1);
 
         // eslint-disable-next-line prefer-destructuring

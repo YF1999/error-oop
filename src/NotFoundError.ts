@@ -1,8 +1,7 @@
-import { IErrorOptions, NativeError } from './Native';
-import { ErrorTool } from './Tools';
+import { IErrorOptions, ErrorTool, NativeError, IErrorArguments } from './Native';
 
 export interface INotFoundErrorOptions extends IErrorOptions {
-    _entityName?: string;
+    entityName?: string;
 }
 
 /**
@@ -37,8 +36,8 @@ export class NotFoundError extends NativeError {
      */
     public constructor(options: INotFoundErrorOptions);
 
-    public constructor(...args: [] | [INotFoundErrorOptions] | [string, Error?] | [string, string, Error?]) {
-        const options = ErrorTool.parseEntityArguments(...args);
+    public constructor(...args: IErrorArguments<INotFoundErrorOptions, ['entityName']>) {
+        const options = ErrorTool.parseErrorArguments(['entityName'], ...args);
 
         super(options);
 

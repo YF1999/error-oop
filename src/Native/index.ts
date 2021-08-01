@@ -1,4 +1,6 @@
 export * from './Error';
+export * from './ErrorTool';
+export * from './IErrorArguments';
 export * from './RangeError';
 export * from './ReferenceError';
 export * from './SyntaxError';

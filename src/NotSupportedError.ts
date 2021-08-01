@@ -1,5 +1,4 @@
-import { IErrorOptions, IStandardArguments, NativeError } from './Native';
-import { ErrorTool } from './Tools';
+import { IErrorOptions, IErrorArguments, NativeError, ErrorTool } from './Native';
 
 export interface INotSupportedErrorOptions extends IErrorOptions {}
 
@@ -23,7 +22,7 @@ export class NotSupportedError extends NativeError {
      */
     public constructor(options: INotSupportedErrorOptions);
 
-    public constructor(...args: IStandardArguments<INotSupportedErrorOptions>) {
-        super(ErrorTool.parseStandardArguments(...args));
+    public constructor(...args: IErrorArguments<INotSupportedErrorOptions>) {
+        super(ErrorTool.parseErrorArguments([], ...args));
     }
 }

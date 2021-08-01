@@ -8,5 +8,3 @@ export interface IErrorOptions {
      */
     innerError?: Error;
 }
-
-export type IStandardArguments<T extends IErrorOptions> = [] | [T] | [string, Error?];

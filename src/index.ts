@@ -31,5 +31,3 @@ export * from './IO/FileNotFoundError';
 export * from './IO/IOError';
 export * from './IO/PathTooLongError';
 export * from './IO/SocketError';
-
-export * from './Tools';

@@ -1,5 +1,5 @@
-import { IStandardArguments } from '../Native';
-import { ErrorTool } from '../Tools';
+import { ErrorTool, IErrorArguments } from '../Native';
+
 import { IOError, IIOErrorOptions } from './IOError';
 
 export interface IDriveNotFoundErrorOptions extends IIOErrorOptions {}
@@ -23,7 +23,7 @@ export class DriveNotFoundError extends IOError {
      */
     public constructor(options: IDriveNotFoundErrorOptions);
 
-    public constructor(...args: IStandardArguments<IDriveNotFoundErrorOptions>) {
-        super(ErrorTool.parseStandardArguments(...args));
+    public constructor(...args: IErrorArguments<IDriveNotFoundErrorOptions>) {
+        super(ErrorTool.parseErrorArguments([], ...args));
     }
 }
