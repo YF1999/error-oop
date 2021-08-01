@@ -1,9 +1,9 @@
-import { ErrorOptions, NotPermittedErrorMessageProps, NotPermittedErrorProps } from './CommonTypes';
+import { NotPermittedErrorProps } from './CommonTypes';
 import { AbstractError } from './Native';
 
 export abstract class AbstractNotPermittedError extends AbstractError {
-    public constructor(props: NotPermittedErrorProps, options: ErrorOptions<NotPermittedErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: NotPermittedErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class NotPermittedError extends AbstractNotPermittedError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

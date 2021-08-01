@@ -1,9 +1,9 @@
-import { ErrorOptions, IndexOutOfRangeErrorMessageProps, IndexOutOfRangeErrorProps } from './CommonTypes';
+import { IndexOutOfRangeErrorProps } from './CommonTypes';
 import { AbstractError } from './Native';
 
 export abstract class AbstractIndexOutOfRangeError extends AbstractError {
-    public constructor(props: IndexOutOfRangeErrorProps, options: ErrorOptions<IndexOutOfRangeErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: IndexOutOfRangeErrorProps) {
+        super(props);
     }
 }
 
@@ -24,6 +24,6 @@ export class IndexOutOfRangeError extends AbstractIndexOutOfRangeError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

@@ -1,9 +1,9 @@
-import { ErrorOptions, DirectoryNotFoundErrorMessageProps, DirectoryNotFoundErrorProps } from '../CommonTypes';
+import { DirectoryNotFoundErrorProps } from '../CommonTypes';
 import { AbstractIOError } from './IOError';
 
 export abstract class AbstractDirectoryNotFoundError extends AbstractIOError {
-    public constructor(props: DirectoryNotFoundErrorProps, options: ErrorOptions<DirectoryNotFoundErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: DirectoryNotFoundErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class DirectoryNotFoundError extends AbstractDirectoryNotFoundError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

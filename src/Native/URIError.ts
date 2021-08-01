@@ -1,11 +1,11 @@
-import { ErrorOptions, URIErrorMessageProps, URIErrorProps } from '../CommonTypes';
+import { URIErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from './Tools';
 
 export abstract class AbstractURIError extends URIError {
     #innerError?: Error;
 
-    public constructor(props: URIErrorProps, options: ErrorOptions<URIErrorMessageProps>) {
-        super(options.generateMessage ? options.generateMessage({ message: props.message }) : props.message);
+    public constructor(props: URIErrorProps) {
+        super(props.message);
 
         this.#innerError = props.innerError;
 
@@ -46,7 +46,7 @@ export class URIErrorPro extends AbstractURIError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }
 

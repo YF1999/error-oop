@@ -1,19 +1,13 @@
-import { ErrorOptions, ArgumentOutOfRangeMessageProps, ArgumentOutOfRangeErrorProps } from './CommonTypes';
+import { ArgumentOutOfRangeErrorProps } from './CommonTypes';
 import { AbstractArgumentError } from './ArgumentError';
 
 export abstract class AbstractArgumentOutOfRangeError extends AbstractArgumentError {
     protected _actualValue?: unknown;
 
-    public constructor(props: ArgumentOutOfRangeErrorProps, options: ErrorOptions<ArgumentOutOfRangeMessageProps>) {
-        const { actualValue } = props;
-        const { generateMessage: gm, ...others } = options;
+    public constructor(props: ArgumentOutOfRangeErrorProps) {
+        super(props);
 
-        super(props, {
-            generateMessage: gm && ((_props) => gm({ ..._props, actualValue })),
-            ...others,
-        });
-
-        this._actualValue = actualValue;
+        this._actualValue = props.actualValue;
         this._setNonEnumerable('_actualValue');
     }
 
@@ -64,30 +58,24 @@ export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
     public constructor(message: string, paramName: string, actualValue: unknown, innerError: Error);
 
     public constructor(message: string = '', arg1?: string | Error, arg2?: unknown, arg3?: Error) {
-        function generateMessage(props: ArgumentOutOfRangeMessageProps) {
-            let append = '';
-            if (props.paramName && props.actualValue) {
-                append = ` (Parameter '${props.paramName}', ActualValue '${props.actualValue}')`;
-            } else if (props.paramName && !props.actualValue) {
-                append = ` (Parameter '${props.paramName}')`;
-            }
-
-            return props.message + append;
-        }
-
         // message + innerError?
         if (arg1 === undefined || typeof arg1 !== 'string') {
-            super({ message, innerError: arg1 }, { generateMessage });
+            super({ message, innerError: arg1 });
         }
 
         // message + paramName + innerError?
         else if (arg2 === undefined || arg2 instanceof Error) {
-            super({ message, innerError: arg2, paramName: arg1 }, { generateMessage });
+            super({ message: `${message} (Parameter '${arg1}')`, innerError: arg2, paramName: arg1 });
         }
 
         // message + paramName + actualValue + innerError?
         else {
-            super({ message, actualValue: arg2, innerError: arg3, paramName: arg1 }, { generateMessage });
+            super({
+                message: `${message} (Parameter '${arg1}', ActualValue '${arg2}')`,
+                actualValue: arg2,
+                innerError: arg3,
+                paramName: arg1,
+            });
         }
     }
 }

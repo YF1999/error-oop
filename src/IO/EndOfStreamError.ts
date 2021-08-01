@@ -1,9 +1,9 @@
-import { ErrorOptions, EndOfStreamErrorMessageProps, EndOfStreamErrorProps } from '../CommonTypes';
+import { EndOfStreamErrorProps } from '../CommonTypes';
 import { AbstractIOError } from './IOError';
 
 export abstract class AbstractEndOfStreamError extends AbstractIOError {
-    public constructor(props: EndOfStreamErrorProps, options: ErrorOptions<EndOfStreamErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: EndOfStreamErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class EndOfStreamError extends AbstractEndOfStreamError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

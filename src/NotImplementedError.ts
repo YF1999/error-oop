@@ -1,9 +1,9 @@
-import { ErrorOptions, NotImplementedErrorMessageProps, NotImplementedErrorProps } from './CommonTypes';
+import { NotImplementedErrorProps } from './CommonTypes';
 import { AbstractError } from './Native';
 
 export abstract class AbstractNotImplementedError extends AbstractError {
-    public constructor(props: NotImplementedErrorProps, options: ErrorOptions<NotImplementedErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: NotImplementedErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class NotImplementedError extends AbstractNotImplementedError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

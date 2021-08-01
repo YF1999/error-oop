@@ -1,19 +1,13 @@
-import { ErrorOptions, FileNotFoundErrorMessageProps, FileNotFoundErrorProps } from '../CommonTypes';
+import { FileNotFoundErrorProps } from '../CommonTypes';
 import { AbstractIOError } from './IOError';
 
 export abstract class AbstractFileNotFoundError extends AbstractIOError {
     private _fileName?: string;
 
-    public constructor(props: FileNotFoundErrorProps, options: ErrorOptions<FileNotFoundErrorMessageProps>) {
-        const { fileName } = props;
-        const { generateMessage: gm, ...others } = options;
+    public constructor(props: FileNotFoundErrorProps) {
+        super(props);
 
-        super(props, {
-            generateMessage: gm && ((_props) => gm({ ..._props, fileName })),
-            ...others,
-        });
-
-        this._fileName = fileName;
+        this._fileName = props.fileName;
         this._setNonEnumerable('_fileName');
     }
 
@@ -51,12 +45,12 @@ export class FileNotFoundError extends AbstractFileNotFoundError {
     public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
         // message + innerError?
         if (arg1 === undefined || typeof arg1 !== 'string') {
-            super({ message, innerError: arg1 }, {});
+            super({ message, innerError: arg1 });
         }
 
         // message + fileName + innerError?
         else {
-            super({ message, fileName: arg1, innerError: arg2 }, {});
+            super({ message, fileName: arg1, innerError: arg2 });
         }
     }
 }

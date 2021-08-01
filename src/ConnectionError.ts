@@ -1,9 +1,9 @@
-import { ErrorOptions, ConnectionErrorMessageProps, ConnectionErrorProps } from './CommonTypes';
+import { ConnectionErrorProps } from './CommonTypes';
 import { AbstractError } from './Native';
 
 export abstract class AbstractConnectionError extends AbstractError {
-    public constructor(props: ConnectionErrorProps, options: ErrorOptions<ConnectionErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: ConnectionErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class ConnectionError extends AbstractConnectionError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

@@ -1,19 +1,13 @@
-import { ErrorOptions, FileLoadErrorMessageProps, FileLoadErrorProps } from '../CommonTypes';
+import { FileLoadErrorProps } from '../CommonTypes';
 import { AbstractIOError } from './IOError';
 
 export abstract class AbstractFileLoadError extends AbstractIOError {
     private _fileName?: string;
 
-    public constructor(props: FileLoadErrorProps, options: ErrorOptions<FileLoadErrorMessageProps>) {
-        const { fileName } = props;
-        const { generateMessage: gm, ...others } = options;
+    public constructor(props: FileLoadErrorProps) {
+        super(props);
 
-        super(props, {
-            generateMessage: gm && ((_props) => gm({ ..._props, fileName })),
-            ...others,
-        });
-
-        this._fileName = fileName;
+        this._fileName = props.fileName;
         this._setNonEnumerable('_fileName');
     }
 
@@ -51,12 +45,12 @@ export class FileLoadError extends AbstractFileLoadError {
     public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
         // message + innerError?
         if (arg1 === undefined || typeof arg1 !== 'string') {
-            super({ message, innerError: arg1 }, {});
+            super({ message, innerError: arg1 });
         }
 
         // message + fileName + innerError?
         else {
-            super({ message, fileName: arg1, innerError: arg2 }, {});
+            super({ message, fileName: arg1, innerError: arg2 });
         }
     }
 }

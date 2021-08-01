@@ -1,9 +1,9 @@
-import { ErrorOptions, StackOverflowErrorMessageProps, StackOverflowErrorProps } from './CommonTypes';
+import { StackOverflowErrorProps } from './CommonTypes';
 import { AbstractError } from './Native';
 
 export abstract class AbstractStackOverflowError extends AbstractError {
-    public constructor(props: StackOverflowErrorProps, options: ErrorOptions<StackOverflowErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: StackOverflowErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class StackOverflowError extends AbstractStackOverflowError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

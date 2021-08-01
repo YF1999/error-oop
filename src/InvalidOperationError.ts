@@ -1,9 +1,9 @@
-import { ErrorOptions, InvalidOperationErrorMessageProps, InvalidOperationErrorProps } from './CommonTypes';
+import { InvalidOperationErrorProps } from './CommonTypes';
 import { AbstractError } from './Native';
 
 export abstract class AbstractInvalidOperationError extends AbstractError {
-    public constructor(props: InvalidOperationErrorProps, options: ErrorOptions<InvalidOperationErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: InvalidOperationErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class InvalidOperationError extends AbstractInvalidOperationError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

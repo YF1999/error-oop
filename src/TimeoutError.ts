@@ -1,9 +1,9 @@
-import { ErrorOptions, TimeoutErrorMessageProps, TimeoutErrorProps } from './CommonTypes';
+import { TimeoutErrorProps } from './CommonTypes';
 import { AbstractError } from './Native';
 
 export abstract class AbstractTimeoutError extends AbstractError {
-    public constructor(props: TimeoutErrorProps, options: ErrorOptions<TimeoutErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: TimeoutErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class TimeoutError extends AbstractTimeoutError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

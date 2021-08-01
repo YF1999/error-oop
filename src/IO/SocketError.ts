@@ -1,9 +1,9 @@
-import { ErrorOptions, SocketErrorMessageProps, SocketErrorProps } from '../CommonTypes';
+import { SocketErrorProps } from '../CommonTypes';
 import { AbstractIOError } from './IOError';
 
 export abstract class AbstractSocketError extends AbstractIOError {
-    public constructor(props: SocketErrorProps, options: ErrorOptions<SocketErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: SocketErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class SocketError extends AbstractSocketError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

@@ -1,19 +1,13 @@
-import { ArgumentErrorProps, ErrorOptions, ArgumentErrorMessageProps } from './CommonTypes';
+import { ArgumentErrorProps } from './CommonTypes';
 import { AbstractError } from './Native';
 
 export abstract class AbstractArgumentError extends AbstractError {
     protected _paramName?: string;
 
-    public constructor(props: ArgumentErrorProps, options: ErrorOptions<ArgumentErrorMessageProps>) {
-        const { paramName } = props;
-        const { generateMessage: gm, ...others } = options;
+    public constructor(props: ArgumentErrorProps) {
+        super(props);
 
-        super(props, {
-            generateMessage: gm && ((_props) => gm({ ..._props, paramName })),
-            ...others,
-        });
-
-        this._paramName = paramName;
+        this._paramName = props.paramName;
         this._setNonEnumerable('_paramName');
     }
 
@@ -49,18 +43,14 @@ export class ArgumentError extends AbstractArgumentError {
     public constructor(message: string, paramName: string, innerError: Error);
 
     public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
-        function generateMessage(props: ArgumentErrorMessageProps) {
-            return props.paramName ? `${props.message} (Parameter '${props.paramName}')` : props.message;
-        }
-
         // message + innerError?
         if (arg1 === undefined || typeof arg1 !== 'string') {
-            super({ message, innerError: arg1 }, { generateMessage });
+            super({ message, innerError: arg1 });
         }
 
         // message + paramName + innerError?
         else {
-            super({ message, paramName: arg1, innerError: arg2 }, { generateMessage });
+            super({ message: `${message} (Parameter '${arg1}')`, paramName: arg1, innerError: arg2 });
         }
     }
 }

@@ -1,9 +1,9 @@
-import { ErrorOptions, ArgumentNullErrorMessageProps, ArgumentNullErrorProps } from './CommonTypes';
+import { ArgumentNullErrorProps } from './CommonTypes';
 import { AbstractArgumentError } from './ArgumentError';
 
 export abstract class AbstractArgumentNullError extends AbstractArgumentError {
-    public constructor(props: ArgumentNullErrorProps, options: ErrorOptions<ArgumentNullErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: ArgumentNullErrorProps) {
+        super(props);
     }
 }
 
@@ -35,18 +35,14 @@ export class ArgumentNullError extends AbstractArgumentNullError {
     public constructor(message: string, paramName: string, innerError: Error);
 
     public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
-        function generateMessage(props: ArgumentNullErrorMessageProps) {
-            return props.paramName ? `${props.message} (Parameter '${props.paramName}')` : props.message;
-        }
-
         // message + innerError?
         if (arg1 === undefined || typeof arg1 !== 'string') {
-            super({ message, innerError: arg1 }, { generateMessage });
+            super({ message, innerError: arg1 });
         }
 
         // message + paramName + innerError?
         else {
-            super({ message, paramName: arg1, innerError: arg2 }, { generateMessage });
+            super({ message: `${message} (Parameter '${arg1}')`, paramName: arg1, innerError: arg2 });
         }
     }
 }

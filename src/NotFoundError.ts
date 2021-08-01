@@ -1,19 +1,13 @@
-import { ErrorOptions, NotFoundErrorMessageProps, NotFoundErrorProps } from './CommonTypes';
+import { NotFoundErrorProps } from './CommonTypes';
 import { AbstractError } from './Native';
 
 export abstract class AbstractNotFoundError extends AbstractError {
     protected _entityName?: string;
 
-    public constructor(props: NotFoundErrorProps, options: ErrorOptions<NotFoundErrorMessageProps>) {
-        const { entityName } = props;
-        const { generateMessage: gm, ...others } = options;
+    public constructor(props: NotFoundErrorProps) {
+        super(props);
 
-        super(props, {
-            generateMessage: gm && ((_props) => gm({ ..._props, entityName })),
-            ...others,
-        });
-
-        this._entityName = entityName;
+        this._entityName = props.entityName;
         this._setNonEnumerable('_entityName');
     }
 
@@ -51,12 +45,12 @@ export class NotFoundError extends AbstractNotFoundError {
     public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
         // message + innerError?
         if (arg1 === undefined || typeof arg1 !== 'string') {
-            super({ message, innerError: arg1 }, {});
+            super({ message, innerError: arg1 });
         }
 
         // message + entityName + innerError?
         else {
-            super({ message, entityName: arg1, innerError: arg2 }, {});
+            super({ message, entityName: arg1, innerError: arg2 });
         }
     }
 }

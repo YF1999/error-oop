@@ -1,9 +1,9 @@
-import { ErrorOptions, IOErrorMessageProps, IOErrorProps } from '../CommonTypes';
+import { IOErrorProps } from '../CommonTypes';
 import { AbstractError } from '../Native';
 
 export abstract class AbstractIOError extends AbstractError {
-    public constructor(props: IOErrorProps, options: ErrorOptions<IOErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: IOErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class IOError extends AbstractIOError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

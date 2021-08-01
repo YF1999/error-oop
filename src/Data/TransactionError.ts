@@ -1,9 +1,9 @@
-import { ErrorOptions, TransactionErrorMessageProps, TransactionErrorProps } from '../CommonTypes';
+import { TransactionErrorProps } from '../CommonTypes';
 import { AbstractError } from '../Native';
 
 export abstract class AbstractTransactionError extends AbstractError {
-    public constructor(props: TransactionErrorProps, options: ErrorOptions<TransactionErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: TransactionErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class TransactionError extends AbstractTransactionError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

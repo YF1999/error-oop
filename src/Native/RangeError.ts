@@ -1,11 +1,11 @@
-import { ErrorOptions, RangeErrorMessageProps, RangeErrorProps } from '../CommonTypes';
+import { RangeErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from './Tools';
 
 export abstract class AbstractRangeError extends RangeError {
     #innerError?: Error;
 
-    public constructor(props: RangeErrorProps, options: ErrorOptions<RangeErrorMessageProps>) {
-        super(options.generateMessage ? options.generateMessage({ message: props.message }) : props.message);
+    public constructor(props: RangeErrorProps) {
+        super(props.message);
 
         this.#innerError = props.innerError;
 
@@ -46,7 +46,7 @@ export class RangeErrorPro extends AbstractRangeError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }
 

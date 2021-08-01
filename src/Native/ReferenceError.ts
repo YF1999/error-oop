@@ -1,11 +1,11 @@
-import { ErrorOptions, ReferenceErrorMessageProps, ReferenceErrorProps } from '../CommonTypes';
+import { ReferenceErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from './Tools';
 
 export abstract class AbstractReferenceError extends ReferenceError {
     #innerError?: Error;
 
-    public constructor(props: ReferenceErrorProps, options: ErrorOptions<ReferenceErrorMessageProps>) {
-        super(options.generateMessage ? options.generateMessage({ message: props.message }) : props.message);
+    public constructor(props: ReferenceErrorProps) {
+        super(props.message);
 
         this.#innerError = props.innerError;
 
@@ -46,7 +46,7 @@ export class ReferenceErrorPro extends AbstractReferenceError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }
 

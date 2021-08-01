@@ -1,12 +1,9 @@
-import { ErrorOptions, AuthenticationRequiredErrorMessageProps, AuthenticationRequiredErrorProps } from './CommonTypes';
+import { AuthenticationRequiredErrorProps } from './CommonTypes';
 import { AbstractError } from './Native';
 
 export abstract class AbstractAuthenticationRequiredError extends AbstractError {
-    public constructor(
-        props: AuthenticationRequiredErrorProps,
-        options: ErrorOptions<AuthenticationRequiredErrorMessageProps>,
-    ) {
-        super(props, options);
+    public constructor(props: AuthenticationRequiredErrorProps) {
+        super(props);
     }
 }
 
@@ -26,6 +23,6 @@ export class AuthenticationRequiredError extends AbstractAuthenticationRequiredE
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

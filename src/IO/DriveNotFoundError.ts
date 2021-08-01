@@ -1,9 +1,9 @@
-import { ErrorOptions, DriveNotFoundErrorMessageProps, DriveNotFoundErrorProps } from '../CommonTypes';
+import { DriveNotFoundErrorProps } from '../CommonTypes';
 import { AbstractIOError } from './IOError';
 
 export abstract class AbstractDriveNotFoundError extends AbstractIOError {
-    public constructor(props: DriveNotFoundErrorProps, options: ErrorOptions<DriveNotFoundErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: DriveNotFoundErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class DriveNotFoundError extends AbstractDriveNotFoundError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

@@ -18,7 +18,7 @@ You may want to avoid this behavior to get the original message. Just create a n
 ```ts
 class CustomArgumentError extends AbstractArgumentError {
     constructor(message: string = '', paramName?: string, innerError?: Error) {
-        super({ message, paramName, innerError }, {});
+        super({ message, paramName, innerError };
     }
 }
 ```

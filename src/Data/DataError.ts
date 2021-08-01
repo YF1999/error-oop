@@ -1,9 +1,9 @@
-import { ErrorOptions, DataErrorMessageProps, DataErrorProps } from '../CommonTypes';
+import { DataErrorProps } from '../CommonTypes';
 import { AbstractError } from '../Native';
 
 export abstract class AbstractDataError extends AbstractError {
-    public constructor(props: DataErrorProps, options: ErrorOptions<DataErrorMessageProps>) {
-        super(props, options);
+    public constructor(props: DataErrorProps) {
+        super(props);
     }
 }
 
@@ -23,6 +23,6 @@ export class DataError extends AbstractDataError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }

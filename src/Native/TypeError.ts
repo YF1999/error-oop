@@ -1,11 +1,11 @@
-import { ErrorOptions, TypeErrorMessageProps, TypeErrorProps } from '../CommonTypes';
+import { TypeErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from './Tools';
 
 export abstract class AbstractTypeError extends TypeError {
     #innerError?: Error;
 
-    public constructor(props: TypeErrorProps, options: ErrorOptions<TypeErrorMessageProps>) {
-        super(options.generateMessage ? options.generateMessage({ message: props.message }) : props.message);
+    public constructor(props: TypeErrorProps) {
+        super(props.message);
 
         this.#innerError = props.innerError;
 
@@ -46,7 +46,7 @@ export class TypeErrorPro extends AbstractTypeError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }
 

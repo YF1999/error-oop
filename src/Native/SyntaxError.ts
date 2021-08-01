@@ -1,11 +1,11 @@
-import { ErrorOptions, SyntaxErrorMessageProps, SyntaxErrorProps } from '../CommonTypes';
+import { SyntaxErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from './Tools';
 
 export abstract class AbstractSyntaxError extends SyntaxError {
     #innerError?: Error;
 
-    public constructor(props: SyntaxErrorProps, options: ErrorOptions<SyntaxErrorMessageProps>) {
-        super(options.generateMessage ? options.generateMessage({ message: props.message }) : props.message);
+    public constructor(props: SyntaxErrorProps) {
+        super(props.message);
 
         this.#innerError = props.innerError;
 
@@ -46,7 +46,7 @@ export class SyntaxErrorPro extends AbstractSyntaxError {
     public constructor(message: string, innerError: Error);
 
     public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError }, {});
+        super({ message, innerError });
     }
 }
 

@@ -1,20 +1,17 @@
-import { AlreadyInUseErrorMessageProps, AlreadyInUseErrorProps, ErrorOptions } from './CommonTypes';
+import { AlreadyInUseErrorProps } from './CommonTypes';
 import { AbstractError } from './Native';
 
 export abstract class AbstractAlreadyInUseError extends AbstractError {
     protected _entityName: string;
+    protected _inUse: string[];
 
-    public constructor(props: AlreadyInUseErrorProps, options: ErrorOptions<AlreadyInUseErrorMessageProps>) {
-        const { entityName, inUse } = props;
-        const { generateMessage: gm, ...others } = options;
+    public constructor(props: AlreadyInUseErrorProps) {
+        super(props);
 
-        super(props, {
-            generateMessage: gm && ((_props) => gm({ ..._props, entityName, inUse })),
-            ...others,
-        });
-
-        this._entityName = entityName;
+        this._entityName = props.entityName;
+        this._inUse = props.inUse;
         this._setNonEnumerable('_entityName');
+        this._setNonEnumerable('_inUse');
     }
 
     public get entityName(): string {
@@ -58,19 +55,13 @@ export class AlreadyInUseError extends AbstractAlreadyInUseError {
     public constructor(entityName: string, arg1: string, arg2: string, arg3: string, ...args: string[]);
 
     public constructor(entityName: string, arg1?: string, arg2?: string, arg3?: string, ...args: string[]) {
-        function generateMessage(props: AlreadyInUseErrorMessageProps) {
-            return props.inUse.length === 0
-                ? `The specified '${props.entityName}' value is already in use.`
-                : `The specified '${props.entityName}' value is already in use: ${props.inUse.join(', ')}`;
-        }
+        const inUse = [arg1, arg2, arg3, ...args].filter((e) => e !== undefined) as string[];
 
-        super(
-            {
-                message: '',
-                entityName,
-                inUse: [arg1, arg2, arg3, ...args].filter((e) => e !== undefined) as string[],
-            },
-            { generateMessage },
-        );
+        const message =
+            inUse.length === 0
+                ? `The specified '${entityName}' value is already in use.`
+                : `The specified '${entityName}' value is already in use: ${inUse.join(', ')}`;
+
+        super({ message, entityName, inUse });
     }
 }
