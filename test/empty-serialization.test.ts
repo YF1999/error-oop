@@ -2,63 +2,63 @@ import * as errors from '../src';
 
 describe('Native-Errors-Pro', () => {
     /* eslint-disable @typescript-eslint/naming-convention */
-    const ErrorPro = 'ErrorPro';
-    const RangeErrorPro = 'RangeErrorPro';
-    const ReferenceErrorPro = 'ReferenceErrorPro';
-    const SyntaxErrorPro = 'SyntaxErrorPro';
-    const TypeErrorPro = 'TypeErrorPro';
-    const URIErrorPro = 'URIErrorPro';
+    const NativeError = 'NativeError';
+    const NativeRangeError = 'NativeRangeError';
+    const NativeReferenceError = 'NativeReferenceError';
+    const NativeSyntaxError = 'NativeSyntaxError';
+    const NativeTypeError = 'NativeTypeError';
+    const NativeURIError = 'NativeURIError';
     /* eslint-enable @typescript-eslint/naming-convention */
 
-    test(ErrorPro, () => {
-        const err1 = new errors[ErrorPro]();
-        const err2 = new errors[ErrorPro]('error');
-        const err3 = new errors[ErrorPro]('error', err2);
+    test(NativeError, () => {
+        const err1 = new errors[NativeError]();
+        const err2 = new errors[NativeError]('error');
+        const err3 = new errors[NativeError]('error', err2);
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');
         expect(JSON.stringify(err3)).toBe('{}');
     });
 
-    test(RangeErrorPro, () => {
-        const err1 = new errors[RangeErrorPro]();
-        const err2 = new errors[RangeErrorPro]('error');
-        const err3 = new errors[RangeErrorPro]('error', err2);
+    test(NativeRangeError, () => {
+        const err1 = new errors[NativeRangeError]();
+        const err2 = new errors[NativeRangeError]('error');
+        const err3 = new errors[NativeRangeError]('error', err2);
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');
         expect(JSON.stringify(err3)).toBe('{}');
     });
 
-    test(ReferenceErrorPro, () => {
-        const err1 = new errors[ReferenceErrorPro]();
-        const err2 = new errors[ReferenceErrorPro]('error');
-        const err3 = new errors[ReferenceErrorPro]('error', err2);
+    test(NativeReferenceError, () => {
+        const err1 = new errors[NativeReferenceError]();
+        const err2 = new errors[NativeReferenceError]('error');
+        const err3 = new errors[NativeReferenceError]('error', err2);
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');
         expect(JSON.stringify(err3)).toBe('{}');
     });
 
-    test(SyntaxErrorPro, () => {
-        const err1 = new errors[SyntaxErrorPro]();
-        const err2 = new errors[SyntaxErrorPro]('error');
-        const err3 = new errors[SyntaxErrorPro]('error', err2);
+    test(NativeSyntaxError, () => {
+        const err1 = new errors[NativeSyntaxError]();
+        const err2 = new errors[NativeSyntaxError]('error');
+        const err3 = new errors[NativeSyntaxError]('error', err2);
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');
         expect(JSON.stringify(err3)).toBe('{}');
     });
 
-    test(TypeErrorPro, () => {
-        const err1 = new errors[TypeErrorPro]();
-        const err2 = new errors[TypeErrorPro]('error');
-        const err3 = new errors[TypeErrorPro]('error', err2);
+    test(NativeTypeError, () => {
+        const err1 = new errors[NativeTypeError]();
+        const err2 = new errors[NativeTypeError]('error');
+        const err3 = new errors[NativeTypeError]('error', err2);
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');
         expect(JSON.stringify(err3)).toBe('{}');
     });
 
-    test(URIErrorPro, () => {
-        const err1 = new errors[URIErrorPro]();
-        const err2 = new errors[URIErrorPro]('error');
-        const err3 = new errors[URIErrorPro]('error', err2);
+    test(NativeURIError, () => {
+        const err1 = new errors[NativeURIError]();
+        const err2 = new errors[NativeURIError]('error');
+        const err3 = new errors[NativeURIError]('error', err2);
         expect(JSON.stringify(err1)).toBe('{}');
         expect(JSON.stringify(err2)).toBe('{}');
         expect(JSON.stringify(err3)).toBe('{}');

@@ -2,52 +2,52 @@ import * as errors from '../src';
 
 describe('Native-Errors-Pro', () => {
     /* eslint-disable @typescript-eslint/naming-convention */
-    const ErrorPro = 'ErrorPro';
-    const RangeErrorPro = 'RangeErrorPro';
-    const ReferenceErrorPro = 'ReferenceErrorPro';
-    const SyntaxErrorPro = 'SyntaxErrorPro';
-    const TypeErrorPro = 'TypeErrorPro';
-    const URIErrorPro = 'URIErrorPro';
+    const NativeError = 'NativeError';
+    const NativeRangeError = 'NativeRangeError';
+    const NativeReferenceError = 'NativeReferenceError';
+    const NativeSyntaxError = 'NativeSyntaxError';
+    const NativeTypeError = 'NativeTypeError';
+    const NativeURIError = 'NativeURIError';
     /* eslint-enable @typescript-eslint/naming-convention */
 
-    test(ErrorPro, () => {
-        const err1 = new errors[ErrorPro]('error');
-        const err2 = new errors[ErrorPro]('error', err1);
+    test(NativeError, () => {
+        const err1 = new errors[NativeError]('error');
+        const err2 = new errors[NativeError]('error', err1);
         expect(err1.innerError).toBe(undefined);
         expect(err2.innerError).toBe(err1);
     });
 
-    test(RangeErrorPro, () => {
-        const err1 = new errors[RangeErrorPro]('error');
-        const err2 = new errors[RangeErrorPro]('error', err1);
+    test(NativeRangeError, () => {
+        const err1 = new errors[NativeRangeError]('error');
+        const err2 = new errors[NativeRangeError]('error', err1);
         expect(err1.innerError).toBe(undefined);
         expect(err2.innerError).toBe(err1);
     });
 
-    test(ReferenceErrorPro, () => {
-        const err1 = new errors[ReferenceErrorPro]('error');
-        const err2 = new errors[ReferenceErrorPro]('error', err1);
+    test(NativeReferenceError, () => {
+        const err1 = new errors[NativeReferenceError]('error');
+        const err2 = new errors[NativeReferenceError]('error', err1);
         expect(err1.innerError).toBe(undefined);
         expect(err2.innerError).toBe(err1);
     });
 
-    test(SyntaxErrorPro, () => {
-        const err1 = new errors[SyntaxErrorPro]('error');
-        const err2 = new errors[SyntaxErrorPro]('error', err1);
+    test(NativeSyntaxError, () => {
+        const err1 = new errors[NativeSyntaxError]('error');
+        const err2 = new errors[NativeSyntaxError]('error', err1);
         expect(err1.innerError).toBe(undefined);
         expect(err2.innerError).toBe(err1);
     });
 
-    test(TypeErrorPro, () => {
-        const err1 = new errors[TypeErrorPro]('error');
-        const err2 = new errors[TypeErrorPro]('error', err1);
+    test(NativeTypeError, () => {
+        const err1 = new errors[NativeTypeError]('error');
+        const err2 = new errors[NativeTypeError]('error', err1);
         expect(err1.innerError).toBe(undefined);
         expect(err2.innerError).toBe(err1);
     });
 
-    test(URIErrorPro, () => {
-        const err1 = new errors[URIErrorPro]('error');
-        const err2 = new errors[URIErrorPro]('error', err1);
+    test(NativeURIError, () => {
+        const err1 = new errors[NativeURIError]('error');
+        const err2 = new errors[NativeURIError]('error', err1);
         expect(err1.innerError).toBe(undefined);
         expect(err2.innerError).toBe(err1);
     });

@@ -33,7 +33,7 @@ export abstract class AbstractReferenceError extends ReferenceError {
  * Represents an error when a non-existent variable is referenced. This is roughly the same as the native ReferenceError
  * class. It additionally supports an innerError attribute.
  */
-export class ReferenceErrorPro extends AbstractReferenceError {
+export class NativeReferenceError extends AbstractReferenceError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -50,4 +50,4 @@ export class ReferenceErrorPro extends AbstractReferenceError {
     }
 }
 
-export { ReferenceErrorPro as ReferenceError };
+export { NativeReferenceError as ReferenceError };

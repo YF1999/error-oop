@@ -2,48 +2,48 @@ import * as errors from '../src';
 
 describe('Native-Errors-Pro', () => {
     /* eslint-disable @typescript-eslint/naming-convention */
-    const ErrorPro = 'ErrorPro';
-    const RangeErrorPro = 'RangeErrorPro';
-    const ReferenceErrorPro = 'ReferenceErrorPro';
-    const SyntaxErrorPro = 'SyntaxErrorPro';
-    const TypeErrorPro = 'TypeErrorPro';
-    const URIErrorPro = 'URIErrorPro';
+    const NativeError = 'NativeError';
+    const NativeRangeError = 'NativeRangeError';
+    const NativeReferenceError = 'NativeReferenceError';
+    const NativeSyntaxError = 'NativeSyntaxError';
+    const NativeTypeError = 'NativeTypeError';
+    const NativeURIError = 'NativeURIError';
     /* eslint-enable @typescript-eslint/naming-convention */
 
-    test(ErrorPro, () => {
+    test(NativeError, () => {
         expect(() => {
-            throw new errors[ErrorPro]();
-        }).toThrow(errors[ErrorPro]);
+            throw new errors[NativeError]();
+        }).toThrow(errors[NativeError]);
     });
 
-    test(RangeErrorPro, () => {
+    test(NativeRangeError, () => {
         expect(() => {
-            throw new errors[RangeErrorPro]();
-        }).toThrow(errors[RangeErrorPro]);
+            throw new errors[NativeRangeError]();
+        }).toThrow(errors[NativeRangeError]);
     });
 
-    test(ReferenceErrorPro, () => {
+    test(NativeReferenceError, () => {
         expect(() => {
-            throw new errors[ReferenceErrorPro]();
-        }).toThrow(errors[ReferenceErrorPro]);
+            throw new errors[NativeReferenceError]();
+        }).toThrow(errors[NativeReferenceError]);
     });
 
-    test(SyntaxErrorPro, () => {
+    test(NativeSyntaxError, () => {
         expect(() => {
-            throw new errors[SyntaxErrorPro]();
-        }).toThrow(errors[SyntaxErrorPro]);
+            throw new errors[NativeSyntaxError]();
+        }).toThrow(errors[NativeSyntaxError]);
     });
 
-    test(TypeErrorPro, () => {
+    test(NativeTypeError, () => {
         expect(() => {
-            throw new errors[TypeErrorPro]();
-        }).toThrow(errors[TypeErrorPro]);
+            throw new errors[NativeTypeError]();
+        }).toThrow(errors[NativeTypeError]);
     });
 
-    test(URIErrorPro, () => {
+    test(NativeURIError, () => {
         expect(() => {
-            throw new errors[URIErrorPro]();
-        }).toThrow(errors[URIErrorPro]);
+            throw new errors[NativeURIError]();
+        }).toThrow(errors[NativeURIError]);
     });
 });
 

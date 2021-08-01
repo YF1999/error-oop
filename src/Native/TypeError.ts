@@ -33,7 +33,7 @@ export abstract class AbstractTypeError extends TypeError {
  * Represents an error when a value is not of the expected type. This is roughly the same as the native TypeError class.
  * It additionally supports an innerError attribute.
  */
-export class TypeErrorPro extends AbstractTypeError {
+export class NativeTypeError extends AbstractTypeError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -50,4 +50,4 @@ export class TypeErrorPro extends AbstractTypeError {
     }
 }
 
-export { TypeErrorPro as TypeError };
+export { NativeTypeError as TypeError };

@@ -33,7 +33,7 @@ export abstract class AbstractURIError extends URIError {
  * Represents an error when a value is not of the expected type. This is roughly the same as the native URIError class.
  * It additionally supports an innerError attribute.
  */
-export class URIErrorPro extends AbstractURIError {
+export class NativeURIError extends AbstractURIError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -50,4 +50,4 @@ export class URIErrorPro extends AbstractURIError {
     }
 }
 
-export { URIErrorPro as URIError };
+export { NativeURIError as URIError };

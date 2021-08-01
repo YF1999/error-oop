@@ -32,7 +32,7 @@ export abstract class AbstractError extends Error {
 /**
  * This is roughly the same as the native Error class. It additionally supports an innerError attribute.
  */
-export class ErrorPro extends AbstractError {
+export class NativeError extends AbstractError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -49,4 +49,4 @@ export class ErrorPro extends AbstractError {
     }
 }
 
-export { ErrorPro as Error };
+export { NativeError as Error };

@@ -33,7 +33,7 @@ export abstract class AbstractSyntaxError extends SyntaxError {
  * Represents an error when trying to interpret syntactically invalid code. This is roughly the same as the native
  * SyntaxError class. It additionally supports an innerError attribute.
  */
-export class SyntaxErrorPro extends AbstractSyntaxError {
+export class NativeSyntaxError extends AbstractSyntaxError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -50,4 +50,4 @@ export class SyntaxErrorPro extends AbstractSyntaxError {
     }
 }
 
-export { SyntaxErrorPro as SyntaxError };
+export { NativeSyntaxError as SyntaxError };
