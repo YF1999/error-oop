@@ -1,13 +1,33 @@
-import { RangeErrorProps } from '../CommonTypes';
 import { appendInnerErrorStack, setNonEnumerable } from './Tools';
+import { IErrorOptions, IStandardArguments } from './Types';
 
-export abstract class AbstractRangeError extends RangeError {
+/**
+ * Represents an error that occurs when a numeric variable or parameter is outside of its valid range.
+ * This is roughly the same as the native RangeError class. It additionally supports an innerError attribute.
+ */
+export class NativeRangeError extends RangeError {
     #innerError?: Error;
 
-    public constructor(props: RangeErrorProps) {
-        super(props.message);
+    public constructor();
+    /**
+     * @param message The error message that explains the reason for this error.
+     */
+    public constructor(message: string);
+    /**
+     * @param message The error message that explains the reason for this error.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
+     */
+    public constructor(message: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: IErrorOptions);
 
-        this.#innerError = props.innerError;
+    public constructor(...[arg1, arg2]: IStandardArguments<IErrorOptions>) {
+        super(typeof arg1 === 'object' ? arg1.message : arg1);
+
+        // eslint-disable-next-line prefer-destructuring
+        this.#innerError = typeof arg1 === 'object' ? arg1.innerError : arg2;
 
         // When the first call to `stack` property happens, it will combine `name` and `message` with trace stack to
         // `stack` property, we should generate message before this call.
@@ -26,27 +46,6 @@ export abstract class AbstractRangeError extends RangeError {
 
     protected _setNonEnumerable(property: string): void {
         setNonEnumerable(this, property);
-    }
-}
-
-/**
- * Represents an error that occurs when a numeric variable or parameter is outside of its valid range. This is roughly
- * the same as the native RangeError class. It additionally supports an innerError attribute.
- */
-export class NativeRangeError extends AbstractRangeError {
-    public constructor();
-    /**
-     * @param message The error message that explains the reason for this error.
-     */
-    public constructor(message: string);
-    /**
-     * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
-     */
-    public constructor(message: string, innerError: Error);
-
-    public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError });
     }
 }
 

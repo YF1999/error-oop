@@ -1,16 +1,13 @@
-import { DriveNotFoundErrorProps } from '../CommonTypes';
-import { AbstractIOError } from './IOError';
+import { IStandardArguments } from '../Native';
+import { ErrorTool } from '../Tools';
+import { IOError, IIOErrorOptions } from './IOError';
 
-export abstract class AbstractDriveNotFoundError extends AbstractIOError {
-    public constructor(props: DriveNotFoundErrorProps) {
-        super(props);
-    }
-}
+export interface IDriveNotFoundErrorOptions extends IIOErrorOptions {}
 
 /**
  * Applicable when trying to access a drive or share that is not available.
  */
-export class DriveNotFoundError extends AbstractDriveNotFoundError {
+export class DriveNotFoundError extends IOError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -18,11 +15,15 @@ export class DriveNotFoundError extends AbstractDriveNotFoundError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append. appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: IDriveNotFoundErrorOptions);
 
-    public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError });
+    public constructor(...args: IStandardArguments<IDriveNotFoundErrorOptions>) {
+        super(ErrorTool.parseStandardArguments(...args));
     }
 }

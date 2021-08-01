@@ -1,16 +1,13 @@
-import { DirectoryNotFoundErrorProps } from '../CommonTypes';
-import { AbstractIOError } from './IOError';
+import { IStandardArguments } from '../Native';
+import { ErrorTool } from '../Tools';
+import { IOError, IIOErrorOptions } from './IOError';
 
-export abstract class AbstractDirectoryNotFoundError extends AbstractIOError {
-    public constructor(props: DirectoryNotFoundErrorProps) {
-        super(props);
-    }
-}
+export interface IDirectoryNotFoundErrorOptions extends IIOErrorOptions {}
 
 /**
  * Applicable when part of a file or directory cannot be found.
  */
-export class DirectoryNotFoundError extends AbstractDirectoryNotFoundError {
+export class DirectoryNotFoundError extends IOError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -18,11 +15,15 @@ export class DirectoryNotFoundError extends AbstractDirectoryNotFoundError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append. appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: IDirectoryNotFoundErrorOptions);
 
-    public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError });
+    public constructor(...args: IStandardArguments<IDirectoryNotFoundErrorOptions>) {
+        super(ErrorTool.parseStandardArguments(...args));
     }
 }

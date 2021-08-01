@@ -1,26 +1,20 @@
-import { ArgumentOutOfRangeErrorProps } from './CommonTypes';
-import { AbstractArgumentError } from './ArgumentError';
+import { ArgumentError, IArgumentErrorOptions } from './ArgumentError';
+import { ErrorTool } from './Tools';
 
-export abstract class AbstractArgumentOutOfRangeError extends AbstractArgumentError {
-    protected _actualValue?: unknown;
-
-    public constructor(props: ArgumentOutOfRangeErrorProps) {
-        super(props);
-
-        this._actualValue = props.actualValue;
-        this._setNonEnumerable('_actualValue');
-    }
-
-    public get actualValue(): unknown | undefined {
-        return this._actualValue;
-    }
+export interface IArgumentOutOfRangeErrorOptions extends IArgumentErrorOptions {
+    /**
+     * The value of the argument that causes this error.
+     */
+    _actualValue?: unknown;
 }
 
 /**
- * Applicable when the value of an argument is outside the allowable range of values as defined by
- * the invoked function or method.
+ * Applicable when the value of an argument is outside the allowable range of values as defined by the invoked function
+ * or method.
  */
-export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
+export class ArgumentOutOfRangeError extends ArgumentError {
+    protected _actualValue?: unknown;
+
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -28,7 +22,7 @@ export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
     /**
@@ -39,8 +33,7 @@ export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
     /**
      * @param message The error message that explains the reason for this error.
      * @param paramName The name of the parameter that caused the current error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
-
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, paramName: string, innerError: Error);
     /**
@@ -53,29 +46,36 @@ export class ArgumentOutOfRangeError extends AbstractArgumentOutOfRangeError {
      * @param message The error message that explains the reason for this error.
      * @param paramName The name of the parameter that caused the current error.
      * @param actualValue The value of the argument that causes this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, paramName: string, actualValue: unknown, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: IArgumentOutOfRangeErrorOptions);
 
-    public constructor(message: string = '', arg1?: string | Error, arg2?: unknown, arg3?: Error) {
-        // message + innerError?
-        if (arg1 === undefined || typeof arg1 !== 'string') {
-            super({ message, innerError: arg1 });
+    public constructor(
+        ...args:
+            | []
+            | [IArgumentOutOfRangeErrorOptions]
+            | [string, Error?]
+            | [string, string, Error?]
+            | [string, string, unknown, Error?]
+    ) {
+        const opts = ErrorTool.parseArgumentArguments(...args);
+
+        if ('actualValue' in opts && opts.paramName && opts.noMessageSuffix !== true) {
+            opts.noMessageSuffix = true;
+            opts.message = `${opts.message} (Parameter '${opts.paramName}', ActualValue '${opts.actualValue}')`;
         }
 
-        // message + paramName + innerError?
-        else if (arg2 === undefined || arg2 instanceof Error) {
-            super({ message: `${message} (Parameter '${arg1}')`, innerError: arg2, paramName: arg1 });
-        }
+        super(opts);
 
-        // message + paramName + actualValue + innerError?
-        else {
-            super({
-                message: `${message} (Parameter '${arg1}', ActualValue '${arg2}')`,
-                actualValue: arg2,
-                innerError: arg3,
-                paramName: arg1,
-            });
-        }
+        this._actualValue = opts.actualValue;
+        this._setNonEnumerable('_actualValue');
+    }
+
+    public get actualValue(): unknown | undefined {
+        return this._actualValue;
     }
 }

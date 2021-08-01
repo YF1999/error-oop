@@ -1,16 +1,13 @@
-import { SocketErrorProps } from '../CommonTypes';
-import { AbstractIOError } from './IOError';
+import { IStandardArguments } from '../Native';
+import { ErrorTool } from '../Tools';
+import { IIOErrorOptions, IOError } from './IOError';
 
-export abstract class AbstractSocketError extends AbstractIOError {
-    public constructor(props: SocketErrorProps) {
-        super(props);
-    }
-}
+export interface ISocketErrorOptions extends IIOErrorOptions {}
 
 /**
  * Applicable when an error occurs on a socket.
  */
-export class SocketError extends AbstractSocketError {
+export class SocketError extends IOError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -18,11 +15,15 @@ export class SocketError extends AbstractSocketError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append. appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: ISocketErrorOptions);
 
-    public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError });
+    public constructor(...args: IStandardArguments<ISocketErrorOptions>) {
+        super(ErrorTool.parseStandardArguments(...args));
     }
 }

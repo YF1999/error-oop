@@ -1,25 +1,23 @@
-import { ArgumentErrorProps } from './CommonTypes';
-import { AbstractError } from './Native';
+import { IErrorOptions, NativeError } from './Native';
+import { ErrorTool } from './Tools';
 
-export abstract class AbstractArgumentError extends AbstractError {
-    protected _paramName?: string;
-
-    public constructor(props: ArgumentErrorProps) {
-        super(props);
-
-        this._paramName = props.paramName;
-        this._setNonEnumerable('_paramName');
-    }
-
-    public get paramName(): string | undefined {
-        return this._paramName;
-    }
+export interface IArgumentErrorOptions extends IErrorOptions {
+    /**
+     * Do not append message suffix at the end of original message.
+     */
+    noMessageSuffix?: boolean;
+    /**
+     * The name of the parameter that caused the current error.
+     */
+    paramName?: string;
 }
 
 /**
  * Applicable when one of the arguments provided to a function or method is not valid.
  */
-export class ArgumentError extends AbstractArgumentError {
+export class ArgumentError extends NativeError {
+    protected _paramName?: string;
+
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -27,7 +25,7 @@ export class ArgumentError extends AbstractArgumentError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
     /**
@@ -38,19 +36,28 @@ export class ArgumentError extends AbstractArgumentError {
     /**
      * @param message The error message that explains the reason for this error.
      * @param paramName The name of the parameter that caused the current error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, paramName: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: IArgumentErrorOptions);
 
-    public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
-        // message + innerError?
-        if (arg1 === undefined || typeof arg1 !== 'string') {
-            super({ message, innerError: arg1 });
+    public constructor(...args: [] | [IArgumentErrorOptions] | [string, Error?] | [string, string, Error?]) {
+        const options = ErrorTool.parseArgumentArguments(...args);
+
+        if (options.paramName && options.noMessageSuffix !== true) {
+            options.message = `${options.message} (Parameter '${options.paramName}')`;
         }
 
-        // message + paramName + innerError?
-        else {
-            super({ message: `${message} (Parameter '${arg1}')`, paramName: arg1, innerError: arg2 });
-        }
+        super(options);
+
+        this._paramName = options.paramName;
+        this._setNonEnumerable('_paramName');
+    }
+
+    public get paramName(): string | undefined {
+        return this._paramName;
     }
 }

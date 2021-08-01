@@ -1,16 +1,12 @@
-import { ConnectionErrorProps } from './CommonTypes';
-import { AbstractError } from './Native';
+import { IErrorOptions, IStandardArguments, NativeError } from './Native';
+import { ErrorTool } from './Tools';
 
-export abstract class AbstractConnectionError extends AbstractError {
-    public constructor(props: ConnectionErrorProps) {
-        super(props);
-    }
-}
+export interface IConnectionErrorOptions extends IErrorOptions {}
 
 /**
  * Applicable when an error occurs on a connection.
  */
-export class ConnectionError extends AbstractConnectionError {
+export class ConnectionError extends NativeError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -18,11 +14,15 @@ export class ConnectionError extends AbstractConnectionError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: IConnectionErrorOptions);
 
-    public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError });
+    public constructor(...args: IStandardArguments<IConnectionErrorOptions>) {
+        super(ErrorTool.parseStandardArguments(...args));
     }
 }

@@ -1,16 +1,12 @@
-import { NotImplementedErrorProps } from './CommonTypes';
-import { AbstractError } from './Native';
+import { IErrorOptions, IStandardArguments, NativeError } from './Native';
+import { ErrorTool } from './Tools';
 
-export abstract class AbstractNotImplementedError extends AbstractError {
-    public constructor(props: NotImplementedErrorProps) {
-        super(props);
-    }
-}
+export interface INotImplementedErrorOptions extends IErrorOptions {}
 
 /**
  * Applicable when a requested method or operation is not implemented.
  */
-export class NotImplementedError extends AbstractNotImplementedError {
+export class NotImplementedError extends NativeError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -18,11 +14,15 @@ export class NotImplementedError extends AbstractNotImplementedError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: INotImplementedErrorOptions);
 
-    public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError });
+    public constructor(...args: IStandardArguments<INotImplementedErrorOptions>) {
+        super(ErrorTool.parseStandardArguments(...args));
     }
 }

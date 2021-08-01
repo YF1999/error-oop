@@ -1,16 +1,12 @@
-import { StackOverflowErrorProps } from './CommonTypes';
-import { AbstractError } from './Native';
+import { IErrorOptions, IStandardArguments, NativeError } from './Native';
+import { ErrorTool } from './Tools';
 
-export abstract class AbstractStackOverflowError extends AbstractError {
-    public constructor(props: StackOverflowErrorProps) {
-        super(props);
-    }
-}
+export interface IStackOverflowErrorOptions extends IErrorOptions {}
 
 /**
  * Applicable when the execution stack overflows because it contains too many nested method calls.
  */
-export class StackOverflowError extends AbstractStackOverflowError {
+export class StackOverflowError extends NativeError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -18,11 +14,15 @@ export class StackOverflowError extends AbstractStackOverflowError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: IStackOverflowErrorOptions);
 
-    public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError });
+    public constructor(...args: IStandardArguments<IStackOverflowErrorOptions>) {
+        super(ErrorTool.parseStandardArguments(...args));
     }
 }

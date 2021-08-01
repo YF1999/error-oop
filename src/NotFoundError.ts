@@ -1,25 +1,16 @@
-import { NotFoundErrorProps } from './CommonTypes';
-import { AbstractError } from './Native';
+import { IErrorOptions, NativeError } from './Native';
+import { ErrorTool } from './Tools';
 
-export abstract class AbstractNotFoundError extends AbstractError {
-    protected _entityName?: string;
-
-    public constructor(props: NotFoundErrorProps) {
-        super(props);
-
-        this._entityName = props.entityName;
-        this._setNonEnumerable('_entityName');
-    }
-
-    public get entityName(): string | undefined {
-        return this._entityName;
-    }
+export interface INotFoundErrorOptions extends IErrorOptions {
+    _entityName?: string;
 }
 
 /**
  * Applicable when an attempt to retrieve data yielded no result.
  */
-export class NotFoundError extends AbstractNotFoundError {
+export class NotFoundError extends NativeError {
+    protected _entityName?: string;
+
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -27,7 +18,7 @@ export class NotFoundError extends AbstractNotFoundError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
     /**
@@ -38,19 +29,24 @@ export class NotFoundError extends AbstractNotFoundError {
     /**
      * @param message The error message that explains the reason for this error.
      * @param entityName The entity which is not found.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, entityName: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: INotFoundErrorOptions);
 
-    public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
-        // message + innerError?
-        if (arg1 === undefined || typeof arg1 !== 'string') {
-            super({ message, innerError: arg1 });
-        }
+    public constructor(...args: [] | [INotFoundErrorOptions] | [string, Error?] | [string, string, Error?]) {
+        const options = ErrorTool.parseEntityArguments(...args);
 
-        // message + entityName + innerError?
-        else {
-            super({ message, entityName: arg1, innerError: arg2 });
-        }
+        super(options);
+
+        this._entityName = options.entityName;
+        this._setNonEnumerable('_entityName');
+    }
+
+    public get entityName(): string | undefined {
+        return this._entityName;
     }
 }

@@ -1,17 +1,13 @@
-import { ArgumentNullErrorProps } from './CommonTypes';
-import { AbstractArgumentError } from './ArgumentError';
+import { ArgumentError, IArgumentErrorOptions } from './ArgumentError';
+import { ErrorTool } from './Tools';
 
-export abstract class AbstractArgumentNullError extends AbstractArgumentError {
-    public constructor(props: ArgumentNullErrorProps) {
-        super(props);
-    }
-}
+export interface IArgumentNullErrorOptions extends IArgumentErrorOptions {}
 
 /**
- * Applicable when a null reference or undefined is passed to a function or a method that does not
- * accept it as a valid argument.
+ * Applicable when a null reference or undefined is passed to a function or a method that does not accept it as a valid
+ * argument.
  */
-export class ArgumentNullError extends AbstractArgumentNullError {
+export class ArgumentNullError extends ArgumentError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -19,7 +15,7 @@ export class ArgumentNullError extends AbstractArgumentNullError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
     /**
@@ -30,19 +26,15 @@ export class ArgumentNullError extends AbstractArgumentNullError {
     /**
      * @param message The error message that explains the reason for this error.
      * @param paramName The name of the parameter that caused the current error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, paramName: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: IArgumentNullErrorOptions);
 
-    public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
-        // message + innerError?
-        if (arg1 === undefined || typeof arg1 !== 'string') {
-            super({ message, innerError: arg1 });
-        }
-
-        // message + paramName + innerError?
-        else {
-            super({ message: `${message} (Parameter '${arg1}')`, paramName: arg1, innerError: arg2 });
-        }
+    public constructor(...args: [] | [IArgumentErrorOptions] | [string, Error?] | [string, string, Error?]) {
+        super(ErrorTool.parseArgumentArguments(...args));
     }
 }

@@ -1,15 +1,8 @@
-import { PathTooLongErrorProps } from '../CommonTypes';
-import { AbstractIOError } from './IOError';
+import { IStandardArguments } from '../Native';
+import { ErrorTool } from '../Tools';
+import { IIOErrorOptions, IOError } from './IOError';
 
-/**
- * More information for Windows:
- * https://docs.microsoft.com/en-us/dotnet/api/system.io.pathtoolongexception?view=net-5.0
- */
-export abstract class AbstractPathTooLongError extends AbstractIOError {
-    public constructor(props: PathTooLongErrorProps) {
-        super(props);
-    }
-}
+export interface IPathTooLongErrorOptions extends IIOErrorOptions {}
 
 /**
  * Applicable when a path or fully qualified file name is longer than the system-defined maximum length.
@@ -17,7 +10,7 @@ export abstract class AbstractPathTooLongError extends AbstractIOError {
  * More information for Windows:
  * https://docs.microsoft.com/en-us/dotnet/api/system.io.pathtoolongexception?view=net-5.0
  */
-export class PathTooLongError extends AbstractPathTooLongError {
+export class PathTooLongError extends IOError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -25,11 +18,15 @@ export class PathTooLongError extends AbstractPathTooLongError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append. appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: IPathTooLongErrorOptions);
 
-    public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError });
+    public constructor(...args: IStandardArguments<IPathTooLongErrorOptions>) {
+        super(ErrorTool.parseStandardArguments(...args));
     }
 }

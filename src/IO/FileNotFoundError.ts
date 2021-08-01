@@ -1,25 +1,19 @@
-import { FileNotFoundErrorProps } from '../CommonTypes';
-import { AbstractIOError } from './IOError';
+import { ErrorTool } from '../Tools';
+import { IIOErrorOptions, IOError } from './IOError';
 
-export abstract class AbstractFileNotFoundError extends AbstractIOError {
-    private _fileName?: string;
-
-    public constructor(props: FileNotFoundErrorProps) {
-        super(props);
-
-        this._fileName = props.fileName;
-        this._setNonEnumerable('_fileName');
-    }
-
-    public get fileName(): string | undefined {
-        return this._fileName;
-    }
+export interface IFileNotFoundErrorOptions extends IIOErrorOptions {
+    /**
+     * The full name of the file with the invalid image.
+     */
+    fileName?: string;
 }
 
 /**
  * Applicable when an attempt to access a file that does not exist on disk fails.
  */
-export class FileNotFoundError extends AbstractFileNotFoundError {
+export class FileNotFoundError extends IOError {
+    private _fileName?: string;
+
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -27,7 +21,7 @@ export class FileNotFoundError extends AbstractFileNotFoundError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append. appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
     /**
@@ -38,19 +32,24 @@ export class FileNotFoundError extends AbstractFileNotFoundError {
     /**
      * @param message The error message that explains the reason for this error.
      * @param fileName The full name of the file with the invalid image.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append. appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, fileName: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: IFileNotFoundErrorOptions);
 
-    public constructor(message: string = '', arg1?: string | Error, arg2?: Error) {
-        // message + innerError?
-        if (arg1 === undefined || typeof arg1 !== 'string') {
-            super({ message, innerError: arg1 });
-        }
+    public constructor(...args: [] | [IFileNotFoundErrorOptions] | [string, Error?] | [string, string, Error?]) {
+        const options = ErrorTool.parseFileArguments(...args);
 
-        // message + fileName + innerError?
-        else {
-            super({ message, fileName: arg1, innerError: arg2 });
-        }
+        super(options);
+
+        this._fileName = options.fileName;
+        this._setNonEnumerable('_fileName');
+    }
+
+    public get fileName(): string | undefined {
+        return this._fileName;
     }
 }

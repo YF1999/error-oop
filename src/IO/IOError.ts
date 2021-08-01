@@ -1,16 +1,12 @@
-import { IOErrorProps } from '../CommonTypes';
-import { AbstractError } from '../Native';
+import { IErrorOptions, IStandardArguments, NativeError } from '../Native';
+import { ErrorTool } from '../Tools';
 
-export abstract class AbstractIOError extends AbstractError {
-    public constructor(props: IOErrorProps) {
-        super(props);
-    }
-}
+export interface IIOErrorOptions extends IErrorOptions {}
 
 /**
  * Applicable when an I/O error occurs.
  */
-export class IOError extends AbstractIOError {
+export class IOError extends NativeError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -18,11 +14,15 @@ export class IOError extends AbstractIOError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append. appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: IIOErrorOptions);
 
-    public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError });
+    public constructor(...args: IStandardArguments<IIOErrorOptions>) {
+        super(ErrorTool.parseStandardArguments(...args));
     }
 }

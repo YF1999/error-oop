@@ -1,16 +1,12 @@
-import { DataErrorProps } from '../CommonTypes';
-import { AbstractError } from '../Native';
+import { IErrorOptions, IStandardArguments, NativeError } from '../Native';
+import { ErrorTool } from '../Tools';
 
-export abstract class AbstractDataError extends AbstractError {
-    public constructor(props: DataErrorProps) {
-        super(props);
-    }
-}
+export interface IDataErrorOptions extends IErrorOptions {}
 
 /**
  * Applicable when an error occurs on or with an external data source.
  */
-export class DataError extends AbstractDataError {
+export class DataError extends NativeError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -18,11 +14,15 @@ export class DataError extends AbstractDataError {
     public constructor(message: string);
     /**
      * @param message The error message that explains the reason for this error.
-     * @param innerError The error that is the cause of the current error. Stack trace will be append. appended.
+     * @param innerError The error that is the cause of the current error. Stack trace will be appended.
      */
     public constructor(message: string, innerError: Error);
+    /**
+     * @param options The constructor options.
+     */
+    public constructor(options: IDataErrorOptions);
 
-    public constructor(message: string = '', innerError?: Error) {
-        super({ message, innerError });
+    public constructor(...args: IStandardArguments<IDataErrorOptions>) {
+        super(ErrorTool.parseStandardArguments(...args));
     }
 }
