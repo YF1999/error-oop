@@ -1,5 +1,5 @@
 import { ErrorOptions, OutOfMemoryErrorMessageProps, OutOfMemoryErrorProps } from './CommonTypes';
-import { AbstractError } from './NativeErrors';
+import { AbstractError } from './Native';
 
 export abstract class AbstractOutOfMemoryError extends AbstractError {
     public constructor(props: OutOfMemoryErrorProps, options: ErrorOptions<OutOfMemoryErrorMessageProps>) {

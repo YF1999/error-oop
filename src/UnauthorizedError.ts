@@ -1,5 +1,5 @@
 import { ErrorOptions, UnauthorizedErrorMessageProps, UnauthorizedErrorProps } from './CommonTypes';
-import { AbstractError } from './NativeErrors';
+import { AbstractError } from './Native';
 
 export abstract class AbstractUnauthorizedError extends AbstractError {
     public constructor(props: UnauthorizedErrorProps, options: ErrorOptions<UnauthorizedErrorMessageProps>) {

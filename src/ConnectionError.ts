@@ -1,5 +1,5 @@
 import { ErrorOptions, ConnectionErrorMessageProps, ConnectionErrorProps } from './CommonTypes';
-import { AbstractError } from './NativeErrors';
+import { AbstractError } from './Native';
 
 export abstract class AbstractConnectionError extends AbstractError {
     public constructor(props: ConnectionErrorProps, options: ErrorOptions<ConnectionErrorMessageProps>) {

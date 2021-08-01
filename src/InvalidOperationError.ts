@@ -1,5 +1,5 @@
 import { ErrorOptions, InvalidOperationErrorMessageProps, InvalidOperationErrorProps } from './CommonTypes';
-import { AbstractError } from './NativeErrors';
+import { AbstractError } from './Native';
 
 export abstract class AbstractInvalidOperationError extends AbstractError {
     public constructor(props: InvalidOperationErrorProps, options: ErrorOptions<InvalidOperationErrorMessageProps>) {

@@ -1,5 +1,5 @@
 import { ErrorOptions, AuthenticationRequiredErrorMessageProps, AuthenticationRequiredErrorProps } from './CommonTypes';
-import { AbstractError } from './NativeErrors';
+import { AbstractError } from './Native';
 
 export abstract class AbstractAuthenticationRequiredError extends AbstractError {
     public constructor(

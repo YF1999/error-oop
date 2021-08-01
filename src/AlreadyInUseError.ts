@@ -1,5 +1,5 @@
 import { AlreadyInUseErrorMessageProps, AlreadyInUseErrorProps, ErrorOptions } from './CommonTypes';
-import { AbstractError } from './NativeErrors';
+import { AbstractError } from './Native';
 
 export abstract class AbstractAlreadyInUseError extends AbstractError {
     protected _entityName: string;

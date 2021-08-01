@@ -1,6 +1,6 @@
 export * from './CommonTypes';
 
-export * from './NativeErrors';
+export * from './Native';
 
 export * from './AlreadyInUseError';
 export * from './ArgumentError';

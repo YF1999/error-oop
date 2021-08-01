@@ -1,13 +1,6 @@
 import * as errors from '../src';
 
-import { switches } from './switches';
-
 describe('Native-Errors-Pro', () => {
-    if (!switches.jestExpectToThrow.nativeErrorsPro) {
-        test.skip('skip', () => {});
-        return;
-    }
-
     /* eslint-disable @typescript-eslint/naming-convention */
     const ErrorPro = 'Error';
     const RangeErrorPro = 'RangeError';
@@ -55,11 +48,6 @@ describe('Native-Errors-Pro', () => {
 });
 
 describe('More-Useful-Errors', () => {
-    if (!switches.jestExpectToThrow.moreUsefulErrors) {
-        test.skip('skip', () => {});
-        return;
-    }
-
     /* eslint-disable @typescript-eslint/naming-convention */
     const AlreadyInUseError = 'AlreadyInUseError';
     const ArgumentError = 'ArgumentError';

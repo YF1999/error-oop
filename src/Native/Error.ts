@@ -25,6 +25,10 @@ export abstract class AbstractError extends Error {
         this._setNonEnumerable('_innerError');
     }
 
+    // public get name(): string {
+    //     return this.constructor.name;
+    // }
+
     public get innerError(): Error | undefined {
         return this._innerError;
     }

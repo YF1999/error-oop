@@ -1,5 +1,5 @@
 import { ErrorOptions, OperationCanceledErrorMessageProps, OperationCanceledErrorProps } from './CommonTypes';
-import { AbstractError } from './NativeErrors';
+import { AbstractError } from './Native';
 
 export abstract class AbstractOperationCanceledError extends AbstractError {
     public constructor(props: OperationCanceledErrorProps, options: ErrorOptions<OperationCanceledErrorMessageProps>) {

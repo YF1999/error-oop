@@ -1,5 +1,5 @@
 import { ErrorOptions, NotFoundErrorMessageProps, NotFoundErrorProps } from './CommonTypes';
-import { AbstractError } from './NativeErrors';
+import { AbstractError } from './Native';
 
 export abstract class AbstractNotFoundError extends AbstractError {
     protected _entityName?: string;
