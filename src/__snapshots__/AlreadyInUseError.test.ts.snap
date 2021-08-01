@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test \`AlreadyInUseError\` property: message 1`] = `"The specified 'entity' value is already in use."`;
+
+exports[`Test \`AlreadyInUseError\` property: message 2`] = `"The specified 'entity' value is already in use: name"`;
+
+exports[`Test \`AlreadyInUseError\` property: message 3`] = `"The specified 'entity' value is already in use: name, key"`;

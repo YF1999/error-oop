@@ -7,7 +7,5 @@
         "removeComments": true,
         "rootDir": "../../src",
         "tsBuildInfoFile": "../../build/tsconfig.cjs.tsbuildinfo"
-    },
-    "include": ["../../src"],
-    "exclude": ["../../build", "../../node_modules"]
+    }
 }

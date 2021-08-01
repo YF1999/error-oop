@@ -31,7 +31,7 @@
         "lint": "eslint .",
         "prebuild": "npm run build-scripts",
         "prepublishOnly": "ncp build/cjs cjs && ncp build/esm esm && ncp build/types types",
-        "test": "jest --config scripts/jest/jest.config.js --watch",
+        "test": "jest --config scripts/jest/jest.config.js --coverage --watch",
         "test-coverage": "jest --config scripts/jest/jest.config.js --coverage"
     },
     "dependencies": {},

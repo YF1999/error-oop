@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test \`appendInnerErrorStack\` 1`] = `
+"No stack.
+--- inner error ---
+inner error stack"
+`;
+
+exports[`Test \`appendInnerErrorStack\` 2`] = `
+"curr error stack
+--- inner error ---
+inner error stack"
+`;

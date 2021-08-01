@@ -3,13 +3,13 @@ import path from 'path';
 
 const config: Config.InitialOptions = {
     rootDir: path.join(__dirname, '../..'),
-    roots: ['<rootDir>/src', '<rootDir>/test'],
+    roots: ['<rootDir>/src'],
 
     collectCoverageFrom: ['src/**/*.ts', '!src/**/*.d.ts'],
 
-    setupFilesAfterEnv: ['<rootDir>/test/test.setup.ts'],
+    setupFilesAfterEnv: ['<rootDir>/scripts/jest/test.setup.ts'],
 
-    testMatch: ['<rootDir>/test/**/*.{spec,test}.ts'],
+    testMatch: ['<rootDir>/src/**/*.{spec,test}.ts'],
     testEnvironment: 'node',
 
     transform: { '^.+\\.ts$': 'ts-jest' },

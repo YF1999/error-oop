@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test \`ArgumentOutOfRangeError\` property: message 1`] = `"error"`;
+
+exports[`Test \`ArgumentOutOfRangeError\` property: message 2`] = `"error"`;
+
+exports[`Test \`ArgumentOutOfRangeError\` property: message 3`] = `"error (Parameter 'key_parameter')"`;
+
+exports[`Test \`ArgumentOutOfRangeError\` property: message 4`] = `"error (Parameter 'key_parameter', ActualValue 'wrong_value')"`;
+
+exports[`Test \`ArgumentOutOfRangeError\` property: message 5`] = `"error (Parameter 'key_parameter')"`;
+
+exports[`Test \`ArgumentOutOfRangeError\` property: message 6`] = `"error"`;
+
+exports[`Test \`ArgumentOutOfRangeError\` property: message 7`] = `"error (Parameter 'key_parameter', ActualValue 'wrong_value')"`;
