@@ -1,5 +1,6 @@
 import { ErrorOptions, SyntaxErrorMessageProps, SyntaxErrorProps } from '../CommonTypes';
-import { appendInnerErrorStack, setNonEnumerable } from '../utils';
+import { setNonEnumerable } from '../utils';
+import { appendInnerErrorStack } from './AppendInnerErrorStack';
 
 export abstract class AbstractSyntaxError extends SyntaxError {
     protected _innerError?: Error;

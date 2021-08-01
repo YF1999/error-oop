@@ -1,5 +1,6 @@
 import { ErrorOptions, TypeErrorMessageProps, TypeErrorProps } from '../CommonTypes';
-import { appendInnerErrorStack, setNonEnumerable } from '../utils';
+import { setNonEnumerable } from '../utils';
+import { appendInnerErrorStack } from './AppendInnerErrorStack';
 
 export abstract class AbstractTypeError extends TypeError {
     protected _innerError?: Error;

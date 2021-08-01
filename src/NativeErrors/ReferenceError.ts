@@ -1,5 +1,6 @@
 import { ErrorOptions, ReferenceErrorMessageProps, ReferenceErrorProps } from '../CommonTypes';
-import { appendInnerErrorStack, setNonEnumerable } from '../utils';
+import { setNonEnumerable } from '../utils';
+import { appendInnerErrorStack } from './AppendInnerErrorStack';
 
 export abstract class AbstractReferenceError extends ReferenceError {
     protected _innerError?: Error;

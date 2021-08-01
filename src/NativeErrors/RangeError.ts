@@ -1,5 +1,6 @@
 import { ErrorOptions, RangeErrorMessageProps, RangeErrorProps } from '../CommonTypes';
-import { appendInnerErrorStack, setNonEnumerable } from '../utils';
+import { setNonEnumerable } from '../utils';
+import { appendInnerErrorStack } from './AppendInnerErrorStack';
 
 export abstract class AbstractRangeError extends RangeError {
     protected _innerError?: Error;
