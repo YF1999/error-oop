@@ -1,4 +1,4 @@
-import { IErrorOptions, ErrorTool, NativeError } from './Native';
+import { IErrorOptions, NativeError } from './Native';
 
 export interface IAlreadyInUseErrorOptions extends IErrorOptions {}
 
