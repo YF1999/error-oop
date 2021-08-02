@@ -4,7 +4,7 @@ import { IErrorOptions } from './Types';
 
 /**
  * Represents an error when trying to interpret syntactically invalid code.
- * This is roughly the same as the native SyntaxError class. It additionally supports an innerError attribute.
+ * This is roughly the same as the native `SyntaxError` class. It additionally supports an innerError attribute.
  */
 export class NativeSyntaxError extends SyntaxError {
     #innerError?: Error;

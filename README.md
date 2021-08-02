@@ -15,50 +15,50 @@ More oop error classes for nodejs.
 
 Click to know how to use them.
 
-### Native Errors Pro
+### Wrappered Native Errors
 
-- [ErrorPro (or Error)](./docs/HowToUse-NativeErrorsPro.md#ErrorPro)
-- [RangeErrorPro (or RangeError)](./docs/HowToUse-NativeErrorsPro.md#RangeErrorPro)
-- [ReferenceErrorPro (or ReferenceError)](./docs/HowToUse-NativeErrorsPro.md#ReferenceErrorPro)
-- [SyntaxErrorPro (or SyntaxError)](./docs/HowToUse-NativeErrorsPro.md#SyntaxErrorPro)
-- [TypeErrorPro (or TypeError)](./docs/HowToUse-NativeErrorsPro.md#TypeErrorPro)
-- [URIErrorPro (or URIError)](./docs/HowToUse-NativeErrorsPro.md#URIErrorPro)
+- [`NativeError`], alias [`Error`]
+- [`NativeRangeError`], alias [`RangeError`]
+- [`NativeReferenceError`], alias [`ReferenceError`]
+- [`NativeSyntaxError`], alias [`SyntaxError`]
+- [`NativeTypeError`], alias [`TypeError`]
+- [`NativeURIError`], alias [`URIError`]
 
 ### More Useful Errors
 
-- [AlreadyInUseError](./docs/HowToUse-MoreUsefulErrors.md#AlreadyInUseError)
-- [ArgumentError](./docs/HowToUse-MoreUsefulErrors.md#ArgumentError)
-- [ArgumentNullError](./docs/HowToUse-MoreUsefulErrors.md#ArgumentNullError)
-- [ArgumentOutOfRangeError](./docs/HowToUse-MoreUsefulErrors.md#ArgumentOutOfRangeError)
-- [AuthenticationError](./docs/HowToUse-MoreUsefulErrors.md#AuthenticationError)
-- [AuthenticationRequiredError](./docs/HowToUse-MoreUsefulErrors.md#AuthenticationRequiredError)
-- [ConnectionError](./docs/HowToUse-MoreUsefulErrors.md#ConnectionError)
-- [IndexOutOfRangeError](./docs/HowToUse-MoreUsefulErrors.md#IndexOutOfRangeError)
-- [InvalidOperationError](./docs/HowToUse-MoreUsefulErrors.md#InvalidOperationError)
-- [NotFoundError](./docs/HowToUse-MoreUsefulErrors.md#NotFoundError)
-- [NotImplementedError](./docs/HowToUse-MoreUsefulErrors.md#NotImplementedError)
-- [NotPermittedError](./docs/HowToUse-MoreUsefulErrors.md#NotPermittedError)
-- [NotSupportedError](./docs/HowToUse-MoreUsefulErrors.md#NotSupportedError)
-- [OperationCanceledError](./docs/HowToUse-MoreUsefulErrors.md#OperationCanceledError)
-- [OutOfMemoryError](./docs/HowToUse-MoreUsefulErrors.md#OutOfMemoryError)
-- [StackOverflowError](./docs/HowToUse-MoreUsefulErrors.md#StackOverflowError)
-- [TimeoutError](./docs/HowToUse-MoreUsefulErrors.md#TimeoutError)
-- [UnauthorizedAccessError](./docs/HowToUse-MoreUsefulErrors.md#UnauthorizedAccessError)
-- [UnauthorizedError](./docs/HowToUse-MoreUsefulErrors.md#UnauthorizedError)
+- [`AlreadyInUseError`]
+- [`ArgumentError`]
+- [`ArgumentNullError`]
+- [`ArgumentOutOfRangeError`]
+- [`AuthenticationError`]
+- [`AuthenticationRequiredError`]
+- [`ConnectionError`]
+- [`IndexOutOfRangeError`]
+- [`InvalidOperationError`]
+- [`NotFoundError`]
+- [`NotImplementedError`]
+- [`NotPermittedError`]
+- [`NotSupportedError`]
+- [`OperationCanceledError`]
+- [`OutOfMemoryError`]
+- [`StackOverflowError`]
+- [`TimeoutError`]
+- [`UnauthorizedAccessError`]
+- [`UnauthorizedError`]
 - Data
-    - [DataError](./docs/HowToUse-MoreUsefulErrors.md#DataError)
-    - [TransactionError](./docs/HowToUse-MoreUsefulErrors.md#TransactionError)
+    - [`DataError`]
+    - [`TransactionError`]
 - IO
-    - [IOError](./docs/HowToUse-MoreUsefulErrors.md#IOError)
-    - [DirectoryNotFoundError](./docs/HowToUse-MoreUsefulErrors.md#DirectoryNotFoundError)
-    - [DriveNotFoundError](./docs/HowToUse-MoreUsefulErrors.md#DriveNotFoundError)
-    - [EndOfStreamError](./docs/HowToUse-MoreUsefulErrors.md#EndOfStreamError)
-    - [FileLoadError](./docs/HowToUse-MoreUsefulErrors.md#FileLoadError)
-    - [FileNotFoundError](./docs/HowToUse-MoreUsefulErrors.md#FileNotFoundError)
-    - [PathTooLongError](./docs/HowToUse-MoreUsefulErrors.md#PathTooLongError)
-    - [SocketError](./docs/HowToUse-MoreUsefulErrors.md#SocketError)
+    - [`DirectoryNotFoundError`]
+    - [`DriveNotFoundError`]
+    - [`EndOfStreamError`]
+    - [`FileLoadError`]
+    - [`FileNotFoundError`]
+    - [`IOError`]
+    - [`PathTooLongError`]
+    - [`SocketError`]
 
-If you want to create your own custom errors, please see [How To Create Custom Errors](./docs/HowToCreateCustomErrors.md).
+If you want to create your own custom errors, please see [User Guide For Custom Errors].
 
 ### Errors to Support
 
@@ -67,3 +67,53 @@ If you want to create your own custom errors, please see [How To Create Custom E
     - SQLError
 - IO
     - InvalidDataError
+
+<!-- link list -->
+
+[`NativeError`]: ./docs/user-guide.native-errors.md#nativeerror
+[`NativeRangeError`]: ./docs/user-guide.native-errors.md#nativerangeerror
+[`NativeReferenceError`]: ./docs/user-guide.native-errors.md#nativereferenceerror
+[`NativeSyntaxError`]: ./docs/user-guide.native-errors.md#nativesyntaxerror
+[`NativeTypeError`]: ./docs/user-guide.native-errors.md#nativetypeerror
+[`NativeURIError`]: ./docs/user-guide.native-errors.md#nativeurierror
+
+[`Error`]: ./docs/user-guide.native-errors.md#nativeerror
+[`RangeError`]: ./docs/user-guide.native-errors.md#nativerangeerror
+[`ReferenceError`]: ./docs/user-guide.native-errors.md#nativereferenceerror
+[`SyntaxError`]: ./docs/user-guide.native-errors.md#nativesyntaxerror
+[`TypeError`]: ./docs/user-guide.native-errors.md#nativetypeerror
+[`URIError`]: ./docs/user-guide.native-errors.md#nativeurierror
+
+[`AlreadyInUseError`]: ./docs/user-guide.more-useful-errors.md#alreadyinuseerror
+[`ArgumentError`]: ./docs/user-guide.more-useful-errors.md#argumenterror
+[`ArgumentNullError`]: ./docs/user-guide.more-useful-errors.md#argumentnullerror
+[`ArgumentOutOfRangeError`]: ./docs/user-guide.more-useful-errors.md#argumentoutofrangeerror
+[`AuthenticationError`]: ./docs/user-guide.more-useful-errors.md#authenticationerror
+[`AuthenticationRequiredError`]: ./docs/user-guide.more-useful-errors.md#authenticationrequirederror
+[`ConnectionError`]: ./docs/user-guide.more-useful-errors.md#connectionerror
+[`IndexOutOfRangeError`]: ./docs/user-guide.more-useful-errors.md#indexoutofrangeerror
+[`InvalidOperationError`]: ./docs/user-guide.more-useful-errors.md#invalidoperationerror
+[`NotFoundError`]: ./docs/user-guide.more-useful-errors.md#notfounderror
+[`NotImplementedError`]: ./docs/user-guide.more-useful-errors.md#notimplementederror
+[`NotPermittedError`]: ./docs/user-guide.more-useful-errors.md#notpermittederror
+[`NotSupportedError`]: ./docs/user-guide.more-useful-errors.md#notsupportederror
+[`OperationCanceledError`]: ./docs/user-guide.more-useful-errors.md#operationcancelederror
+[`OutOfMemoryError`]: ./docs/user-guide.more-useful-errors.md#outofmemoryerror
+[`StackOverflowError`]: ./docs/user-guide.more-useful-errors.md#stackoverflowerror
+[`TimeoutError`]: ./docs/user-guide.more-useful-errors.md#timeouterror
+[`UnauthorizedAccessError`]: ./docs/user-guide.more-useful-errors.md#unauthorizedaccesserror
+[`UnauthorizedError`]: ./docs/user-guide.more-useful-errors.md#unauthorizederror
+
+[`DataError`]: ./docs/user-guide.more-useful-errors.md#dataerror
+[`TransactionError`]: ./docs/user-guide.more-useful-errors.md#transactionerror
+
+[`DirectoryNotFoundError`]: ./docs/user-guide.more-useful-errors.md#directorynotfounderror
+[`DriveNotFoundError`]: ./docs/user-guide.more-useful-errors.md#drivenotfounderror
+[`EndOfStreamError`]: ./docs/user-guide.more-useful-errors.md#endofstreamerror
+[`FileLoadError`]: ./docs/user-guide.more-useful-errors.md#fileloaderror
+[`FileNotFoundError`]: ./docs/user-guide.more-useful-errors.md#filenotfounderror
+[`IOError`]: ./docs/user-guide.more-useful-errors.md#ioerror
+[`PathTooLongError`]: ./docs/user-guide.more-useful-errors.md#pathtoolongerror
+[`SocketError`]: ./docs/user-guide.more-useful-errors.md#socketerror
+
+[User Guide For Custom Errors]: ./docs/user-guide.custom-errors.md

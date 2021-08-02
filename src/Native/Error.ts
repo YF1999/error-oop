@@ -3,7 +3,7 @@ import { appendInnerErrorStack, setNonEnumerable } from './Tools';
 import { IErrorOptions } from './Types';
 
 /**
- * This is roughly the same as the native Error class. It additionally supports an innerError attribute.
+ * This is roughly the same as the native `Error` class. It additionally supports an innerError attribute.
  */
 export class NativeError extends Error {
     #innerError?: Error;

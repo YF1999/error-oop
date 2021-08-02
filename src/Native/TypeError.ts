@@ -4,7 +4,7 @@ import { IErrorOptions } from './Types';
 
 /**
  * Represents an error when a value is not of the expected type.
- * This is roughly the same as the native TypeError class. It additionally supports an innerError attribute.
+ * This is roughly the same as the native `TypeError` class. It additionally supports an innerError attribute.
  */
 export class NativeTypeError extends TypeError {
     #innerError?: Error;

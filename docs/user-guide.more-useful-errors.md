@@ -1,36 +1,70 @@
-# How To Use More Useful Errors
+# User Guide For More Useful Errors
 
-- [AlreadyInUseError](#AlreadyInUseError)
-- [ArgumentError](#ArgumentError)
-- [ArgumentNullError](#ArgumentNullError)
-- [ArgumentOutOfRangeError](#ArgumentOutOfRangeError)
-- [AuthenticationError](#AuthenticationError)
-- [AuthenticationRequiredError](#AuthenticationRequiredError)
-- [ConnectionError](#ConnectionError)
-- [IndexOutOfRangeError](#IndexOutOfRangeError)
-- [InvalidOperationError](#InvalidOperationError)
-- [NotFoundError](#NotFoundError)
-- [NotImplementedError](#NotImplementedError)
-- [NotPermittedError](#NotPermittedError)
-- [NotSupportedError](#NotSupportedError)
-- [OperationCanceledError](#OperationCanceledError)
-- [OutOfMemoryError](#OutOfMemoryError)
-- [StackOverflowError](#StackOverflowError)
-- [TimeoutError](#TimeoutError)
-- [UnauthorizedAccessError](#UnauthorizedAccessError)
-- [UnauthorizedError](#UnauthorizedError)
+- [`AlreadyInUseError`]
+- [`ArgumentError`]
+- [`ArgumentNullError`]
+- [`ArgumentOutOfRangeError`]
+- [`AuthenticationError`]
+- [`AuthenticationRequiredError`]
+- [`ConnectionError`]
+- [`IndexOutOfRangeError`]
+- [`InvalidOperationError`]
+- [`NotFoundError`]
+- [`NotImplementedError`]
+- [`NotPermittedError`]
+- [`NotSupportedError`]
+- [`OperationCanceledError`]
+- [`OutOfMemoryError`]
+- [`StackOverflowError`]
+- [`TimeoutError`]
+- [`UnauthorizedAccessError`]
+- [`UnauthorizedError`]
 - Data
-    - [DataError](#DataError)
-    - [TransactionError](#TransactionError)
+    - [`DataError`]
+    - [`TransactionError`]
 - IO
-    - [DirectoryNotFoundError](#DirectoryNotFoundError)
-    - [DriveNotFoundError](#DriveNotFoundError)
-    - [EndOfStreamError](#EndOfStreamError)
-    - [FileLoadError](#FileLoadError)
-    - [FileNotFoundError](#FileNotFoundError)
-    - [IOError](#IOError)
-    - [PathTooLongError](#PathTooLongError)
-    - [SocketError](#SocketError)
+    - [`DirectoryNotFoundError`]
+    - [`DriveNotFoundError`]
+    - [`EndOfStreamError`]
+    - [`FileLoadError`]
+    - [`FileNotFoundError`]
+    - [`IOError`]
+    - [`PathTooLongError`]
+    - [`SocketError`]
+
+<!-- link list -->
+
+[`AlreadyInUseError`]: #alreadyinuseerror
+[`ArgumentError`]: #argumenterror
+[`ArgumentNullError`]: #argumentnullerror
+[`ArgumentOutOfRangeError`]: #argumentoutofrangeerror
+[`AuthenticationError`]: #authenticationerror
+[`AuthenticationRequiredError`]: #authenticationrequirederror
+[`ConnectionError`]: #connectionerror
+[`IndexOutOfRangeError`]: #indexoutofrangeerror
+[`InvalidOperationError`]: #invalidoperationerror
+[`NotFoundError`]: #notfounderror
+[`NotImplementedError`]: #notimplementederror
+[`NotPermittedError`]: #notpermittederror
+[`NotSupportedError`]: #notsupportederror
+[`OperationCanceledError`]: #operationcancelederror
+[`OutOfMemoryError`]: #outofmemoryerror
+[`StackOverflowError`]: #stackoverflowerror
+[`TimeoutError`]: #timeouterror
+[`UnauthorizedAccessError`]: #unauthorizedaccesserror
+[`UnauthorizedError`]: #unauthorizederror
+
+[`DataError`]: #dataerror
+[`TransactionError`]: #transactionerror
+
+[`DirectoryNotFoundError`]: #directorynotfounderror
+[`DriveNotFoundError`]: #drivenotfounderror
+[`EndOfStreamError`]: #endofstreamerror
+[`FileLoadError`]: #fileloaderror
+[`FileNotFoundError`]: #filenotfounderror
+[`IOError`]: #ioerror
+[`PathTooLongError`]: #pathtoolongerror
+[`SocketError`]: #socketerror
 
 ## AlreadyInUseError
 
@@ -61,6 +95,7 @@ Applicable when one of the arguments provided to a function or method is not val
 ```ts
 new ArgumentError(message?, innerError?)
 new ArgumentError(message?, paramName?, innerError?)
+new ArgumentError(options?)
 ```
 
 ### Arguments
@@ -68,6 +103,20 @@ new ArgumentError(message?, paramName?, innerError?)
 - `message` The error message that explains the reason for this error.
 - `paramName` The name of the parameter that caused the current error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IArgumentErrorOptions`.
+
+```ts
+interface IArgumentErrorOptions extends IErrorOptions {
+    /**
+     * Do not append message suffix at the end of original message.
+     */
+    noMessageSuffix?: boolean;
+    /**
+     * The name of the parameter that caused the current error.
+     */
+    paramName?: string;
+}
+```
 
 ### Example
 
@@ -82,6 +131,7 @@ Applicable when a null reference or undefined is passed to a function or a metho
 ```ts
 new ArgumentNullError(message?, innerError?)
 new ArgumentNullError(message?, paramName?, innerError?)
+new ArgumentNullError(options?)
 ```
 
 ### Arguments
@@ -89,6 +139,11 @@ new ArgumentNullError(message?, paramName?, innerError?)
 - `message` The error message that explains the reason for this error.
 - `paramName` The name of the parameter that caused the current error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IArgumentNullErrorOptions`.
+
+```ts
+interface IArgumentNullErrorOptions extends IArgumentErrorOptions {}
+```
 
 ### Example
 
@@ -104,6 +159,7 @@ Applicable when the value of an argument is outside the allowable range of value
 new ArgumentOutOfRangeError(message?, innerError?)
 new ArgumentOutOfRangeError(message?, paramName?, innerError?)
 new ArgumentOutOfRangeError(message?, paramName?, actualValue?, innerError?)
+new ArgumentOutOfRangeError(options?)
 ```
 
 ### Arguments
@@ -112,6 +168,16 @@ new ArgumentOutOfRangeError(message?, paramName?, actualValue?, innerError?)
 - `paramName` The name of the parameter that caused the current error.
 - `actualValue` The value of the argument that causes this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IArgumentOutOfRangeErrorOptions`.
+
+```ts
+interface IArgumentOutOfRangeErrorOptions extends IArgumentErrorOptions {
+    /**
+     * The value of the argument that causes this error.
+     */
+    actualValue?: unknown;
+}
+```
 
 ### Example
 
@@ -125,12 +191,18 @@ Applicable when authentication fails for an authentication stream.
 
 ```ts
 new AuthenticationError(message?, innerError?)
+new AuthenticationError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IAuthenticationErrorOptions`.
+
+```ts
+interface IAuthenticationErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -144,12 +216,18 @@ Applicable when an operation requires authentication.
 
 ```ts
 new AuhenticationRequiredError(message?, innerError?)
+new AuhenticationRequiredError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IAuthenticationRequiredErrorOptions`.
+
+```ts
+interface IAuthenticationRequiredErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -163,12 +241,18 @@ Applicable when an error occurs on a connection.
 
 ```ts
 new ConnectionError(message?, innerError?)
+new ConnectionError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IConnectionErrorOptions`.
+
+```ts
+export interface IConnectionErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -182,28 +266,23 @@ Applicable when an attempt is made to access an element of an array or collectio
 
 ```ts
 new IndexOutOfRangeError(message?, innerError?)
+new IndexOutOfRangeError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IIndexOutOfRangeErrorOptions`.
+
+```ts
+interface IIndexOutOfRangeErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
 ```ts
 throw new IndexOutOfRangeError('index out of range');
-```
-
-### Arguments
-
-- `message` The error message that explains the reason for this error.
-- `innerError` The error that is the cause of the current error. Stack trace will be appended.
-
-### Example
-
-```ts
-throw new TransactionError('Transaction already complete');
 ```
 
 ## InvalidOperationError
@@ -212,12 +291,18 @@ Applicable when a function call or a method call is invalid for the object's cur
 
 ```ts
 new InvalidOperationError(message?, innerError?)
+new InvalidOperationError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IInvalidOperationErrorOptions`.
+
+```ts
+interface IInvalidOperationErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -232,6 +317,7 @@ Applicable when an attempt to retrieve data yielded no result.
 ```ts
 new NotFoundError(message?, innerError?)
 new NotFoundError(message?, fileName?, innerError?)
+new NotFoundError(options?)
 ```
 
 ### Arguments
@@ -239,6 +325,13 @@ new NotFoundError(message?, fileName?, innerError?)
 - `message` The error message that explains the reason for this error.
 - `entityName` The entity which is not found.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `INotFoundErrorOptions`.
+
+```ts
+interface INotFoundErrorOptions extends IErrorOptions {
+    entityName?: string;
+}
+```
 
 ### Example
 
@@ -252,12 +345,18 @@ Applicable when a requested method or operation is not implemented.
 
 ```ts
 new NotImplementedError(message?, innerError?)
+new NotImplementedError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `INotImplementedErrorOptions`.
+
+```ts
+interface INotImplementedErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -271,12 +370,18 @@ Applicable when an operation is not permitted.
 
 ```ts
 new NotPermittedError(message?, innerError?)
+new NotPermittedError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `INotPermittedErrorOptions`.
+
+```ts
+interface INotPermittedErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -290,13 +395,18 @@ Applicable when an invoked method is not supported, or when there is an attempt 
 
 ```ts
 new NotSupportedError(message?, innerError?)
+new NotSupportedError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `INotSupportedErrorOptions`.
 
+```ts
+interface INotSupportedErrorOptions extends IErrorOptions {}
+```
 ### Example
 
 ```ts
@@ -309,12 +419,18 @@ Applicable when an operation was canceled.
 
 ```ts
 new OperationCanceledError(message?, innerError?)
+new OperationCanceledError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IOperationCanceledErrorOptions`.
+
+```ts
+interface IOperationCanceledErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -328,12 +444,18 @@ Applicable when there is not enough memory to continue the execution of a progra
 
 ```ts
 new OutOfMemoryError(message?, innerError?)
+new OutOfMemoryError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IOutOfMemoryErrorOptions`.
+
+```ts
+interface IOutOfMemoryErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -347,12 +469,18 @@ Applicable when the execution stack overflows because it contains too many neste
 
 ```ts
 new StackOverflowError(message?, innerError?)
+new StackOverflowError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IStackOverflowErrorOptions`.
+
+```ts
+interface IStackOverflowErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -366,12 +494,18 @@ Applicable when the time allotted for a process or operation has expired.
 
 ```ts
 new TimeoutError(message?, innerError?)
+new TimeoutError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `ITimeoutErrorOptions`.
+
+```ts
+interface ITimeoutErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -385,12 +519,18 @@ Applicable when the operating system denies access because of an I/O error or a 
 
 ```ts
 new UnauthorizedAccessError(message?, innerError?)
+new UnauthorizedAccessError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IUnauthorizedAccessErrorOptions`.
+
+```ts
+interface IUnauthorizedAccessErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -404,12 +544,18 @@ Applicable when the operating system denies access because of an I/O error or a 
 
 ```ts
 new UnauthorizedError(message?, innerError?)
+new UnauthorizedError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IUnauthorizedErrorOptions`.
+
+```ts
+interface IUnauthorizedErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -423,12 +569,18 @@ Applicable when an error occurs on or with an external data source.
 
 ```ts
 new DataError(message?, innerError?)
+new DataError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IDataErrorOptions`.
+
+```ts
+interface IDataErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -442,6 +594,23 @@ Applicable when attempt to do work on a transaction that cannot accept new work.
 
 ```ts
 new TransactionError(message?, innerError?)
+new TransactionError(options?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `ITransactionErrorOptions`.
+
+```ts
+interface ITransactionErrorOptions extends IErrorOptions {}
+```
+
+### Example
+
+```ts
+throw new TransactionError('Transaction already complete');
 ```
 
 ## IOError
@@ -450,12 +619,18 @@ Applicable when an I/O error occurs.
 
 ```ts
 new IOError(message?, innerError?)
+new IOError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IIOErrorOptions`.
+
+```ts
+interface IIOErrorOptions extends IErrorOptions {}
+```
 
 ### Example
 
@@ -469,12 +644,18 @@ Applicable when part of a file or directory cannot be found.
 
 ```ts
 new DirectoryNotFoundError(message?, innerError?)
+new DirectoryNotFoundError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IDirectoryNotFoundErrorOptions`.
+
+```ts
+interface IDirectoryNotFoundErrorOptions extends IIOErrorOptions {}
+```
 
 ### Example
 
@@ -488,12 +669,18 @@ Applicable when trying to access a drive or share that is not available.
 
 ```ts
 new DriveNotFoundError(message?, innerError?)
+new DriveNotFoundError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IDriveNotFoundErrorOptions`.
+
+```ts
+interface IDriveNotFoundErrorOptions extends IIOErrorOptions {}
+```
 
 ### Example
 
@@ -507,12 +694,18 @@ Applicable when reading is attempted past the end of a stream.
 
 ```ts
 new EndOfStreamError(message?, innerError?)
+new EndOfStreamError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IEndOfStreamErrorOptions`.
+
+```ts
+interface IEndOfStreamErrorOptions extends IIOErrorOptions {}
+```
 
 ### Example
 
@@ -527,6 +720,7 @@ Applicable when a managed assembly is found but cannot be loaded.
 ```ts
 new FileLoadError(message?, innerError?)
 new FileLoadError(message?, fileName?, innerError?)
+new FileLoadError(options?)
 ```
 
 ### Arguments
@@ -534,6 +728,16 @@ new FileLoadError(message?, fileName?, innerError?)
 - `message` The error message that explains the reason for this error.
 - `fileName` A String containing the name of the file that was not loaded.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IFileLoadErrorOptions`.
+
+```ts
+interface IFileLoadErrorOptions extends IIOErrorOptions {
+    /**
+     * A String containing the name of the file that was not loaded.
+     */
+    fileName?: string;
+}
+```
 
 ### Example
 
@@ -548,6 +752,7 @@ Applicable when an attempt to access a file that does not exist on disk fails.
 ```ts
 new FileNotFoundError(message?, innerError?)
 new FileNotFoundError(message?, fileName?, innerError?)
+new FileNotFoundError(options?)
 ```
 
 ### Arguments
@@ -555,6 +760,16 @@ new FileNotFoundError(message?, fileName?, innerError?)
 - `message` The error message that explains the reason for this error.
 - `fileName` The full name of the file with the invalid image.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IFileNotFoundErrorOptions`.
+
+```ts
+interface IFileNotFoundErrorOptions extends IIOErrorOptions {
+    /**
+     * The full name of the file with the invalid image.
+     */
+    fileName?: string;
+}
+```
 
 ### Example
 
@@ -568,12 +783,18 @@ Applicable when a path or fully qualified file name is longer than the system-de
 
 ```ts
 new PathTooLongError(message?, innerError?)
+new PathTooLongError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IPathTooLongErrorOptions`.
+
+```ts
+export interface IPathTooLongErrorOptions extends IIOErrorOptions {}
+```
 
 ### Example
 
@@ -587,12 +808,18 @@ Applicable when an error occurs on a socket.
 
 ```ts
 new SocketError(message?, innerError?)
+new SocketError(options?)
 ```
 
 ### Arguments
 
 - `message` The error message that explains the reason for this error.
 - `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `ISocketErrorOptions`.
+
+```ts
+interface ISocketErrorOptions extends IIOErrorOptions {}
+```
 
 ### Example
 

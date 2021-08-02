@@ -4,7 +4,7 @@ import { IErrorOptions } from './Types';
 
 /**
  * Represents an error that occurs when a numeric variable or parameter is outside of its valid range.
- * This is roughly the same as the native RangeError class. It additionally supports an innerError attribute.
+ * This is roughly the same as the native `RangeError` class. It additionally supports an innerError attribute.
  */
 export class NativeRangeError extends RangeError {
     #innerError?: Error;

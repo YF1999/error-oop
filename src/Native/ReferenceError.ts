@@ -4,7 +4,7 @@ import { IErrorOptions } from './Types';
 
 /**
  * Represents an error when a non-existent variable is referenced.
- * This is roughly the same as the native ReferenceError class. It additionally supports an innerError attribute.
+ * This is roughly the same as the native `ReferenceError` class. It additionally supports an innerError attribute.
  */
 export class NativeReferenceError extends ReferenceError {
     #innerError?: Error;
