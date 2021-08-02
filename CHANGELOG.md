@@ -1,5 +1,48 @@
 # CHANGELOG
-## [v0.2.0] node-errors-pro (2020-01-10)
+
+## error-oop v0.4.0 (2021-08-02)
+
+Version `v0.3.0` is used by mistake, so bump version to `v0.4.0`.
+
+### Features
+
+- Add new constructor overloading with argument object `options` to all error classes
+- You will no need to (and you cannot) inherit the abstract classes to make your own custom errors, now you can just inherit the Error series classes
+
+```ts
+class YourCustomError1 extends NativeError {}
+class YourCustomError2 extends ArgumentError {}
+class YourCustomError3 extends IndexOutOfRangeError {}
+```
+
+### Changes
+
+- The type of argument `actualValue` in `ArgumentOutOfRangeError` is changed to `unknown`
+
+### Breaking Changes
+
+- Rename this package to `error-oop`
+- The wrappered native errors are changed:
+    - `ErrorPro`            -> `NativeError`
+    - `RangeErrorPro`       -> `NativeRangeError`
+    - `ReferenceErrorPro`   -> `NativeReferenceError`
+    - `SyntaxErrorPro`      -> `NativeSyntaxError`
+    - `TypeErrorPro`        -> `NativeTypeError`
+    - `URIErrorPro`         -> `NativeURIError`
+    - Aliases `Error`, `RangeError`, `ReferenceError`, `SyntaxError`, `TypeError` and `URIError` are still provided
+- The value returned from property name of wrappered native errors are changed:
+    - `Error`           -> `NativeError`
+    - `RangeError`      -> `NativeRangeError`
+    - `ReferenceError`  -> `NativeReferenceError`
+    - `SyntaxError`     -> `NativeSyntaxError`
+    - `TypeError`       -> `NativeTypeError`
+    - `URIError`        -> `NativeURIError`
+- Make field `_innerError` to be private field `#innerError`
+- All abstract classes are deleted
+    - No argument `options` any more
+    - No callback `generateMessage` any more
+
+## node-errors-pro v0.2.0 (2020-01-10)
 ### Features
 
 - Support more usefull errors:
@@ -8,7 +51,7 @@
     - UnauthorizedAccessError
     - UnauthorizedError
 
-## [v0.1.0] node-errors-pro (2021-01-08)
+## node-errors-pro v0.1.0 (2021-01-08)
 ### Features
 
 - Support native errors pro:
