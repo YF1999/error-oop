@@ -5,7 +5,7 @@
         "declaration": true,
         "declarationDir": "../../build/types",
         "emitDeclarationOnly": true,
-        "module": "ES2015",
+        "module": "ESNext",
         "rootDir": "../../src",
         "tsBuildInfoFile": "../../build/tsconfig.types.tsbuildinfo"
     }

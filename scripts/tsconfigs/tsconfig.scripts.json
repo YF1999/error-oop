@@ -2,7 +2,7 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": "../../scripts",
-        "module": "commonjs",
+        "module": "CommonJS",
         "outDir": "../../scripts",
         "rootDir": "../../scripts"
     },

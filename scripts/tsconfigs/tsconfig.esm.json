@@ -2,7 +2,7 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "baseUrl": "../../src",
-        "module": "ES2015",
+        "module": "ESNext",
         "outDir": "../../build/esm",
         "removeComments": true,
         "rootDir": "../../src",
