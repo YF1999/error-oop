@@ -1,4 +1,4 @@
-name: NPM publish
+name: Publish Release
 
 on:
   push:
@@ -22,7 +22,7 @@ jobs:
       - name: Setup node modules
         run: npm ci
 
-      - name: Build
+      - name: Build project
         run: npm run build
 
       - name: Publish
