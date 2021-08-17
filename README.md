@@ -27,9 +27,6 @@ Click to know how to use them.
 ### More Useful Errors
 
 - [`AlreadyInUseError`]
-- [`ArgumentError`]
-- [`ArgumentNullError`]
-- [`ArgumentOutOfRangeError`]
 - [`AuthenticationError`]
 - [`AuthenticationRequiredError`]
 - [`ConnectionError`]
@@ -45,6 +42,10 @@ Click to know how to use them.
 - [`TimeoutError`]
 - [`UnauthorizedAccessError`]
 - [`UnauthorizedError`]
+- Argument
+    - [`ArgumentError`]
+    - [`ArgumentNullError`]
+    - [`ArgumentOutOfRangeError`]
 - Data
     - [`DataError`]
     - [`TransactionError`]
@@ -85,9 +86,6 @@ If you want to create your own custom errors, please see [User Guide For Custom 
 [`URIError`]: ./docs/user-guide.native-errors.md#nativeurierror
 
 [`AlreadyInUseError`]: ./docs/user-guide.more-useful-errors.md#alreadyinuseerror
-[`ArgumentError`]: ./docs/user-guide.more-useful-errors.md#argumenterror
-[`ArgumentNullError`]: ./docs/user-guide.more-useful-errors.md#argumentnullerror
-[`ArgumentOutOfRangeError`]: ./docs/user-guide.more-useful-errors.md#argumentoutofrangeerror
 [`AuthenticationError`]: ./docs/user-guide.more-useful-errors.md#authenticationerror
 [`AuthenticationRequiredError`]: ./docs/user-guide.more-useful-errors.md#authenticationrequirederror
 [`ConnectionError`]: ./docs/user-guide.more-useful-errors.md#connectionerror
@@ -103,6 +101,10 @@ If you want to create your own custom errors, please see [User Guide For Custom 
 [`TimeoutError`]: ./docs/user-guide.more-useful-errors.md#timeouterror
 [`UnauthorizedAccessError`]: ./docs/user-guide.more-useful-errors.md#unauthorizedaccesserror
 [`UnauthorizedError`]: ./docs/user-guide.more-useful-errors.md#unauthorizederror
+
+[`ArgumentError`]: ./docs/user-guide.more-useful-errors.md#argumenterror
+[`ArgumentNullError`]: ./docs/user-guide.more-useful-errors.md#argumentnullerror
+[`ArgumentOutOfRangeError`]: ./docs/user-guide.more-useful-errors.md#argumentoutofrangeerror
 
 [`DataError`]: ./docs/user-guide.more-useful-errors.md#dataerror
 [`TransactionError`]: ./docs/user-guide.more-useful-errors.md#transactionerror

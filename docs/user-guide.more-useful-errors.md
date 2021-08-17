@@ -1,9 +1,6 @@
 # User Guide For More Useful Errors
 
 - [`AlreadyInUseError`]
-- [`ArgumentError`]
-- [`ArgumentNullError`]
-- [`ArgumentOutOfRangeError`]
 - [`AuthenticationError`]
 - [`AuthenticationRequiredError`]
 - [`ConnectionError`]
@@ -19,6 +16,10 @@
 - [`TimeoutError`]
 - [`UnauthorizedAccessError`]
 - [`UnauthorizedError`]
+- Argument
+    - [`ArgumentError`]
+    - [`ArgumentNullError`]
+    - [`ArgumentOutOfRangeError`]
 - Data
     - [`DataError`]
     - [`TransactionError`]
@@ -35,9 +36,6 @@
 <!-- link list -->
 
 [`AlreadyInUseError`]: #alreadyinuseerror
-[`ArgumentError`]: #argumenterror
-[`ArgumentNullError`]: #argumentnullerror
-[`ArgumentOutOfRangeError`]: #argumentoutofrangeerror
 [`AuthenticationError`]: #authenticationerror
 [`AuthenticationRequiredError`]: #authenticationrequirederror
 [`ConnectionError`]: #connectionerror
@@ -53,6 +51,10 @@
 [`TimeoutError`]: #timeouterror
 [`UnauthorizedAccessError`]: #unauthorizedaccesserror
 [`UnauthorizedError`]: #unauthorizederror
+
+[`ArgumentError`]: #argumenterror
+[`ArgumentNullError`]: #argumentnullerror
+[`ArgumentOutOfRangeError`]: #argumentoutofrangeerror
 
 [`DataError`]: #dataerror
 [`TransactionError`]: #transactionerror
@@ -86,103 +88,6 @@ new AlreadyInUseError(entityName, arg1?, arg2?, arg3?, ...args)
 
 ```ts
 throw new AlreadyInUseError('user', 'username', 'password');
-```
-
-## ArgumentError
-
-Applicable when one of the arguments provided to a function or method is not valid.
-
-```ts
-new ArgumentError(message?, innerError?)
-new ArgumentError(message?, paramName?, innerError?)
-new ArgumentError(options?)
-```
-
-### Arguments
-
-- `message` The error message that explains the reason for this error.
-- `paramName` The name of the parameter that caused the current error.
-- `innerError` The error that is the cause of the current error. Stack trace will be appended.
-- `options` The constructor options. The type of this argument is `IArgumentErrorOptions`.
-
-```ts
-interface IArgumentErrorOptions extends IErrorOptions {
-    /**
-     * Do not append message suffix at the end of original message.
-     */
-    noMessageSuffix?: boolean;
-    /**
-     * The name of the parameter that caused the current error.
-     */
-    paramName?: string;
-}
-```
-
-### Example
-
-```ts
-throw new ArgumentError('Wrong parameter in xxx method.', 'parameter');
-```
-
-## ArgumentNullError
-
-Applicable when a null reference or undefined is passed to a function or a method that does not accept it as a valid argument.
-
-```ts
-new ArgumentNullError(message?, innerError?)
-new ArgumentNullError(message?, paramName?, innerError?)
-new ArgumentNullError(options?)
-```
-
-### Arguments
-
-- `message` The error message that explains the reason for this error.
-- `paramName` The name of the parameter that caused the current error.
-- `innerError` The error that is the cause of the current error. Stack trace will be appended.
-- `options` The constructor options. The type of this argument is `IArgumentNullErrorOptions`.
-
-```ts
-interface IArgumentNullErrorOptions extends IArgumentErrorOptions {}
-```
-
-### Example
-
-```ts
-throw new ArgumentNullError('Argument xxx cannot be undefined or null.', 'parameter');
-```
-
-## ArgumentOutOfRangeError
-
-Applicable when the value of an argument is outside the allowable range of values as defined by the invoked function or method.
-
-```ts
-new ArgumentOutOfRangeError(message?, innerError?)
-new ArgumentOutOfRangeError(message?, paramName?, innerError?)
-new ArgumentOutOfRangeError(message?, paramName?, actualValue?, innerError?)
-new ArgumentOutOfRangeError(options?)
-```
-
-### Arguments
-
-- `message` The error message that explains the reason for this error.
-- `paramName` The name of the parameter that caused the current error.
-- `actualValue` The value of the argument that causes this error.
-- `innerError` The error that is the cause of the current error. Stack trace will be appended.
-- `options` The constructor options. The type of this argument is `IArgumentOutOfRangeErrorOptions`.
-
-```ts
-interface IArgumentOutOfRangeErrorOptions extends IArgumentErrorOptions {
-    /**
-     * The value of the argument that causes this error.
-     */
-    actualValue?: unknown;
-}
-```
-
-### Example
-
-```ts
-throw new ArgumentOutOfRangeError("Argument 'order' must be a positive number.", 'order', order);
 ```
 
 ## AuthenticationError
@@ -561,6 +466,103 @@ interface IUnauthorizedErrorOptions extends IErrorOptions {}
 
 ```ts
 throw new UnauthorizedError("Opening 'package.json' operation requires elevation (run as administrator)");
+```
+
+## ArgumentError
+
+Applicable when one of the arguments provided to a function or method is not valid.
+
+```ts
+new ArgumentError(message?, innerError?)
+new ArgumentError(message?, paramName?, innerError?)
+new ArgumentError(options?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `paramName` The name of the parameter that caused the current error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IArgumentErrorOptions`.
+
+```ts
+interface IArgumentErrorOptions extends IErrorOptions {
+    /**
+     * Do not append message suffix at the end of original message.
+     */
+    noMessageSuffix?: boolean;
+    /**
+     * The name of the parameter that caused the current error.
+     */
+    paramName?: string;
+}
+```
+
+### Example
+
+```ts
+throw new ArgumentError('Wrong parameter in xxx method.', 'parameter');
+```
+
+## ArgumentNullError
+
+Applicable when a null reference or undefined is passed to a function or a method that does not accept it as a valid argument.
+
+```ts
+new ArgumentNullError(message?, innerError?)
+new ArgumentNullError(message?, paramName?, innerError?)
+new ArgumentNullError(options?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `paramName` The name of the parameter that caused the current error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IArgumentNullErrorOptions`.
+
+```ts
+interface IArgumentNullErrorOptions extends IArgumentErrorOptions {}
+```
+
+### Example
+
+```ts
+throw new ArgumentNullError('Argument xxx cannot be undefined or null.', 'parameter');
+```
+
+## ArgumentOutOfRangeError
+
+Applicable when the value of an argument is outside the allowable range of values as defined by the invoked function or method.
+
+```ts
+new ArgumentOutOfRangeError(message?, innerError?)
+new ArgumentOutOfRangeError(message?, paramName?, innerError?)
+new ArgumentOutOfRangeError(message?, paramName?, actualValue?, innerError?)
+new ArgumentOutOfRangeError(options?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `paramName` The name of the parameter that caused the current error.
+- `actualValue` The value of the argument that causes this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IArgumentOutOfRangeErrorOptions`.
+
+```ts
+interface IArgumentOutOfRangeErrorOptions extends IArgumentErrorOptions {
+    /**
+     * The value of the argument that causes this error.
+     */
+    actualValue?: unknown;
+}
+```
+
+### Example
+
+```ts
+throw new ArgumentOutOfRangeError("Argument 'order' must be a positive number.", 'order', order);
 ```
 
 ## DataError

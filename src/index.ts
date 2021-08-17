@@ -1,9 +1,6 @@
 export * from './Native';
 
 export * from './AlreadyInUseError';
-export * from './ArgumentError';
-export * from './ArgumentNullError';
-export * from './ArgumentOutOfRangeError';
 export * from './AuthenticationError';
 export * from './AuthenticationRequiredError';
 export * from './ConnectionError';
@@ -19,6 +16,10 @@ export * from './StackOverflowError';
 export * from './TimeoutError';
 export * from './UnauthorizedAccessError';
 export * from './UnauthorizedError';
+
+export * from './Argument/ArgumentError';
+export * from './Argument/ArgumentNullError';
+export * from './Argument/ArgumentOutOfRangeError';
 
 export * from './Data/DataError';
 export * from './Data/TransactionError';
