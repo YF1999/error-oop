@@ -24,41 +24,38 @@ Click to know how to use them.
 - [`NativeTypeError`], alias [`TypeError`]
 - [`NativeURIError`], alias [`URIError`]
 
-### More Useful Errors
+### More OOP Errors
 
 - [`AlreadyInUseError`]
+- [`ArgumentError`]
+- [`ArgumentNullError`]
+- [`ArgumentOutOfRangeError`]
 - [`AuthenticationError`]
 - [`AuthenticationRequiredError`]
 - [`ConnectionError`]
+- [`DataError`]
+- [`DirectoryNotFoundError`]
+- [`DriveNotFoundError`]
+- [`EndOfStreamError`]
+- [`FileLoadError`]
+- [`FileNotFoundError`]
 - [`IndexOutOfRangeError`]
 - [`InvalidDataError`]
 - [`InvalidOperationError`]
+- [`IOError`]
 - [`NotFoundError`]
 - [`NotImplementedError`]
 - [`NotPermittedError`]
 - [`NotSupportedError`]
 - [`OperationCanceledError`]
 - [`OutOfMemoryError`]
+- [`PathTooLongError`]
+- [`SocketError`]
 - [`StackOverflowError`]
 - [`TimeoutError`]
+- [`TransactionError`]
 - [`UnauthorizedAccessError`]
 - [`UnauthorizedError`]
-- Argument
-    - [`ArgumentError`]
-    - [`ArgumentNullError`]
-    - [`ArgumentOutOfRangeError`]
-- Data
-    - [`DataError`]
-    - [`TransactionError`]
-- IO
-    - [`DirectoryNotFoundError`]
-    - [`DriveNotFoundError`]
-    - [`EndOfStreamError`]
-    - [`FileLoadError`]
-    - [`FileNotFoundError`]
-    - [`IOError`]
-    - [`PathTooLongError`]
-    - [`SocketError`]
 
 If you want to create your own custom errors, please see [User Guide For Custom Errors].
 
@@ -85,37 +82,34 @@ If you want to create your own custom errors, please see [User Guide For Custom 
 [`URIError`]: ./docs/user-guide.native-errors.md#nativeurierror
 
 [`AlreadyInUseError`]: ./docs/user-guide.more-oop-errors.md#alreadyinuseerror
+[`ArgumentError`]: ./docs/user-guide.more-oop-errors.md#argumenterror
+[`ArgumentNullError`]: ./docs/user-guide.more-oop-errors.md#argumentnullerror
+[`ArgumentOutOfRangeError`]: ./docs/user-guide.more-oop-errors.md#argumentoutofrangeerror
 [`AuthenticationError`]: ./docs/user-guide.more-oop-errors.md#authenticationerror
 [`AuthenticationRequiredError`]: ./docs/user-guide.more-oop-errors.md#authenticationrequirederror
 [`ConnectionError`]: ./docs/user-guide.more-oop-errors.md#connectionerror
+[`DataError`]: ./docs/user-guide.more-oop-errors.md#dataerror
+[`DirectoryNotFoundError`]: ./docs/user-guide.more-oop-errors.md#directorynotfounderror
+[`DriveNotFoundError`]: ./docs/user-guide.more-oop-errors.md#drivenotfounderror
+[`EndOfStreamError`]: ./docs/user-guide.more-oop-errors.md#endofstreamerror
+[`FileLoadError`]: ./docs/user-guide.more-oop-errors.md#fileloaderror
+[`FileNotFoundError`]: ./docs/user-guide.more-oop-errors.md#filenotfounderror
 [`IndexOutOfRangeError`]: ./docs/user-guide.more-oop-errors.md#indexoutofrangeerror
 [`InvalidDataError`]: ./docs/user-guide.more-oop-errors.md#invaliddataerror
 [`InvalidOperationError`]: ./docs/user-guide.more-oop-errors.md#invalidoperationerror
+[`IOError`]: ./docs/user-guide.more-oop-errors.md#ioerror
 [`NotFoundError`]: ./docs/user-guide.more-oop-errors.md#notfounderror
 [`NotImplementedError`]: ./docs/user-guide.more-oop-errors.md#notimplementederror
 [`NotPermittedError`]: ./docs/user-guide.more-oop-errors.md#notpermittederror
 [`NotSupportedError`]: ./docs/user-guide.more-oop-errors.md#notsupportederror
 [`OperationCanceledError`]: ./docs/user-guide.more-oop-errors.md#operationcancelederror
 [`OutOfMemoryError`]: ./docs/user-guide.more-oop-errors.md#outofmemoryerror
-[`StackOverflowError`]: ./docs/user-guide.more-oop-errors.md#stackoverflowerror
-[`TimeoutError`]: ./docs/user-guide.more-oop-errors.md#timeouterror
-[`UnauthorizedAccessError`]: ./docs/user-guide.more-oop-errors.md#unauthorizedaccesserror
-[`UnauthorizedError`]: ./docs/user-guide.more-oop-errors.md#unauthorizederror
-
-[`ArgumentError`]: ./docs/user-guide.more-oop-errors.md#argumenterror
-[`ArgumentNullError`]: ./docs/user-guide.more-oop-errors.md#argumentnullerror
-[`ArgumentOutOfRangeError`]: ./docs/user-guide.more-oop-errors.md#argumentoutofrangeerror
-
-[`DataError`]: ./docs/user-guide.more-oop-errors.md#dataerror
-[`TransactionError`]: ./docs/user-guide.more-oop-errors.md#transactionerror
-
-[`DirectoryNotFoundError`]: ./docs/user-guide.more-oop-errors.md#directorynotfounderror
-[`DriveNotFoundError`]: ./docs/user-guide.more-oop-errors.md#drivenotfounderror
-[`EndOfStreamError`]: ./docs/user-guide.more-oop-errors.md#endofstreamerror
-[`FileLoadError`]: ./docs/user-guide.more-oop-errors.md#fileloaderror
-[`FileNotFoundError`]: ./docs/user-guide.more-oop-errors.md#filenotfounderror
-[`IOError`]: ./docs/user-guide.more-oop-errors.md#ioerror
 [`PathTooLongError`]: ./docs/user-guide.more-oop-errors.md#pathtoolongerror
 [`SocketError`]: ./docs/user-guide.more-oop-errors.md#socketerror
+[`StackOverflowError`]: ./docs/user-guide.more-oop-errors.md#stackoverflowerror
+[`TimeoutError`]: ./docs/user-guide.more-oop-errors.md#timeouterror
+[`TransactionError`]: ./docs/user-guide.more-oop-errors.md#transactionerror
+[`UnauthorizedAccessError`]: ./docs/user-guide.more-oop-errors.md#unauthorizedaccesserror
+[`UnauthorizedError`]: ./docs/user-guide.more-oop-errors.md#unauthorizederror
 
 [User Guide For Custom Errors]: ./docs/user-guide.custom-errors.md
