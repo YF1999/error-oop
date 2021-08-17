@@ -25,7 +25,7 @@ const config: Config.InitialOptions = {
     globals: {
         // ts-jest configuration goes here.
         'ts-jest': {
-            tsConfig: '<rootDir>/scripts/tsconfigs/tsconfg.cjs.json',
+            tsconfig: '<rootDir>/tsconfig.json',
         },
     },
 };
