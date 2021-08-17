@@ -1,4 +1,14 @@
 # CHANGELOG
+## error-oop v0.5.0 (2021-08-17)
+### Features
+
+- Add new error `InvalidDataError`
+- Add enum `ErrorName`
+- Add method `ErrorTool.is()`, you can use this method to determine whether an error is an instance of the specified error class if you don't want to use `a instanceof b`
+
+### Changes
+
+- Delete unused interface `IAlreadyInUseErrorOptions`
 
 ## error-oop v0.4.0 (2021-08-02)
 
