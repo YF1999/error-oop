@@ -1,5 +1,5 @@
 import { IErrorArguments, IErrorOptions, NativeError } from '../Native';
-import { ErrorTool } from '../Tools';
+import { InternalErrorTool } from '../InternalTools';
 
 export interface IDataErrorOptions extends IErrorOptions {}
 
@@ -23,6 +23,6 @@ export class DataError extends NativeError {
     public constructor(options: IDataErrorOptions);
 
     public constructor(...args: IErrorArguments<IDataErrorOptions>) {
-        super(ErrorTool.parseErrorArguments([], ...args));
+        super(InternalErrorTool.parseErrorArguments([], ...args));
     }
 }

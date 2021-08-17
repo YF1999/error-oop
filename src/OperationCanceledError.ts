@@ -1,5 +1,5 @@
 import { IErrorArguments, IErrorOptions, NativeError } from './Native';
-import { ErrorTool } from './Tools';
+import { InternalErrorTool } from './InternalTools';
 
 export interface IOperationCanceledErrorOptions extends IErrorOptions {}
 
@@ -23,6 +23,6 @@ export class OperationCanceledError extends NativeError {
     public constructor(options: IOperationCanceledErrorOptions);
 
     public constructor(...args: IErrorArguments<IOperationCanceledErrorOptions>) {
-        super(ErrorTool.parseErrorArguments([], ...args));
+        super(InternalErrorTool.parseErrorArguments([], ...args));
     }
 }

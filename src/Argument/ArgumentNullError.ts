@@ -1,5 +1,5 @@
 import { IErrorArguments } from '../Native';
-import { ErrorTool } from '../Tools';
+import { InternalErrorTool } from '../InternalTools';
 import { ArgumentError, IArgumentErrorOptions } from './ArgumentError';
 
 export interface IArgumentNullErrorOptions extends IArgumentErrorOptions {}
@@ -36,6 +36,6 @@ export class ArgumentNullError extends ArgumentError {
     public constructor(options: IArgumentNullErrorOptions);
 
     public constructor(...args: IErrorArguments<IArgumentNullErrorOptions, ['paramName']>) {
-        super(ErrorTool.parseErrorArguments(['paramName'], ...args));
+        super(InternalErrorTool.parseErrorArguments(['paramName'], ...args));
     }
 }

@@ -1,5 +1,5 @@
 import { IErrorArguments } from '../Native';
-import { ErrorTool } from '../Tools';
+import { InternalErrorTool } from '../InternalTools';
 import { ArgumentError, IArgumentErrorOptions } from './ArgumentError';
 
 export interface IArgumentOutOfRangeErrorOptions extends IArgumentErrorOptions {
@@ -56,7 +56,7 @@ export class ArgumentOutOfRangeError extends ArgumentError {
     public constructor(options: IArgumentOutOfRangeErrorOptions);
 
     public constructor(...args: IErrorArguments<IArgumentOutOfRangeErrorOptions, ['paramName', 'actualValue']>) {
-        const opts = ErrorTool.parseErrorArguments(['paramName', 'actualValue'], ...args);
+        const opts = InternalErrorTool.parseErrorArguments(['paramName', 'actualValue'], ...args);
 
         if ('actualValue' in opts && opts.paramName && opts.noMessageSuffix !== true) {
             opts.noMessageSuffix = true;

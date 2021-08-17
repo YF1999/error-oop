@@ -1,5 +1,5 @@
 import { IErrorArguments, IErrorOptions, NativeError } from './Native';
-import { ErrorTool } from './Tools';
+import { InternalErrorTool } from './InternalTools';
 
 export interface IOutOfMemoryErrorOptions extends IErrorOptions {}
 
@@ -23,6 +23,6 @@ export class OutOfMemoryError extends NativeError {
     public constructor(options: IOutOfMemoryErrorOptions);
 
     public constructor(...args: IErrorArguments<IOutOfMemoryErrorOptions>) {
-        super(ErrorTool.parseErrorArguments([], ...args));
+        super(InternalErrorTool.parseErrorArguments([], ...args));
     }
 }

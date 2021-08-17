@@ -1,0 +1,62 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test \`InternalErrorTool\` test \`parseErrorArgument\` 1`] = `
+Object {
+  "innerError": undefined,
+  "message": undefined,
+}
+`;
+
+exports[`Test \`InternalErrorTool\` test \`parseErrorArgument\` 2`] = `
+Object {
+  "message": "error object",
+}
+`;
+
+exports[`Test \`InternalErrorTool\` test \`parseErrorArgument\` 3`] = `
+Object {
+  "a": "a",
+  "b": -1,
+  "message": "error object",
+}
+`;
+
+exports[`Test \`InternalErrorTool\` test \`parseErrorArgument\` 4`] = `
+Object {
+  "a": "a",
+  "c": true,
+  "d": "d",
+  "e": "e",
+}
+`;
+
+exports[`Test \`InternalErrorTool\` test \`parseErrorArgument\` 5`] = `
+Object {
+  "a": "a",
+  "b": -1,
+  "innerError": [Error],
+  "message": "error object",
+}
+`;
+
+exports[`Test \`InternalErrorTool\` test \`parseErrorArgument\` 6`] = `
+Object {
+  "a": "a",
+  "b": -1,
+  "c": true,
+  "innerError": undefined,
+  "message": "error object",
+}
+`;
+
+exports[`Test \`InternalErrorTool\` test \`parseErrorArgument\` 7`] = `
+Object {
+  "a": "a",
+  "b": -1,
+  "c": false,
+  "d": "d",
+  "e": "e",
+  "innerError": [Error],
+  "message": "error object",
+}
+`;

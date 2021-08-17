@@ -1,5 +1,5 @@
 import { IErrorArguments } from '../Native';
-import { ErrorTool } from '../Tools';
+import { InternalErrorTool } from '../InternalTools';
 
 import { IIOErrorOptions, IOError } from './IOError';
 
@@ -28,6 +28,6 @@ export class PathTooLongError extends IOError {
     public constructor(options: IPathTooLongErrorOptions);
 
     public constructor(...args: IErrorArguments<IPathTooLongErrorOptions>) {
-        super(ErrorTool.parseErrorArguments([], ...args));
+        super(InternalErrorTool.parseErrorArguments([], ...args));
     }
 }

@@ -1,0 +1,43 @@
+export enum ErrorName {
+    // native errors
+
+    NativeError = 'NativeError',
+    NativeRangeError = 'NativeRangeError',
+    NativeReferenceError = 'NativeReferenceError',
+    NativeSyntaxError = 'NativeSyntaxError',
+    NativeTypeError = 'NativeTypeError',
+    NativeURIError = 'NativeURIError',
+
+    // more oop errors
+
+    AlreadyInUseError = 'AlreadyInUseError',
+    ArgumentError = 'ArgumentError',
+    ArgumentNullError = 'ArgumentNullError',
+    ArgumentOutOfRangeError = 'ArgumentOutOfRangeError',
+    AuthenticationError = 'AuthenticationError',
+    AuthenticationRequiredError = 'AuthenticationRequiredError',
+    ConnectionError = 'ConnectionError',
+    DataError = 'DataError',
+    DirectoryNotFoundError = 'DirectoryNotFoundError',
+    DriveNotFoundError = 'DriveNotFoundError',
+    EndOfStreamError = 'EndOfStreamError',
+    FileLoadError = 'FileLoadError',
+    FileNotFoundError = 'FileNotFoundError',
+    IndexOutOfRangeError = 'IndexOutOfRangeError',
+    InvalidDataError = 'InvalidDataError',
+    InvalidOperationError = 'InvalidOperationError',
+    IOError = 'IOError',
+    NotFoundError = 'NotFoundError',
+    NotImplementedError = 'NotImplementedError',
+    NotPermittedError = 'NotPermittedError',
+    NotSupportedError = 'NotSupportedError',
+    OperationCanceledError = 'OperationCanceledError',
+    OutOfMemoryError = 'OutOfMemoryError',
+    PathTooLongError = 'PathTooLongError',
+    SocketError = 'SocketError',
+    StackOverflowError = 'StackOverflowError',
+    TimeoutError = 'TimeoutError',
+    TransactionError = 'TransactionError',
+    UnauthorizedAccessError = 'UnauthorizedAccessError',
+    UnauthorizedError = 'UnauthorizedError',
+}

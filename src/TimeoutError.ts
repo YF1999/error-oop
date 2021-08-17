@@ -1,5 +1,5 @@
 import { IErrorArguments, IErrorOptions, NativeError } from './Native';
-import { ErrorTool } from './Tools';
+import { InternalErrorTool } from './InternalTools';
 
 export interface ITimeoutErrorOptions extends IErrorOptions {}
 
@@ -23,6 +23,6 @@ export class TimeoutError extends NativeError {
     public constructor(options: ITimeoutErrorOptions);
 
     public constructor(...args: IErrorArguments<ITimeoutErrorOptions>) {
-        super(ErrorTool.parseErrorArguments([], ...args));
+        super(InternalErrorTool.parseErrorArguments([], ...args));
     }
 }

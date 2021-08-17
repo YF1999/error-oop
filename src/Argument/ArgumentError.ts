@@ -1,5 +1,5 @@
 import { IErrorArguments, IErrorOptions, NativeError } from '../Native';
-import { ErrorTool } from '../Tools';
+import { InternalErrorTool } from '../InternalTools';
 
 export interface IArgumentErrorOptions extends IErrorOptions {
     /**
@@ -45,7 +45,7 @@ export class ArgumentError extends NativeError {
     public constructor(options: IArgumentErrorOptions);
 
     public constructor(...args: IErrorArguments<IArgumentErrorOptions, ['paramName']>) {
-        const options = ErrorTool.parseErrorArguments(['paramName'], ...args);
+        const options = InternalErrorTool.parseErrorArguments(['paramName'], ...args);
 
         if (options.paramName && options.noMessageSuffix !== true) {
             options.message = `${options.message} (Parameter '${options.paramName}')`;

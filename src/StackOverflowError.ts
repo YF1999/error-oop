@@ -1,5 +1,5 @@
 import { IErrorArguments, IErrorOptions, NativeError } from './Native';
-import { ErrorTool } from './Tools';
+import { InternalErrorTool } from './InternalTools';
 
 export interface IStackOverflowErrorOptions extends IErrorOptions {}
 
@@ -23,6 +23,6 @@ export class StackOverflowError extends NativeError {
     public constructor(options: IStackOverflowErrorOptions);
 
     public constructor(...args: IErrorArguments<IStackOverflowErrorOptions>) {
-        super(ErrorTool.parseErrorArguments([], ...args));
+        super(InternalErrorTool.parseErrorArguments([], ...args));
     }
 }

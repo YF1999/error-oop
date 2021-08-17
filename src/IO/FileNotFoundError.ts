@@ -1,5 +1,5 @@
 import { IErrorArguments } from '../Native';
-import { ErrorTool } from '../Tools';
+import { InternalErrorTool } from '../InternalTools';
 import { IIOErrorOptions, IOError } from './IOError';
 
 export interface IFileNotFoundErrorOptions extends IIOErrorOptions {
@@ -42,7 +42,7 @@ export class FileNotFoundError extends IOError {
     public constructor(options: IFileNotFoundErrorOptions);
 
     public constructor(...args: IErrorArguments<IFileNotFoundErrorOptions, ['fileName']>) {
-        const options = ErrorTool.parseErrorArguments(['fileName'], ...args);
+        const options = InternalErrorTool.parseErrorArguments(['fileName'], ...args);
 
         super(options);
 

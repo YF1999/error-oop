@@ -1,5 +1,5 @@
 import { IErrorArguments } from '../Native';
-import { ErrorTool } from '../Tools';
+import { InternalErrorTool } from '../InternalTools';
 import { IOError, IIOErrorOptions } from './IOError';
 
 export interface IEndOfStreamErrorOptions extends IIOErrorOptions {}
@@ -24,6 +24,6 @@ export class EndOfStreamError extends IOError {
     public constructor(options: IEndOfStreamErrorOptions);
 
     public constructor(...args: IErrorArguments<IEndOfStreamErrorOptions>) {
-        super(ErrorTool.parseErrorArguments([], ...args));
+        super(InternalErrorTool.parseErrorArguments([], ...args));
     }
 }
