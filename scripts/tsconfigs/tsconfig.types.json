@@ -1,12 +1,10 @@
 {
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": "../../src",
         "declaration": true,
         "declarationDir": "../../build/types",
         "emitDeclarationOnly": true,
         "module": "ESNext",
-        "rootDir": "../../src",
         "tsBuildInfoFile": "../../build/tsconfig.types.tsbuildinfo"
     }
 }

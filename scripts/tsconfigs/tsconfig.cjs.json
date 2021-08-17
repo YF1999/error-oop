@@ -1,11 +1,9 @@
 {
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
-        "baseUrl": "../../src",
         "module": "CommonJS",
         "outDir": "../../build/cjs",
         "removeComments": true,
-        "rootDir": "../../src",
         "tsBuildInfoFile": "../../build/tsconfig.cjs.tsbuildinfo"
     }
 }
