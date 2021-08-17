@@ -5,5 +5,6 @@
         "noEmit": true,
         "rootDir": "."
     },
-    "include": [".", "../scripts/jest/test.d.ts"]
+    "include": [".", "../scripts/jest/test.d.ts"],
+    "exclude": []
 }
