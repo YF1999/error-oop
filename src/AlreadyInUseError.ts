@@ -1,6 +1,4 @@
-import { IErrorOptions, NativeError } from './Native';
-
-export interface IAlreadyInUseErrorOptions extends IErrorOptions {}
+import { NativeError } from './Native';
 
 /**
  * Applicable when a resource is already in use, for example unique key constraints like a username.
