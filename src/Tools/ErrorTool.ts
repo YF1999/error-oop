@@ -1,5 +1,5 @@
-import { IErrorOptionsKeys } from './IErrorArguments';
-import { IErrorOptions } from './Types';
+import { IErrorOptionsKeys } from '../Native/IErrorArguments';
+import { IErrorOptions } from '../Native/Types';
 
 export class ErrorTool {
     private static _parseErrorArguments<T extends IErrorOptions, Order extends IErrorOptionsKeys<T>>(

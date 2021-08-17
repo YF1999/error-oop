@@ -1,4 +1,5 @@
-import { ErrorTool, IErrorArguments } from '../Native';
+import { IErrorArguments } from '../Native';
+import { ErrorTool } from '../Tools';
 
 import { IIOErrorOptions, IOError } from './IOError';
 

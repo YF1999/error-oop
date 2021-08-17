@@ -1,6 +1,6 @@
+import { IErrorArguments, IErrorOptions } from '../Native';
+
 import { ErrorTool } from './ErrorTool';
-import { IErrorArguments } from './IErrorArguments';
-import { IErrorOptions } from './Types';
 
 interface IErrorObject extends IErrorOptions {
     a?: string;

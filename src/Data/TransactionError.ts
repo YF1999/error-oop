@@ -1,4 +1,5 @@
-import { ErrorTool, IErrorArguments, IErrorOptions, NativeError } from '../Native';
+import { IErrorArguments, IErrorOptions, NativeError } from '../Native';
+import { ErrorTool } from '../Tools';
 
 export interface ITransactionErrorOptions extends IErrorOptions {}
 

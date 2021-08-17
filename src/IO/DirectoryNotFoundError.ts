@@ -1,5 +1,5 @@
-import { ErrorTool, IErrorArguments } from '../Native';
-
+import { IErrorArguments } from '../Native';
+import { ErrorTool } from '../Tools';
 import { IOError, IIOErrorOptions } from './IOError';
 
 export interface IDirectoryNotFoundErrorOptions extends IIOErrorOptions {}

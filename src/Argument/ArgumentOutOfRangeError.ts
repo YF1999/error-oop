@@ -1,4 +1,5 @@
-import { ErrorTool, IErrorArguments } from '../Native';
+import { IErrorArguments } from '../Native';
+import { ErrorTool } from '../Tools';
 import { ArgumentError, IArgumentErrorOptions } from './ArgumentError';
 
 export interface IArgumentOutOfRangeErrorOptions extends IArgumentErrorOptions {

@@ -1,11 +1,12 @@
-import { IErrorOptions, IErrorArguments, NativeError, ErrorTool } from './Native';
+import { IErrorArguments, IErrorOptions, NativeError } from '../Native';
+import { ErrorTool } from '../Tools';
 
-export interface IAuthenticationRequiredErrorOptions extends IErrorOptions {}
+export interface IUnauthorizedAccessErrorOptions extends IErrorOptions {}
 
 /**
- * Applicable when authentication fails for an authentication stream.
+ * Applicable when the operating system denies access because of an I/O error or a specific type of security error.
  */
-export class AuthenticationRequiredError extends NativeError {
+export class UnauthorizedAccessError extends NativeError {
     public constructor();
     /**
      * @param message The error message that explains the reason for this error.
@@ -19,9 +20,9 @@ export class AuthenticationRequiredError extends NativeError {
     /**
      * @param options The constructor options.
      */
-    public constructor(options: IAuthenticationRequiredErrorOptions);
+    public constructor(options: IUnauthorizedAccessErrorOptions);
 
-    public constructor(...args: IErrorArguments<IAuthenticationRequiredErrorOptions>) {
+    public constructor(...args: IErrorArguments<IUnauthorizedAccessErrorOptions>) {
         super(ErrorTool.parseErrorArguments([], ...args));
     }
 }

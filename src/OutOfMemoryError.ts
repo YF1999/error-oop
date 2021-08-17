@@ -1,4 +1,5 @@
-import { IErrorOptions, IErrorArguments, NativeError, ErrorTool } from './Native';
+import { IErrorArguments, IErrorOptions, NativeError } from './Native';
+import { ErrorTool } from './Tools';
 
 export interface IOutOfMemoryErrorOptions extends IErrorOptions {}
 
