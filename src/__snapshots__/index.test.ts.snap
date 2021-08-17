@@ -20,6 +20,7 @@ Array [
   "AuthenticationRequiredError",
   "ConnectionError",
   "IndexOutOfRangeError",
+  "InvalidDataError",
   "InvalidOperationError",
   "NotFoundError",
   "NotImplementedError",

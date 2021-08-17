@@ -5,6 +5,7 @@ export * from './AuthenticationError';
 export * from './AuthenticationRequiredError';
 export * from './ConnectionError';
 export * from './IndexOutOfRangeError';
+export * from './InvalidDataError';
 export * from './InvalidOperationError';
 export * from './NotFoundError';
 export * from './NotImplementedError';

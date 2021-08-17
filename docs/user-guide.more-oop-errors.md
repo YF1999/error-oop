@@ -1,10 +1,11 @@
-# User Guide For More Useful Errors
+# User Guide For More OOP Errors
 
 - [`AlreadyInUseError`]
 - [`AuthenticationError`]
 - [`AuthenticationRequiredError`]
 - [`ConnectionError`]
 - [`IndexOutOfRangeError`]
+- [`InvalidDataError`]
 - [`InvalidOperationError`]
 - [`NotFoundError`]
 - [`NotImplementedError`]
@@ -40,6 +41,7 @@
 [`AuthenticationRequiredError`]: #authenticationrequirederror
 [`ConnectionError`]: #connectionerror
 [`IndexOutOfRangeError`]: #indexoutofrangeerror
+[`InvalidDataError`]: #invaliddataerror
 [`InvalidOperationError`]: #invalidoperationerror
 [`NotFoundError`]: #notfounderror
 [`NotImplementedError`]: #notimplementederror
@@ -188,6 +190,31 @@ interface IIndexOutOfRangeErrorOptions extends IErrorOptions {}
 
 ```ts
 throw new IndexOutOfRangeError('index out of range');
+```
+
+## InvalidDataError
+
+Applicable when a function call or a method call is invalid for the object's current state.
+
+```ts
+new InvalidDataError(message?, innerError?)
+new InvalidDataError(options?)
+```
+
+### Arguments
+
+- `message` The error message that explains the reason for this error.
+- `innerError` The error that is the cause of the current error. Stack trace will be appended.
+- `options` The constructor options. The type of this argument is `IInvalidDataErrorOptions`.
+
+```ts
+interface IInvalidDataErrorOptions extends IErrorOptions {}
+```
+
+### Example
+
+```ts
+throw new InvalidDataError('Invalid data format ...');
 ```
 
 ## InvalidOperationError
