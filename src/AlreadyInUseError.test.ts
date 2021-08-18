@@ -17,7 +17,7 @@ describe('Test `AlreadyInUseError`', () => {
     });
 
     test('property: message', () => {
-        getErrors().map((err) => expect(err.message).toMatchSnapshot());
+        getErrors().map((err) => expectSnapshot(err.message));
     });
 
     test('property: inner error', () => {

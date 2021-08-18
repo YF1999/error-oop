@@ -81,6 +81,7 @@ function setupJest(): void {
     wrapConsole();
 
     global.standardTest = standardTest;
+    global.expectSnapshot = (actual) => expect(actual).toMatchSnapshot();
 }
 
 setupJest();

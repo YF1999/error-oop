@@ -3,8 +3,8 @@ import { appendInnerErrorStack, setNonEnumerable } from './Tools';
 test('Test `appendInnerErrorStack`', () => {
     const error = { stack: 'inner error stack' };
 
-    expect(appendInnerErrorStack(undefined, error as Error)).toMatchSnapshot();
-    expect(appendInnerErrorStack('curr error stack', error as Error)).toMatchSnapshot();
+    expectSnapshot(appendInnerErrorStack(undefined, error as Error));
+    expectSnapshot(appendInnerErrorStack('curr error stack', error as Error));
 });
 
 test('Test `setNonEnumerable`', () => {

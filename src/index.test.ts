@@ -1,5 +1,3 @@
-import * as Errors from './index';
+import * as package_exports from './index';
 
-test('Test all exports', () => {
-    expect(Object.keys(Errors)).toMatchSnapshot();
-});
+test('Test all exports from this package', () => expectSnapshot(Object.keys(package_exports)));

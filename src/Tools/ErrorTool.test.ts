@@ -63,7 +63,7 @@ describe('Test `ErrorTool`', () => {
             [message, 'a', -1, true],
             [message, 'a', -1, false, 'd', 'e', innerError],
         ];
-        args.map((arg) => expect(ErrorTool.parseErrorArguments(['a', 'b', 'c', 'd', 'e'], ...arg)).toMatchSnapshot());
+        args.map((arg) => expectSnapshot(ErrorTool.parseErrorArguments(['a', 'b', 'c', 'd', 'e'], ...arg)));
     });
 
     test('test `is`', () => {

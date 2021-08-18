@@ -31,7 +31,7 @@ describe('Test `ArgumentOutOfRangeError`', () => {
     test('property: message', () => {
         const [err1, ...errs] = getErrors();
         expect(err1.message).toBe('');
-        errs.map((err) => expect(err.message).toMatchSnapshot());
+        errs.map((err) => expectSnapshot(err.message));
     });
 
     test('property: inner error', () => {

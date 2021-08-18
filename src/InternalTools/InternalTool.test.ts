@@ -24,8 +24,6 @@ describe('Test `InternalErrorTool`', () => {
             [message, 'a', -1, true],
             [message, 'a', -1, false, 'd', 'e', innerError],
         ];
-        args.map((arg) =>
-            expect(InternalErrorTool.parseErrorArguments(['a', 'b', 'c', 'd', 'e'], ...arg)).toMatchSnapshot(),
-        );
+        args.map((arg) => expectSnapshot(InternalErrorTool.parseErrorArguments(['a', 'b', 'c', 'd', 'e'], ...arg)));
     });
 });
