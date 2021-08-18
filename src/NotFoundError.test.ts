@@ -28,8 +28,8 @@ describe('Test `NotFoundError`', () => {
 
     test('property: inner error', () => {
         const [err1, err2, err3, err4, err5, err6] = getErrors();
-        expect(err1.innerError).toBeUndefined();
-        expect(err2.innerError).toBeUndefined();
+        expect(err1.innerError).toBeNull();
+        expect(err2.innerError).toBeNull();
         expect(err3.innerError).toBe(err2);
         expect(err4.innerError).toBe(err3);
         expect(err5.innerError).toBe(err4);
@@ -38,11 +38,11 @@ describe('Test `NotFoundError`', () => {
 
     test('property: entity name', () => {
         const [err1, err2, err3, err4, err5, err6] = getErrors();
-        expect(err1.entityName).toBeUndefined();
-        expect(err2.entityName).toBeUndefined();
-        expect(err3.entityName).toBeUndefined();
+        expect(err1.entityName).toBeNull();
+        expect(err2.entityName).toBeNull();
+        expect(err3.entityName).toBeNull();
         expect(err4.entityName).toBe(entityName);
-        expect(err5.entityName).toBeUndefined();
+        expect(err5.entityName).toBeNull();
         expect(err6.entityName).toBe(entityName);
     });
 

@@ -6,7 +6,7 @@ import { IErrorOptions } from './Types';
  * This is roughly the same as the native `Error` class. It additionally supports an innerError attribute.
  */
 export class NativeError extends Error {
-    #innerError?: Error;
+    #innerError: Error | null;
 
     public constructor();
     /**
@@ -26,8 +26,7 @@ export class NativeError extends Error {
     public constructor(...[arg1, arg2]: IErrorArguments<IErrorOptions>) {
         super(typeof arg1 === 'object' ? arg1.message : arg1);
 
-        // eslint-disable-next-line prefer-destructuring
-        this.#innerError = typeof arg1 === 'object' ? arg1.innerError : arg2;
+        this.#innerError = (typeof arg1 === 'object' ? arg1.innerError : arg2) ?? null;
 
         // When the first call to `stack` property happens, it will combine `name` and `message` with trace stack to
         // `stack` property, we should generate message before this call.
@@ -40,7 +39,7 @@ export class NativeError extends Error {
         return this.constructor.name;
     }
 
-    public get innerError(): Error | undefined {
+    public get innerError(): Error | null {
         return this.#innerError;
     }
 

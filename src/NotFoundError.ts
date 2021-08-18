@@ -9,7 +9,7 @@ export interface INotFoundErrorOptions extends IErrorOptions {
  * Applicable when an attempt to retrieve data yielded no result.
  */
 export class NotFoundError extends NativeError {
-    protected _entityName?: string;
+    protected _entityName: string | null;
 
     public constructor();
     /**
@@ -42,11 +42,11 @@ export class NotFoundError extends NativeError {
 
         super(options);
 
-        this._entityName = options.entityName;
+        this._entityName = options.entityName ?? null;
         this._setNonEnumerable('_entityName');
     }
 
-    public get entityName(): string | undefined {
+    public get entityName(): string | null {
         return this._entityName;
     }
 }

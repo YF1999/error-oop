@@ -13,7 +13,7 @@ export interface IFileNotFoundErrorOptions extends IIOErrorOptions {
  * Applicable when an attempt to access a file that does not exist on disk fails.
  */
 export class FileNotFoundError extends IOError {
-    private _fileName?: string;
+    private _fileName: string | null;
 
     public constructor();
     /**
@@ -46,11 +46,11 @@ export class FileNotFoundError extends IOError {
 
         super(options);
 
-        this._fileName = options.fileName;
+        this._fileName = options.fileName ?? null;
         this._setNonEnumerable('_fileName');
     }
 
-    public get fileName(): string | undefined {
+    public get fileName(): string | null {
         return this._fileName;
     }
 }

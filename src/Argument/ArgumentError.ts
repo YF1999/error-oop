@@ -16,7 +16,7 @@ export interface IArgumentErrorOptions extends IErrorOptions {
  * Applicable when one of the arguments provided to a function or method is not valid.
  */
 export class ArgumentError extends NativeError {
-    protected _paramName?: string;
+    protected _paramName: string | null;
 
     public constructor();
     /**
@@ -53,11 +53,11 @@ export class ArgumentError extends NativeError {
 
         super(options);
 
-        this._paramName = options.paramName;
+        this._paramName = options.paramName ?? null;
         this._setNonEnumerable('_paramName');
     }
 
-    public get paramName(): string | undefined {
+    public get paramName(): string | null {
         return this._paramName;
     }
 }

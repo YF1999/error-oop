@@ -30,8 +30,8 @@ describe('Test `ArgumentNullError`', () => {
 
     test('property: inner error', () => {
         const [err1, err2, err3, err4, err5, err6, err7, err8] = getErrors();
-        expect(err1.innerError).toBeUndefined();
-        expect(err2.innerError).toBeUndefined();
+        expect(err1.innerError).toBeNull();
+        expect(err2.innerError).toBeNull();
         expect(err3.innerError).toBe(err2);
         expect(err4.innerError).toBe(err3);
         expect(err5.innerError).toBe(err4);
@@ -42,13 +42,13 @@ describe('Test `ArgumentNullError`', () => {
 
     test('property: parameter name', () => {
         const [err1, err2, err3, err4, err5, err6, err7, err8] = getErrors();
-        expect(err1.paramName).toBeUndefined();
-        expect(err2.paramName).toBeUndefined();
-        expect(err3.paramName).toBeUndefined();
+        expect(err1.paramName).toBeNull();
+        expect(err2.paramName).toBeNull();
+        expect(err3.paramName).toBeNull();
         expect(err4.paramName).toBe(paramName);
-        expect(err5.paramName).toBeUndefined();
+        expect(err5.paramName).toBeNull();
         expect(err6.paramName).toBe(paramName);
-        expect(err7.paramName).toBeUndefined();
+        expect(err7.paramName).toBeNull();
         expect(err8.paramName).toBe(paramName);
     });
 

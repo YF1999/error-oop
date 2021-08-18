@@ -27,7 +27,7 @@ function wrapConsole(): void {
     console.warn = outputFactory(console.warn);
 }
 
-function standardTest<E extends Error & { innerError?: Error }, T extends new (...args: unknown[]) => E>(
+function standardTest<E extends Error & { innerError: Error | null }, T extends new (...args: unknown[]) => E>(
     // eslint-disable-next-line @typescript-eslint/naming-convention
     ErrorConstructor: T,
     name: string,
@@ -55,8 +55,8 @@ function standardTest<E extends Error & { innerError?: Error }, T extends new (.
 
         test('property: inner error', () => {
             const [err1, err2, err3, err4] = getErrors();
-            expect(err1.innerError).toBeUndefined();
-            expect(err2.innerError).toBeUndefined();
+            expect(err1.innerError).toBeNull();
+            expect(err2.innerError).toBeNull();
             expect(err3.innerError).toBe(err2);
             expect(err4.innerError).toBe(err3);
         });

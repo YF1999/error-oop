@@ -21,7 +21,7 @@ describe('Test `AlreadyInUseError`', () => {
     });
 
     test('property: inner error', () => {
-        getErrors().map((err) => expect(err.innerError).toBeUndefined());
+        getErrors().map((err) => expect(err.innerError).toBeNull());
     });
 
     test('property: entity name', () => {

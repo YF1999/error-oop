@@ -10,7 +10,7 @@ export class InternalErrorTool {
         }
 
         const last = _args[_args.length - 1];
-        const innerError: Error | undefined = last instanceof Error ? (last as Error) : undefined;
+        const innerError = last instanceof Error ? (last as Error) : undefined;
 
         const args =
             innerError === undefined

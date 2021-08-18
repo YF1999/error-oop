@@ -14,7 +14,7 @@ export interface IArgumentOutOfRangeErrorOptions extends IArgumentErrorOptions {
  * or method.
  */
 export class ArgumentOutOfRangeError extends ArgumentError {
-    protected _actualValue?: unknown;
+    protected _actualValue: unknown;
 
     public constructor();
     /**
@@ -69,7 +69,7 @@ export class ArgumentOutOfRangeError extends ArgumentError {
         this._setNonEnumerable('_actualValue');
     }
 
-    public get actualValue(): unknown | undefined {
+    public get actualValue(): unknown {
         return this._actualValue;
     }
 }

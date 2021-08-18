@@ -13,7 +13,7 @@ export interface IFileLoadErrorOptions extends IIOErrorOptions {
  * Applicable when a managed assembly is found but cannot be loaded.
  */
 export class FileLoadError extends IOError {
-    private _fileName?: string;
+    private _fileName: string | null;
 
     public constructor();
     /**
@@ -46,11 +46,11 @@ export class FileLoadError extends IOError {
 
         super(options);
 
-        this._fileName = options.fileName;
+        this._fileName = options.fileName ?? null;
         this._setNonEnumerable('_fileName');
     }
 
-    public get fileName(): string | undefined {
+    public get fileName(): string | null {
         return this._fileName;
     }
 }
