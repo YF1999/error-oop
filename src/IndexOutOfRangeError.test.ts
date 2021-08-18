@@ -1,3 +1,3 @@
 import { IndexOutOfRangeError } from './IndexOutOfRangeError';
 
-standardTest(IndexOutOfRangeError, 'IndexOutOfRangeError', 'error');
+standardTestError(IndexOutOfRangeError, 'IndexOutOfRangeError', 'error');

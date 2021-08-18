@@ -1,3 +1,3 @@
 import { PathTooLongError } from './PathTooLongError';
 
-standardTest(PathTooLongError, 'PathTooLongError', 'error');
+standardTestError(PathTooLongError, 'PathTooLongError', 'error');

@@ -1,3 +1,3 @@
 import { OperationCanceledError } from './OperationCanceledError';
 
-standardTest(OperationCanceledError, 'OperationCanceledError', 'error');
+standardTestError(OperationCanceledError, 'OperationCanceledError', 'error');

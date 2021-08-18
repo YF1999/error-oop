@@ -1,3 +1,3 @@
 import { DirectoryNotFoundError } from './DirectoryNotFoundError';
 
-standardTest(DirectoryNotFoundError, 'DirectoryNotFoundError', 'error');
+standardTestError(DirectoryNotFoundError, 'DirectoryNotFoundError', 'error');

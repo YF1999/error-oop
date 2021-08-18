@@ -1,5 +1,76 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Test \`ArgumentOutOfRangeError\` own keys 1`] = `
+Array [
+  "stack",
+  "_paramName",
+  "_actualValue",
+]
+`;
+
+exports[`Test \`ArgumentOutOfRangeError\` own keys 2`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+  "_actualValue",
+]
+`;
+
+exports[`Test \`ArgumentOutOfRangeError\` own keys 3`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+  "_actualValue",
+]
+`;
+
+exports[`Test \`ArgumentOutOfRangeError\` own keys 4`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+  "_actualValue",
+]
+`;
+
+exports[`Test \`ArgumentOutOfRangeError\` own keys 5`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+  "_actualValue",
+]
+`;
+
+exports[`Test \`ArgumentOutOfRangeError\` own keys 6`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+  "_actualValue",
+]
+`;
+
+exports[`Test \`ArgumentOutOfRangeError\` own keys 7`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+  "_actualValue",
+]
+`;
+
+exports[`Test \`ArgumentOutOfRangeError\` own keys 8`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+  "_actualValue",
+]
+`;
+
 exports[`Test \`ArgumentOutOfRangeError\` property: message 1`] = `"error"`;
 
 exports[`Test \`ArgumentOutOfRangeError\` property: message 2`] = `"error"`;

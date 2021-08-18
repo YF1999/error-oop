@@ -1,3 +1,3 @@
 import { NotPermittedError } from './NotPermittedError';
 
-standardTest(NotPermittedError, 'NotPermittedError', 'error');
+standardTestError(NotPermittedError, 'NotPermittedError', 'error');

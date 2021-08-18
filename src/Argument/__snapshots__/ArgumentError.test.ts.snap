@@ -1,5 +1,68 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Test \`ArgumentError\` own keys 1`] = `
+Array [
+  "stack",
+  "_paramName",
+]
+`;
+
+exports[`Test \`ArgumentError\` own keys 2`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+]
+`;
+
+exports[`Test \`ArgumentError\` own keys 3`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+]
+`;
+
+exports[`Test \`ArgumentError\` own keys 4`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+]
+`;
+
+exports[`Test \`ArgumentError\` own keys 5`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+]
+`;
+
+exports[`Test \`ArgumentError\` own keys 6`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+]
+`;
+
+exports[`Test \`ArgumentError\` own keys 7`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+]
+`;
+
+exports[`Test \`ArgumentError\` own keys 8`] = `
+Array [
+  "stack",
+  "message",
+  "_paramName",
+]
+`;
+
 exports[`Test \`ArgumentError\` property: message 1`] = `"error"`;
 
 exports[`Test \`ArgumentError\` property: message 2`] = `"error"`;

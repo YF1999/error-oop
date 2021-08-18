@@ -1,5 +1,32 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Test \`AlreadyInUseError\` own keys 1`] = `
+Array [
+  "stack",
+  "message",
+  "_entityName",
+  "_inUse",
+]
+`;
+
+exports[`Test \`AlreadyInUseError\` own keys 2`] = `
+Array [
+  "stack",
+  "message",
+  "_entityName",
+  "_inUse",
+]
+`;
+
+exports[`Test \`AlreadyInUseError\` own keys 3`] = `
+Array [
+  "stack",
+  "message",
+  "_entityName",
+  "_inUse",
+]
+`;
+
 exports[`Test \`AlreadyInUseError\` property: message 1`] = `"The specified 'entity' value is already in use."`;
 
 exports[`Test \`AlreadyInUseError\` property: message 2`] = `"The specified 'entity' value is already in use: name"`;

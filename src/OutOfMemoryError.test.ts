@@ -1,3 +1,3 @@
 import { OutOfMemoryError } from './OutOfMemoryError';
 
-standardTest(OutOfMemoryError, 'OutOfMemoryError', 'error');
+standardTestError(OutOfMemoryError, 'OutOfMemoryError', 'error');

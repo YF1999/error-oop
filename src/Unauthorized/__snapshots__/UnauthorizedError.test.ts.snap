@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test \`UnauthorizedError\` own keys 1`] = `
+Array [
+  "stack",
+]
+`;
+
+exports[`Test \`UnauthorizedError\` own keys 2`] = `
+Array [
+  "stack",
+  "message",
+]
+`;
+
+exports[`Test \`UnauthorizedError\` own keys 3`] = `
+Array [
+  "stack",
+  "message",
+]
+`;
+
+exports[`Test \`UnauthorizedError\` own keys 4`] = `
+Array [
+  "stack",
+  "message",
+]
+`;

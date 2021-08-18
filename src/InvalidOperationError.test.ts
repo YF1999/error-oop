@@ -1,3 +1,3 @@
 import { InvalidOperationError } from './InvalidOperationError';
 
-standardTest(InvalidOperationError, 'InvalidOperationError', 'error');
+standardTestError(InvalidOperationError, 'InvalidOperationError', 'error');

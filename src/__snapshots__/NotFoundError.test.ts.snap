@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test \`NotFoundError\` own keys 1`] = `
+Array [
+  "stack",
+  "_entityName",
+]
+`;
+
+exports[`Test \`NotFoundError\` own keys 2`] = `
+Array [
+  "stack",
+  "message",
+  "_entityName",
+]
+`;
+
+exports[`Test \`NotFoundError\` own keys 3`] = `
+Array [
+  "stack",
+  "message",
+  "_entityName",
+]
+`;
+
+exports[`Test \`NotFoundError\` own keys 4`] = `
+Array [
+  "stack",
+  "message",
+  "_entityName",
+]
+`;
+
+exports[`Test \`NotFoundError\` own keys 5`] = `
+Array [
+  "stack",
+  "message",
+  "_entityName",
+]
+`;
+
+exports[`Test \`NotFoundError\` own keys 6`] = `
+Array [
+  "stack",
+  "message",
+  "_entityName",
+]
+`;

@@ -1,3 +1,3 @@
 import { NativeURIError } from './URIError';
 
-standardTest(NativeURIError, 'NativeURIError', 'error');
+standardTestError(NativeURIError, 'NativeURIError', 'error');

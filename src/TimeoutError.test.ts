@@ -1,3 +1,3 @@
 import { TimeoutError } from './TimeoutError';
 
-standardTest(TimeoutError, 'TimeoutError', 'error');
+standardTestError(TimeoutError, 'TimeoutError', 'error');

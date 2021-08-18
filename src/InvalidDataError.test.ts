@@ -1,3 +1,3 @@
 import { InvalidDataError } from './InvalidDataError';
 
-standardTest(InvalidDataError, 'InvalidDataError', 'error');
+standardTestError(InvalidDataError, 'InvalidDataError', 'error');

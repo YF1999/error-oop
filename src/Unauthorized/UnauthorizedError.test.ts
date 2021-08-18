@@ -1,3 +1,3 @@
 import { UnauthorizedError } from './UnauthorizedError';
 
-standardTest(UnauthorizedError, 'UnauthorizedError', 'error');
+standardTestError(UnauthorizedError, 'UnauthorizedError', 'error');

@@ -1,3 +1,3 @@
 import { EndOfStreamError } from './EndOfStreamError';
 
-standardTest(EndOfStreamError, 'EndOfStreamError', 'error');
+standardTestError(EndOfStreamError, 'EndOfStreamError', 'error');

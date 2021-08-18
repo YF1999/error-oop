@@ -1,3 +1,3 @@
 import { AuthenticationRequiredError } from './AuthenticationRequiredError';
 
-standardTest(AuthenticationRequiredError, 'AuthenticationRequiredError', 'error');
+standardTestError(AuthenticationRequiredError, 'AuthenticationRequiredError', 'error');

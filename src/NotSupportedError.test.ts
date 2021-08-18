@@ -1,3 +1,3 @@
 import { NotSupportedError } from './NotSupportedError';
 
-standardTest(NotSupportedError, 'NotSupportedError', 'error');
+standardTestError(NotSupportedError, 'NotSupportedError', 'error');

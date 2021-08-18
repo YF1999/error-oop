@@ -1,3 +1,3 @@
 import { TransactionError } from './TransactionError';
 
-standardTest(TransactionError, 'TransactionError', 'error');
+standardTestError(TransactionError, 'TransactionError', 'error');

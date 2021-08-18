@@ -1,3 +1,3 @@
 import { IOError } from './IOError';
 
-standardTest(IOError, 'IOError', 'error');
+standardTestError(IOError, 'IOError', 'error');

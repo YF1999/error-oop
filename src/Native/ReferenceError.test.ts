@@ -1,3 +1,3 @@
 import { NativeReferenceError } from './ReferenceError';
 
-standardTest(NativeReferenceError, 'NativeReferenceError', 'error');
+standardTestError(NativeReferenceError, 'NativeReferenceError', 'error');

@@ -1,3 +1,3 @@
 import { NotImplementedError } from './NotImplementedError';
 
-standardTest(NotImplementedError, 'NotImplementedError', 'error');
+standardTestError(NotImplementedError, 'NotImplementedError', 'error');

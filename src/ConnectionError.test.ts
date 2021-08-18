@@ -1,3 +1,3 @@
 import { ConnectionError } from './ConnectionError';
 
-standardTest(ConnectionError, 'ConnectionError', 'error');
+standardTestError(ConnectionError, 'ConnectionError', 'error');

@@ -1,3 +1,3 @@
 import { StackOverflowError } from './StackOverflowError';
 
-standardTest(StackOverflowError, 'StackOverflowError', 'error');
+standardTestError(StackOverflowError, 'StackOverflowError', 'error');
