@@ -6,7 +6,7 @@
         "node": true
     },
     "extends": ["airbnb-typescript/base", "prettier", "prettier/prettier"],
-    "ignorePatterns": ["build", "*.cjs", "*.js", "*.mjs"],
+    "ignorePatterns": ["*.cjs", "*.js", "*.mjs", "lib", "lib-commonjs"],
     "parserOptions": {
         "project": "scripts/tsconfigs/tsconfig.eslint.json"
     },
