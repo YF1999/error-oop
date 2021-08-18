@@ -21,7 +21,7 @@ describe('Test `ArgumentOutOfRangeError`', () => {
             actualValue,
         });
 
-        return [err1, err2, err3, err4, err5, err6, err7, err8];
+        return [err1, err2, err3, err4, err5, err6, err7, err8] as const;
     }
 
     test('property: error name', () => {

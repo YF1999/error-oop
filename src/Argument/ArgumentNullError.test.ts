@@ -15,7 +15,7 @@ describe('Test `ArgumentNullError`', () => {
         const err7 = new ArgumentNullError({ message, innerError: err6, noMessageSuffix: true });
         const err8 = new ArgumentNullError({ message, innerError: err7, paramName, noMessageSuffix: true });
 
-        return [err1, err2, err3, err4, err5, err6, err7, err8];
+        return [err1, err2, err3, err4, err5, err6, err7, err8] as const;
     }
 
     test('property: error name', () => {

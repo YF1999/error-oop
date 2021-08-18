@@ -9,7 +9,7 @@ describe('Test `AlreadyInUseError`', () => {
         const err2 = new AlreadyInUseError(entityName, 'name');
         const err3 = new AlreadyInUseError(entityName, 'name', 'key');
 
-        return [err1, err2, err3];
+        return [err1, err2, err3] as const;
     }
 
     test('property: error name', () => {

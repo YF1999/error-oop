@@ -13,7 +13,7 @@ describe('Test `FileNotFoundError`', () => {
         const err5 = new FileNotFoundError({ message, innerError: err4 });
         const err6 = new FileNotFoundError({ message, innerError: err5, fileName });
 
-        return [err1, err2, err3, err4, err5, err6];
+        return [err1, err2, err3, err4, err5, err6] as const;
     }
 
     test('property: error name', () => {

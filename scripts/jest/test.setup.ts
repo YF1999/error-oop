@@ -40,7 +40,7 @@ function standardTest<E extends Error & { innerError: Error | null }, T extends 
             const err3 = new ErrorConstructor(message, err2);
             const err4 = new ErrorConstructor({ message, innerError: err3 });
 
-            return [err1, err2, err3, err4];
+            return [err1, err2, err3, err4] as const;
         }
 
         test('property: error name', () => {
