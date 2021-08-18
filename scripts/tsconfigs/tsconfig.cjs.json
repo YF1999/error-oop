@@ -2,8 +2,8 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "module": "CommonJS",
-        "outDir": "../../build/cjs",
+        "outDir": "../../lib-commonjs",
         "removeComments": true,
-        "tsBuildInfoFile": "../../build/tsconfig.cjs.tsbuildinfo"
+        "tsBuildInfoFile": "./tsconfig.cjs.tsbuildinfo"
     }
 }

@@ -1,8 +1,7 @@
-# Production
+# Compilation
 
-/build
-
-# Scripts
+/lib
+/lib-commonjs
 
 /scripts/**/*.js
 

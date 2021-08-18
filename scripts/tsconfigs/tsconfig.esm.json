@@ -2,8 +2,8 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "module": "ESNext",
-        "outDir": "../../build/esm",
+        "outDir": "../../lib",
         "removeComments": true,
-        "tsBuildInfoFile": "../../build/tsconfig.esm.tsbuildinfo"
+        "tsBuildInfoFile": "./tsconfig.esm.tsbuildinfo"
     }
 }

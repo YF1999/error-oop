@@ -2,9 +2,9 @@
     "extends": "./tsconfig.base.json",
     "compilerOptions": {
         "declaration": true,
-        "declarationDir": "../../build/types",
+        "declarationDir": "../../lib",
         "emitDeclarationOnly": true,
         "module": "ESNext",
-        "tsBuildInfoFile": "../../build/tsconfig.types.tsbuildinfo"
+        "tsBuildInfoFile": "./tsconfig.types.tsbuildinfo"
     }
 }

@@ -26,10 +26,8 @@ src/**/*.mjs
 
 *.tsbuildinfo
 
-build
-cjs
-esm
-types
+lib
+lib-commonjs
 
 scripts/**/*.js
 scripts/**/*.map
