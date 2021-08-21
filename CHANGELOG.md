@@ -1,4 +1,20 @@
 # CHANGELOG
+## error-oop v0.6.0 (2021-08-21)
+### Breaking Changes
+
+- The types of following properties are changed:
+    - `NativeError.innerError`:                 `Error | undefined` -> `Error | null`
+    - `NativeRangeError.innerError`:            `Error | undefined` -> `Error | null`
+    - `NativeReferenceError.innerError`:        `Error | undefined` -> `Error | null`
+    - `NativeSyntaxError.innerError`:           `Error | undefined` -> `Error | null`
+    - `NativeTypeError.innerError`:             `Error | undefined` -> `Error | null`
+    - `NativeURIError.innerError`:              `Error | undefined` -> `Error | null`
+    - `ArgumentError.paramName`:                `string | undefined` -> `string | null`
+    - `ArgumentOutOfRangeError.actualValue`:    `unknown | undefined` -> `unknown`
+    - `FileLoadError.fileName`:                 `string | undefined` -> `string | null`
+    - `FileNotFoundError.fileName`:             `string | undefined` -> `string | null`
+    - `NotFoundError.entityName`:               `string | undefined` -> `string | null`
+
 ## error-oop v0.5.0 (2021-08-17)
 ### Features
 

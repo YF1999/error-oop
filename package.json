@@ -1,6 +1,6 @@
 {
     "name": "error-oop",
-    "version": "0.5.0",
+    "version": "0.6.0",
     "description": "More oop error classes for nodejs.",
     "main": "lib-commonjs/index.js",
     "module": "lib/index.js",
