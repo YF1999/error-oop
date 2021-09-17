@@ -33,6 +33,9 @@
         "test": "jest --config scripts/jest/jest.config.js --coverage --watch",
         "test-coverage": "jest --config scripts/jest/jest.config.js --coverage"
     },
+    "engines": {
+        "node": ">=16"
+    },
     "devDependencies": {
         "@types/jest": "^27.0.1",
         "@types/node": "^16.6.1",
